@@ -35,6 +35,12 @@ header div:nth-child(even):hover {
 article div:nth-child(odd):hover {
     font-weight: bold;
     text-transform: uppercase;
+
+}
+
+article div:nth-child(odd):hover ::first-letter {
+    font-weight: bold;
+    text-transform: lowercase;
 }
 
 a {

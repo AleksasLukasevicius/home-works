@@ -5,19 +5,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Namu darbai</title>
+    <title>HTML, CSS uždavinys pasikartojimui</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<!-- Sukurti semantišką elementą turiniui viršuje su navigacija, tačiau ne nav. Jo vaikas - flex konteineris, kuris turi
+penkis vaikus. Tarp jų - vienodi tarpai. Žemiau jo - flex konteineris su vienu dviejais vaikais. Tarp jų - kiek įmanoma
+daugiau atstumo. (PAŽENGUSIEMS: abu vaikai yra nuorodos ir nukeliauja į kitą jūsų sukurtą HTML failą).
+Semantiškam elementui pritaikyti stilių drop-shadow
+https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/drop-shadow
+Užvedus pelę ant lyginio elemento pirmam konteinery - jis pabraukiamas. Antram konteinery ant nelygių - jie paryškinami
+(PAŽENGUSIEMS: ir tampa didžiosiomis raidėmis, kurių pirmoji raidė - mažoji.) -->
 
 <body>
-    <p>Namu darbai</p>
-    <div class="flexbox">
-        <div style="border: 5px solid grey; width: 30px; height: 30px; margin: 16px;"></div>
-        <div style="border: 5px solid blue; width: 30px; height: 30px; margin: 16px;"></div>
-        <div style="border: 5px solid orange; width: 30px; height: 30px; margin: 16px;"></div>
-        <div style="border: 5px solid red; width: 30px; height: 30px; margin: 16px;"></div>
-    </div>
-    <p>pagaliau</p>
+    <header class="flexbox">
+        <div class="navig">About</div>
+        <div class="navig">Main</div>
+        <div class="navig">Contacts</div>
+        <div class="navig">Vision</div>
+        <div class="navig">Links</div>
+    </header>
+    <article class="second">
+        <div><a href="https://www.mozilla.org/en-US/">Mozilla homepage</a></div>
+        <div>Antra nuoroda</div>
+    </article>
+
 </body>
 
 </html>

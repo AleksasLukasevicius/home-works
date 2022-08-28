@@ -20,8 +20,9 @@ header {
 
 .navigation {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     height: auto;
+    padding: 10px;
 
 }
 
@@ -94,7 +95,7 @@ footer {
 .copyright {
     text-transform: capitalize;
     margin: 0 auto;
-    padding: 5px;
+    padding: 10px;
 }
 
 @media (max-width: 768px) {
@@ -110,3 +111,4 @@ footer {
 
 
     }
+}

@@ -1,0 +1,112 @@
+$main-color: grey;
+$first-color: white;
+$hover-color: black;
+
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400|Poppins&display=swap");
+
+body {
+    display: grid;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+
+}
+
+header {
+    display: grid;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: $main-color;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-around;
+    height: auto;
+
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: $hover-color;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
+main {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    gap: 5px;
+}
+
+figure {
+    display: grid;
+    align-items: end;
+    background-size: contain;
+    width: 300px;
+    height: 300px;
+}
+
+figcaption {
+    background-color: #222;
+    color: $first-color;
+    padding: 5px;
+    text-align: center;
+}
+
+
+
+.t-shirt {
+    background-image: url(https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1760&q=80);
+}
+
+.bags {
+    background-image: url(https://images.unsplash.com/photo-1569697008488-e88ca8a71a39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.icons a {
+    margin: 0 0.5rem;
+    color: $first-color;
+}
+
+.icons a:hover {
+    color: $hover-color;
+}
+
+footer {
+    display: grid;
+    justify-content: center;
+    background-color: $main-color;
+
+
+}
+
+.copyright {
+    text-transform: capitalize;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+@media (max-width: 768px) {
+
+
+    .icons {
+        display: none;
+    }
+
+    .navigation {
+        display: none;
+
+
+
+    }

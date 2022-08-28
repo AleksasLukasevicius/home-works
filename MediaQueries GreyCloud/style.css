@@ -78,14 +78,14 @@ footer {
 
     nav {
         padding: 0;
-        text-align: left;
+        text-align: center;
     }
 
     nav a {
         color: rgb(16, 158, 201);
         display: block;
         padding: 1rem;
-        text-decoration: underline;
+        text-decoration: none;
     }
 
     nav a:not(:last-child) {

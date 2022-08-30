@@ -54,12 +54,6 @@ a:hover {
     color: $black-color
 }
 
-.nav-link:hover {
-    padding: 0px;
-    background: transparent;
-    color: $black-color;
-}
-
 .container {
     display: flex;
     padding: 1rem;
@@ -162,6 +156,7 @@ a:hover {
         display: inline;
         margin-left: 1rem;
     }
+
 
 }
 

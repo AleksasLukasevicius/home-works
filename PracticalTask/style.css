@@ -37,12 +37,6 @@ a:hover {
   color: black;
 }
 
-.nav-link:hover {
-  padding: 0px;
-  background: transparent;
-  color: black;
-}
-
 .container {
   display: flex;
   padding: 1rem;

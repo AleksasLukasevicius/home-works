@@ -19,9 +19,6 @@ header {
   background-color: grey;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   text-align: center;
-  position: fixed;
-  width: 100%;
-  z-index: 1;
 }
 
 header img {
@@ -32,6 +29,42 @@ header img {
 header nav a {
   display: block;
   text-decoration: none;
+  color: white;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-evenly;
+  height: auto;
+  padding: 10px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-evenly;
+  height: auto;
+  padding: 10px;
+}
+
+h2 {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: black;
+}
+
+.icons a {
+  margin: 0 0.5rem;
   color: white;
 }
 
@@ -47,8 +80,6 @@ a:hover {
 
 .container-products {
   background: #f8fafc;
-  position: relative;
-  top: 12rem;
 }
 
 .section-center {
@@ -145,7 +176,7 @@ a:hover {
     top: 11rem;
   }
   .product-card {
-    flex: 0 0 calc(25% - 1rem);
+    flex: 0 0 calc(50% - 1rem);
   }
   header img {
     height: 4rem;
@@ -158,35 +189,11 @@ a:hover {
     align-items: center;
   }
 }
-.navigation {
-  display: flex;
-  justify-content: space-evenly;
-  height: auto;
-  padding: 10px;
+@media screen and (min-width: 1600px) {
+  .product-card {
+    flex: 0 0 calc(25% - 1rem);
+  }
 }
-
-a {
-  text-decoration: none;
-  font-size: 1.2rem;
-  color: black;
-}
-
-h2 {
-  text-align: center;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  justify-content: space-around;
-}
-
-.icons a {
-  margin: 0 0.5rem;
-  color: white;
-}
-
 .icons a:hover {
   color: black;
 }

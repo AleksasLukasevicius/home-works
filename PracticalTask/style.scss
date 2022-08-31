@@ -18,6 +18,8 @@ $shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 $shadow-2: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 
+$header-height: 12rem;
+
 html {
     font-size: 100%;
 }
@@ -35,9 +37,10 @@ header {
     background-color: $grey-color;
     box-shadow: $shadow-1;
     text-align: center;
-    position: fixed;
-    width: 100%;
-    z-index: 1;
+    // position: fixed;
+    // width: 100%;
+    // // z-index: 1;
+    // height: $header-height;
 }
 
 header img {
@@ -50,6 +53,44 @@ header nav a {
     text-decoration: none;
     color: $White-color;
 }
+
+
+.navigation {
+    display: flex;
+    justify-content: space-evenly;
+    height: auto;
+    padding: 10px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-evenly;
+    height: auto;
+    padding: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: $black-color;
+}
+
+.icons a {
+    margin: 0 0.5rem;
+    color: $White-color;
+}
+
 
 a:hover {
     font-weight: bold;
@@ -64,8 +105,8 @@ a:hover {
 
 .container-products {
     background: $backgroundColor;
-    position: relative;
-    top: 12rem;
+    // position: relative;
+    // // top: $header-height;
 }
 
 .section-center {
@@ -167,7 +208,6 @@ a:hover {
         margin-left: 1rem;
     }
 
-
 }
 
 @media screen and (min-width: 1170px) {
@@ -177,7 +217,7 @@ a:hover {
     }
 
     .product-card {
-        flex: 0 0 calc(25% - 1rem);
+        flex: 0 0 calc(50% - 1rem);
     }
 
     header img {
@@ -193,34 +233,12 @@ a:hover {
     }
 }
 
-.navigation {
-    display: flex;
-    justify-content: space-evenly;
-    height: auto;
-    padding: 10px;
-}
+@media screen and (min-width: 1600px) {
 
-a {
-    text-decoration: none;
-    font-size: 1.2rem;
-    color: $black-color;
-}
+    .product-card {
+        flex: 0 0 calc(25% - 1rem);
+    }
 
-
-h2 {
-    text-align: center;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-}
-
-.icons a {
-    margin: 0 0.5rem;
-    color: $White-color;
 }
 
 .icons a:hover {

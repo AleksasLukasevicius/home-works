@@ -29,34 +29,25 @@ a:hover {
   font-weight: bold;
 }
 
-main {
-  display: grid;
-  grid-template-columns: auto auto;
-  justify-content: center;
-  gap: 5px;
-}
-
-figure {
-  display: grid;
-  align-items: end;
-  background-size: contain;
-  width: 300px;
-  height: 300px;
-}
-
-figcaption {
-  background-color: #222;
-  color: white;
-  padding: 5px;
+h2 {
   text-align: center;
 }
 
-.t-shirt {
-  background-image: url(https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1760&q=80);
+.grid-item {
+  background-color: red;
+  width: 100%;
+  justify-content: center;
+  color: white;
+  align-items: center;
+  display: flex;
+  height: 200px;
 }
 
-.bags {
-  background-image: url(https://images.unsplash.com/photo-1569697008488-e88ca8a71a39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80);
+.grid-container {
+  display: flex;
+  grid-template-columns: auto;
+  gap: 16px;
+  margin: 16px;
 }
 
 ul {
@@ -87,7 +78,20 @@ footer {
   padding: 10px;
 }
 
+@media (min-width: 1200px) {
+  .grid-container {
+    grid-template-columns: auto auto auto auto;
+  }
+}
+@media (min-width: 769px) and (max-width: 1199px) {
+  .grid-container {
+    grid-template-columns: auto auto;
+  }
+}
 @media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: auto;
+  }
   .icons {
     display: none;
   }

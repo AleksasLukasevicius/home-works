@@ -1,0 +1,115 @@
+$main-color: grey;
+$section-color: rgb(244, 244, 244);
+$first-color: white;
+$hover-color: black;
+
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400|Poppins&display=swap");
+
+body {
+    display: grid;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+}
+
+header {
+    display: grid;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: $main-color;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-evenly;
+    height: auto;
+    padding: 10px;
+
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: $hover-color;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
+h2 {
+    text-align: center;
+}
+
+.grid-item {
+    background-color: red;
+    width: 100%;
+    justify-content: center;
+    color: white;
+    align-items: center;
+    display: flex;
+    height: 200px;
+}
+
+.grid-container {
+    display: flex;
+    grid-template-columns: auto;
+    gap: 16px;
+    margin: 16px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.icons a {
+    margin: 0 0.5rem;
+    color: $first-color;
+}
+
+.icons a:hover {
+    color: $hover-color;
+}
+
+
+
+footer {
+    display: grid;
+    justify-content: center;
+    background-color: $main-color;
+}
+
+.copyright {
+    text-transform: capitalize;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+@media (min-width: 1200px) {
+    .grid-container {
+        grid-template-columns: auto auto auto auto;
+    }
+}
+
+
+@media (min-width: 769px) and (max-width: 1199px) {
+    .grid-container {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: auto;
+    }
+
+    .icons {
+        display: none;
+    }
+
+    .navigation {
+        display: none;
+    }
+}

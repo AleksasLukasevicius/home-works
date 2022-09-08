@@ -37,3 +37,6 @@ if (car === "VW" || car === "Audi" || car === "Bentley" || car === "Bugatti" || 
 else if (car === "BMW" || car === "Mini" || car === "Rolls-Royce") {
     alert("priklauso BMV")
 }
+else {
+    alert("niekam nepriklauso")
+}

@@ -19,13 +19,13 @@
 
 // const x = prompt("Koks jūsų amžius?");
 
-// if (x > 100 || x < 0) {
+// if (x => 100 || x < 0) {
 //   alert("Invalid age")
 // }
-// else if (x >= 1 && x <= 18) {
+// else if (x > 0 && x <= 18) {
 //   alert("Child")
 // }
-// else if (x >= 19 && x <= 99) {
+// else if (x >= 19 && x <100) {
 //   alert("Adult")
 // }
 
@@ -36,4 +36,7 @@ if (car === "VW" || car === "Audi" || car === "Bentley" || car === "Bugatti" || 
 }
 else if (car === "BMW" || car === "Mini" || car === "Rolls-Royce") {
     alert("priklauso BMV")
+}
+else {
+    alert("Niekam nepriklauso")
 }

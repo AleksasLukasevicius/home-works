@@ -38,9 +38,5 @@ else if (car === "BMW" || car === "Mini" || car === "Rolls-Royce") {
     alert("priklauso BMV")
 }
 else {
-<<<<<<< HEAD
-    alert("niekam nepriklauso")
-=======
     alert("Niekam nepriklauso")
->>>>>>> e2817d5bf98658e598ff74cf9da55dc8743047a4
 }

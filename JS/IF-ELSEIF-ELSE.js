@@ -2,7 +2,7 @@
 // const clientAge = prompt("Koks jūsų amžius?");
 
 // if (clientAge >= legalAge) {
-//     alert(`Pasiekęs ${legalAge}`);
+    alert(`Pasiekęs ${legalAge}`);
 // } else {
 //     alert(`Nepasiekęs ${legalAge}`);
 // }

@@ -3,7 +3,6 @@ body {
   max-width: 900px;
   margin: 0 auto;
   font: 0.9em/1.2 Arial, Helvetica, sans-serif;
-  color: black
 }
 
 .box {
@@ -11,13 +10,10 @@ body {
   margin: 0 150px;
   width: 150px;
   border-radius: 5px;
-  background-color: rgb(24, 158, 93);
+  background-color: rgb(207, 232, 220);
   padding: 1em;
-  z-index: -10;
-  left: -300px;
-  position: relative;
+  z-index: -1;
 }
-
 
 .special {
   background-color: rgb(79, 185, 227);
@@ -26,15 +22,12 @@ body {
 }
 
 .wrapper {
-  /* background-color: rgb(79, 185, 227); */
+  background-color: rgb(79, 185, 227);
   padding: 10px;
-  color: rgb(190, 62, 62);
+  color: #fff;
   display: flow-root;
 }
 
-
 img {
   width: 100%;
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

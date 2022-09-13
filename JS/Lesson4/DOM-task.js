@@ -5,6 +5,7 @@
 // document.body.append(h2);
 
 // document.getElementById("name").textContent = "Alex";
+
 const name = 'Alex';
 document.getElementById('name').textContent = name;
 

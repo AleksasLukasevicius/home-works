@@ -8,11 +8,11 @@ function handleFormSubmit(event) {
     const age = Number(ageInput.value);
 
     if (age >= 60) {
-        priceDisplay.textContent = (1 / 3 * price);
+        priceDisplay.textContent = `Price ${(1 / 3 * price)} €`;
     } else if (age <= 16) {
-        priceDisplay.textContent = (0.5 * price);
+        priceDisplay.textContent = `Price ${(0.5 * price)} €`;
     } else {
-        priceDisplay.textContent = price;
+        priceDisplay.textContent = `Price ${price} €`;
     }
 }
 

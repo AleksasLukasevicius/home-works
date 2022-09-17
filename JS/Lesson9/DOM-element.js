@@ -1,9 +1,11 @@
-document.querySelector("h1").addEventListener('click', (event) => {
-    event.target.style.textAlign = "center";
-    event.target.style.fontSize = "4rem";
-    event.target.style.color = "red";
-})
+// 1 pratymas
+// document.querySelector("h1").addEventListener('click', (event) => {
+//     event.target.style.textAlign = "center";
+//     event.target.style.fontSize = "4rem";
+//     event.target.style.color = "red";
+// })
 
+// 2 pratymas
 // const button = document.querySelector('button');
 // button.style.cssText = 'position: absolute; top:0; left:0;';
 
@@ -14,24 +16,46 @@ document.querySelector("h1").addEventListener('click', (event) => {
 // }
 // button.addEventListener('click', changePosition);
 
-const button = document.querySelector('button');
-button.style.cssText = 'position:absolute; top:0; left:0';
+// 3 pratymas
+// const button = document.querySelector('button');
+// button.style.cssText = 'position:absolute; top:0; left:0';
 
-let corner = 0;
-const cornerStyles = ['position:absolute; top:0; right:0;', 'position:absolute; bottom:0; right:0;', 'position:absolute; bottom:0; left:0;', 'position:absolute; top:0; left:0;'];
-function changePosition(event) {
-    if (corner < cornerStyles.length) {
-        event.target.style.cssText = cornerStyles[corner];
-        corner++;
-    }
-    if (corner === cornerStyles.length) {
-        corner = 0;
-    }
-}
+// let corner = 0;
+// const cornerStyles = ['position:absolute; top:0; right:0;', 'position:absolute; bottom:0; right:0;', 'position:absolute; bottom:0; left:0;', 'position:absolute; top:0; left:0;'];
+// function changePosition(event) {
+//     if (corner < cornerStyles.length) {
+//         event.target.style.cssText = cornerStyles[corner];
+//         corner++;
+//     }
+//     if (corner === cornerStyles.length) {
+//         corner = 0;
+//     }
+// }
 
-button.addEventListener('click', changePosition);
+// button.addEventListener('click', changePosition);
 
-document.getElementById('name').addEventListener('input', event => {
-    const name = event.target.value;
-    document.body.style.backgroundColor = name.length < 3 ? 'red' : 'green';
-})
+// 4 pratymas
+// document.getElementById('name').addEventListener('input', event => {
+//     const name = event.target.value;
+//     document.body.style.backgroundColor = name.length < 3 ? 'red' : 'green';
+// })
+
+// 5 pratymas
+const buttonColors = ["red", "green", "blue", "yellow"];
+document.querySelector('button').addEventListener('click', event => {
+    const randomIndex = Math.round(Math.random() * 4);
+    event.target.style.backgroundColor = buttonColors[randomIndex];
+});
+
+// 6 pratymas
+// function generateRGBColor() {
+//     const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+//     const r = randomBetween(0, 255);
+//     const g = randomBetween(0, 255);
+//     const b = randomBetween(0, 255);
+//     return `rgb(${r},${g},${b})`;
+// }
+
+// document.querySelector('button').addEventListener('click', event => {
+//     event.target.style.backgroundColor = generateRGBColor();
+// });

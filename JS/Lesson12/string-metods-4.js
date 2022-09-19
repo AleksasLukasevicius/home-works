@@ -7,7 +7,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
     userName.textContent = fullName.split(" ")[0];
 
     const userSurName = document.createElement("h1");
-    userSurName.textContent = fullName.replace(userName, " ").slice(7);
+    userSurName.textContent = fullName.replace(userName.textContent, "");
 
     document.body.append(userName, userSurName);
 })

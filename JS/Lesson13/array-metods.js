@@ -1,2 +1,2 @@
 const cars = ["BMW", "VW", "Audi"];
-cars.forEach((v) => console.info(v));
+cars.map((v, i) => console.info(i + ": " + v));

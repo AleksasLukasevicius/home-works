@@ -1,19 +1,15 @@
-const removeDuplicates = arr => [...new Set(arr)];
-console.log(removeDuplicates([9, 9, 9, 1, 1, 3, 3, 4, 4, 5, 5, 5]));
-
-
 const numbers = prompt("Remove Dublicate Numbers");
+
+const removeDuplicates = arr => [...new Set(arr)];
+console.log(removeDuplicates(numbers));
+
 
 function unique(nums) {
     return Array.from(new Set(nums));
 }
-
 // let values = [1, 1, 1, 2, 2, 2, 23, 3, 3];
-
 console.info(unique(numbers));
 
-
-// const numbers = prompt("Remove Dublicate Numbers");
 
 function unique(arr) {
     let result = [];

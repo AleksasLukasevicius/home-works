@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.card > img {
+  width: 100px;
+}
+
+form {
+  width: 25rem;
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+h6 {
+  margin-top: 6px;
+  text-align: center;
+}

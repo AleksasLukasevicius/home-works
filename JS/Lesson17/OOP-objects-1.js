@@ -18,6 +18,7 @@ const capitalize = (text) => text.charAt(0).toUpperCase() + text.slice(1).toLowe
 
 document.querySelector('form').addEventListener('submit', (event) => {
     event.preventDefault();
+
     const fullname = document.getElementById('fullname').value;
     const [name, surname] = fullname.split(' ').map(namePart => capitalize(namePart.trim()));
 

@@ -4,8 +4,8 @@ const removeDuplicates = arr => [...new Set(arr)];
 console.log(removeDuplicates(numbers));
 
 
-function unique(nums) {
-    return Array.from(new Set(nums));
+function unique(arr) {
+    return Array.from(new Set(arr));
 }
 // let values = [1, 1, 1, 2, 2, 2, 23, 3, 3];
 console.info(unique(numbers));

@@ -1,6 +1,6 @@
 const name = prompt("Koks Jūsų vardas")
 const count = 10;
-for(let i = 1; i<=count; i++){
+for (let i = 1; i <= count; i++) {
     console.info(`${i}. ${name}`)
 }
 

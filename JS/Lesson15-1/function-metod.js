@@ -19,12 +19,12 @@
 // console.info(inversNameChar = userName.split("").reverse().join("").toLocaleLowerCase());
 // // const fn = (text) => text.split("").reverse().join("").toLowerCase();
 
-// const values = +prompt("numbers");
-// const numbers = values.split(" ");
+const values = prompt("numbers");
+const numbers = JSON.parse(`[${values}]`);
 // const numbers = [-1, -100, -5, 10, 0, 11];
-// console.info(numbers)
-// const fn = (nums) => nums.filter(x => x < 0).sort((a, b) => b - a)[0];
-// console.info(fn(numbers));
+console.info(numbers)
+const getBiggestNumber = (nums) => nums.filter(x => x < 0).sort((a, b) => b - a)[0];
+console.info(getBiggestNumber(numbers));
 
 
 // const quant = prompt("Your Number");
@@ -51,13 +51,13 @@
 // const sortByAgeName = (users) => users.sort((a, b) => a.name > b.name ? 1 : -1).sort((a, b) => a.age - b.age);
 // console.info(sortByAgeName(users));
 
-const date = prompt("What the date", "2020-01-01");
-function isItHoliday(date) {
-    const holidays = ["2020-01-01", "2020-05-25"];
-    return holidays.some(holiday => (new Date(holiday)).getDate() === date.getDate())
-}
+// const date = prompt("What the date", "2020-01-01");
+// function isItHoliday(date) {
+//     const holidays = ["2020-01-01", "2020-05-25"];
+//     return holidays.some(holiday => (new Date(holiday)).getDate() === date.getDate())
+// }
 
-console.log(isItHoliday(new Date(date)));
+// console.log(isItHoliday(new Date(date)));
 
 
 // const array = [1, 5];

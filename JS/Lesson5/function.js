@@ -42,9 +42,12 @@
 
 function getRandomNumber() {
     return Math.floor(Math.random() * 10) + 1;
-        }
-function squareNum(){
-    y = prompt("skaicius", 3);
+}
+
+function squareNum() {
+    y = getRandomNumber();
+    console.info(y);
     return Math.pow(y, 2);
 }
-   alert(squareNum(getRandomNumber()));
+
+console.info(squareNum(getRandomNumber()));

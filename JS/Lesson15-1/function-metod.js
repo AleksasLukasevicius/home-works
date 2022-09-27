@@ -19,12 +19,19 @@
 // console.info(inversNameChar = userName.split("").reverse().join("").toLocaleLowerCase());
 // // const fn = (text) => text.split("").reverse().join("").toLowerCase();
 
-const values = prompt("Numbers");
-const numbers = JSON.parse(`[${values}]`);
 // const numbers = [-1, -100, -5, 10, 0, 11];
-console.info(numbers)
-const getBigestNumber = (nums) => nums.filter(x => x < 0).sort((a, b) => b - a)[0];
-console.info(getBigestNumber(numbers));
+// const values = prompt("Numbers");
+// const numbers = JSON.parse(`[${values}]`);
+
+const numbers = []
+while (numbers.length < 5) {
+    const number = +prompt("Ivesk skiaicu", -1);
+    numbers.push(number);
+};
+console.info({ numbers });
+
+const getHighestNegativeNumber = (nums) => nums.filter(x => x < 0).sort((a, b) => b - a)[0];
+console.info(getHighestNegativeNumber(numbers));
 
 
 // const quant = prompt("Your Number");

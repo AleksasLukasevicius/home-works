@@ -7,8 +7,8 @@
     <title>Lesson 7 forms tasks</title>
   </head>
   <body>
-    <form>
-      <legend>My age is:</legend>
+    <!-- <form>
+      <label>My age is:</label>
       <input
         id="age"
         type="number"
@@ -21,7 +21,14 @@
       <br />
       <button type="submit">What is my bonus?</button>
       <h2></h2>
+    </form> -->
+
+    <form>
+      <label for="year">Įveskite metus:</label>
+      <input id="year" type="number" name="year" /><br />
+      <button type="submit">Tikrinti!</button>
     </form>
+    <p id="output"></p>
     <script src="./forms-tasks.js"></script>
   </body>
 </html>

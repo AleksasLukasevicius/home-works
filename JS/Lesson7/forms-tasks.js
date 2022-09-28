@@ -39,12 +39,12 @@ function handleFormSubmit(event) {
     }
 }
 
-document.querySelector('form.leapyear').addEventListener('submit', handleFormSubmit);
-// console.log(isLeapYear(2016));
-// console.log(isLeapYear(2000));
-// console.log(isLeapYear(1700));
-// console.log(isLeapYear(1800));
-// console.log(isLeapYear(100));
+// document.querySelector('form.leapyear').addEventListener('submit', handleFormSubmit);
+// // console.log(isLeapYear(2016));
+// // console.log(isLeapYear(2000));
+// // console.log(isLeapYear(1700));
+// // console.log(isLeapYear(1800));
+// // console.log(isLeapYear(100));
 
 
 function convertToFarenheit(event) {
@@ -60,3 +60,37 @@ function convertToFarenheit(event) {
 }
 
 document.getElementsByTagName('form')[2].addEventListener('input', convertToFarenheit)
+
+
+function handleFormSubmit(event) {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    const didAgreeToGetLetter = document.getElementById('checked').checked;
+    const outputElement = document.getElementsByTagName('h4')[0];
+    outputElement.textContent = didAgreeToGetLetter ? `Email ${email} successfully registered` : 'Registration failed';
+}
+
+document.getElementsByTagName('form')[3].addEventListener('submit', handleFormSubmit);
+
+
+function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('user-name').value;
+    const numberOfElements = Number(document.getElementById('numberOfElements').value);
+    const list = document.getElementsByTagName('ul')[0];
+
+    console.info(name)
+
+    list.innerHTML = '';
+
+    for (let i = 0; i < numberOfElements; i++) {
+
+        const listItem = document.createElement('li');
+
+        listItem.innerText = name;
+        list.append(listItem);
+    }
+}
+
+document.getElementsByTagName('form')[4].addEventListener('submit', handleFormSubmit);

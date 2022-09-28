@@ -14,7 +14,7 @@ form.addEventListener("submit", (event) => {
     }
     console.info(bonus);
 
-    document.getElementsByTagName('h2')[0].innerText = `Jūsų premija: ${bonus}`;
+    document.getElementsByTagName('h2')[0].innerText = `Your's bonus is: ${bonus}`;
 })
 
 
@@ -33,9 +33,9 @@ function handleFormSubmit(event) {
     const outputElement = document.getElementsByTagName('h2')[1];
 
     if (isLeapYear(year)) {
-        outputElement.textContent = "Metai keliamieji";
+        outputElement.textContent = "Leap year";
     } else {
-        outputElement.textContent = "Metai nėra keliamieji";
+        outputElement.textContent = "The year is not a leap year";
     }
 }
 
@@ -49,7 +49,7 @@ document.querySelector('form.leapyear').addEventListener('submit', handleFormSub
 
 function convertToFarenheit(event) {
     const celciusInputValue = event.target.value;
-    const outputElement = document.getElementsByTagName('h3')[0];
+    const outputElement = document.getElementsByTagName('span')[0];
     if (celciusInputValue) {
         const celcius = Number(celciusInputValue);
         const farenheit = ((celcius * 1.8) + 32).toFixed(1);
@@ -59,4 +59,4 @@ function convertToFarenheit(event) {
     }
 }
 
-document.getElementsByTagName('form.celsius').addEventListener('input', convertToFarenheit)
+document.getElementsByTagName('form')[2].addEventListener('input', convertToFarenheit)

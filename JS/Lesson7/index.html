@@ -7,28 +7,59 @@
     <title>Lesson 7 forms tasks</title>
   </head>
   <body>
-    <!-- <form>
-      <label>My age is:</label>
-      <input
-        id="age"
-        type="number"
-        name="age"
-        min="0"
-        max="60"
-        placeholder="46"
-        required
-      />
-      <br />
-      <button type="submit">What is my bonus?</button>
-      <h2></h2>
-    </form> -->
+    <form class="bonus">
+      <fieldset>
+        <legend>Lesson 7-1. Bonus.</legend>
+        <p>
+          <label
+            >My age is:
+            <input
+              id="age"
+              type="number"
+              name="age"
+              min="0"
+              max="60"
+              placeholder="46"
+              required
+          /></label>
+          years
+        </p>
 
-    <form>
-      <label for="year">Įveskite metus:</label>
-      <input id="year" type="number" name="year" /><br />
-      <button type="submit">Tikrinti!</button>
+        <button type="submit">What is my bonus?</button>
+        <h2></h2>
+      </fieldset>
     </form>
-    <p id="output"></p>
+
+    <form class="leapyear">
+      <fieldset>
+        <legend>Lesson 7-2. Leapyear.</legend>
+        <p>
+          <label for="year"
+            >Enter the year:
+            <input id="year" type="number" name="year" placeholder="2000"
+          /></label>
+          years
+        </p>
+        <p><button type="submit">Tikrinti!</button></p>
+        <h2></h2>
+      </fieldset>
+    </form>
+
+    <form class="celsius-to-Fahrenheit">
+      <fieldset>
+        <legend>Lesson 7-3. Celsius to Fahrenheit.</legend>
+        <p>
+          <label for="celsius"
+            >Enter the Celsius:
+            <input id="celsius" type="number" name="celsius" placeholder="18"
+          /></label>
+          degree
+        </p>
+        <h3></h3>
+        <h3>Farenheitai: <span></span> degree</h3>
+      </fieldset>
+    </form>
+
     <script src="./forms-tasks.js"></script>
   </body>
 </html>

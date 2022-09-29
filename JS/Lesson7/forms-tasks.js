@@ -29,17 +29,19 @@ function isLeapYear(year) {
 function handleFormSubmit(event) {
     event.preventDefault();
 
-    const year = Number(document.getElementById("year").value);
+    const year = Number(document.getElementById("leapyear").value);
     const outputElement = document.getElementsByTagName('h2')[1];
+    console.info(year);
 
     if (isLeapYear(year)) {
-        outputElement.textContent = "Leap year";
+        outputElement.textContent = `${year} is leap year`;
     } else {
-        outputElement.textContent = "The year is not a leap year";
+        outputElement.textContent = `The ${year} is not a leap year`;
     }
 }
 
-// document.querySelector('form.leapyear').addEventListener('submit', handleFormSubmit);
+document.querySelector('form.leapyear').addEventListener('submit', handleFormSubmit);
+
 // // console.log(isLeapYear(2016));
 // // console.log(isLeapYear(2000));
 // // console.log(isLeapYear(1700));
@@ -59,7 +61,7 @@ function convertToFarenheit(event) {
     }
 }
 
-document.getElementsByTagName('form')[2].addEventListener('input', convertToFarenheit)
+document.querySelector('form.celsius').addEventListener('input', convertToFarenheit)
 
 
 function handleFormSubmit(event) {
@@ -70,7 +72,7 @@ function handleFormSubmit(event) {
     outputElement.textContent = didAgreeToGetLetter ? `Email ${email} successfully registered` : 'Registration failed';
 }
 
-document.getElementsByTagName('form')[3].addEventListener('submit', handleFormSubmit);
+document.querySelector('form.mail').addEventListener('submit', handleFormSubmit);
 
 
 function handleFormSubmit(event) {
@@ -93,4 +95,23 @@ function handleFormSubmit(event) {
     }
 }
 
-document.getElementsByTagName('form')[4].addEventListener('submit', handleFormSubmit);
+document.querySelector('form.name').addEventListener('submit', handleFormSubmit);
+
+
+
+function drawTriangle(event) {
+    event.preventDefault();
+    let triangleSize = Number(document.getElementById('triangleSize').value);
+    const outputElement = document.getElementsByTagName('h5')[0];
+
+    let output = '';
+    for (i = 0; i < triangleSize; i++) {
+        for (j = 0; j <= i; j++) {
+            output += "*";
+        }
+        output += "<br>";
+        outputElement.innerHTML = output;
+    }
+}
+
+document.querySelector('form.triangle').addEventListener('submit', drawTriangle);

@@ -5,12 +5,11 @@ function drawL(event) {
     let output = '';
     for (i = 0; i < size - 1; i++) {
         output += 'L<br>';
-        console.info({ i });
 
     }
     for (j = 0; j < size; j++) {
         output += 'L'
-    } console.info(j);
+    }
     outputElement.innerHTML = output;
 }
 
@@ -41,3 +40,14 @@ function drawC(event) {
 }
 
 document.querySelector('form.c-letter').addEventListener('input', drawC)
+
+
+function addNameToList(event) {
+    const name = event.target.value.trim();
+    const outputElement = document.getElementsByTagName('h3')[0];
+    if (name) {
+        outputElement.innerText += `${name},  `;
+    }
+}
+
+document.querySelector('form.name-list').addEventListener('blur', addNameToList);

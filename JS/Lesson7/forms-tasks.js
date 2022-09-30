@@ -1,4 +1,4 @@
-const form = document.getElementById('bonus');
+const form = document.querySelector("form.bonus");
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -12,7 +12,6 @@ form.addEventListener("submit", (event) => {
     if (years >= 20) {
         bonus += 100;
     }
-    console.info(bonus);
 
     document.getElementsByTagName('h2')[0].innerText = `Your's bonus is: ${bonus}`;
 })
@@ -26,7 +25,7 @@ function isLeapYear(year) {
 //     return (year % 100 === 0) ? (year % 400 === 0) : (year % 4 === 0);
 // }
 
-function lyeapYearFormSubmit(event) {
+function leapyearHandleFormSubmit(event) {
     event.preventDefault();
 
     const year = Number(document.getElementById("leapyear").value);
@@ -40,7 +39,7 @@ function lyeapYearFormSubmit(event) {
     }
 }
 
-document.getElementById('leapyears').addEventListener('submit', lyeapYearFormSubmit);
+document.querySelector('form.leapyear').addEventListener('submit', leapyearHandleFormSubmit);
 
 // // console.log(isLeapYear(2016));
 // // console.log(isLeapYear(2000));
@@ -64,7 +63,7 @@ function convertToFarenheit(event) {
 document.querySelector('form.celsius').addEventListener('input', convertToFarenheit)
 
 
-function emailHandleFormSubmit(event) {
+function mailHandleFormSubmit(event) {
     event.preventDefault();
     const email = document.getElementById('email').value;
     const didAgreeToGetLetter = document.getElementById('checked').checked;
@@ -72,10 +71,10 @@ function emailHandleFormSubmit(event) {
     outputElement.textContent = didAgreeToGetLetter ? `Email ${email} successfully registered` : 'Registration failed';
 }
 
-document.getElementById('mail').addEventListener('submit', emailHandleFormSubmit);
+document.querySelector('form.mail').addEventListener('submit', mailHandleFormSubmit);
 
 
-function handleFormSubmit(event) {
+function nameHandleFormSubmit(event) {
     event.preventDefault();
 
     const name = document.getElementById('user-name').value;
@@ -95,12 +94,12 @@ function handleFormSubmit(event) {
     }
 }
 
-document.querySelector('form.name').addEventListener('submit', handleFormSubmit);
+document.querySelector('form.name').addEventListener('submit', nameHandleFormSubmit);
 
 
 
 function drawTriangle(event) {
-    event.preventDefault();
+    // event.preventDefault();
     let triangleSize = Number(document.getElementById('triangleSize').value);
     const outputElement = document.getElementsByTagName('h5')[0];
 
@@ -109,9 +108,9 @@ function drawTriangle(event) {
         for (j = 0; j <= i; j++) {
             output += "*";
         }
-        output += "<br>";
+        output += "<p>";
         outputElement.innerHTML = output;
     }
 }
 
-document.querySelector('form.triangle').addEventListener('submit', drawTriangle);
+document.querySelector('form.triangle').addEventListener('input', drawTriangle);

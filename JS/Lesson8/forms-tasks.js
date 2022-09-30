@@ -4,11 +4,11 @@ function drawL(event) {
 
     let output = '';
     for (i = 0; i < size - 1; i++) {
-        output += 'L<br>';
+        output += '<p>×</p>';
 
     }
     for (j = 0; j < size; j++) {
-        output += 'L'
+        output += '×'
     }
     outputElement.innerHTML = output;
 }
@@ -27,14 +27,14 @@ function drawC(event) {
 
     let output = '';
     for (i = 0; i < size; i++) {
-        output += 'C'
+        output += '×'
     }
-    output += '<br>'
+    output += '<p></p>'
     for (i = 0; i < size - 2; i++) {
-        output += 'C<br>';
+        output += '<p>×</p>';
     }
     for (i = 0; i < size; i++) {
-        output += 'C'
+        output += '×'
     }
     outputElement.innerHTML = output;
 }

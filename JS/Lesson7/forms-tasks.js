@@ -1,4 +1,4 @@
-const form = document.querySelector("form.bonus");
+const form = document.getElementById('bonus');
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -26,7 +26,7 @@ function isLeapYear(year) {
 //     return (year % 100 === 0) ? (year % 400 === 0) : (year % 4 === 0);
 // }
 
-function handleFormSubmit(event) {
+function lyeapYearFormSubmit(event) {
     event.preventDefault();
 
     const year = Number(document.getElementById("leapyear").value);
@@ -40,7 +40,7 @@ function handleFormSubmit(event) {
     }
 }
 
-document.querySelector('form.leapyear').addEventListener('submit', handleFormSubmit);
+document.getElementById('leapyears').addEventListener('submit', lyeapYearFormSubmit);
 
 // // console.log(isLeapYear(2016));
 // // console.log(isLeapYear(2000));
@@ -64,7 +64,7 @@ function convertToFarenheit(event) {
 document.querySelector('form.celsius').addEventListener('input', convertToFarenheit)
 
 
-function handleFormSubmit(event) {
+function emailHandleFormSubmit(event) {
     event.preventDefault();
     const email = document.getElementById('email').value;
     const didAgreeToGetLetter = document.getElementById('checked').checked;
@@ -72,7 +72,7 @@ function handleFormSubmit(event) {
     outputElement.textContent = didAgreeToGetLetter ? `Email ${email} successfully registered` : 'Registration failed';
 }
 
-document.querySelector('form.mail').addEventListener('submit', handleFormSubmit);
+document.getElementById('mail').addEventListener('submit', emailHandleFormSubmit);
 
 
 function handleFormSubmit(event) {

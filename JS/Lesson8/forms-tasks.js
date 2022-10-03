@@ -60,7 +60,7 @@ function alertNearestNumber(n1, n2) {
     const secondNumber = Math.abs(100 - n2);
 
     if (firstNumber == secondNumber) {
-        alert(`Equal`);
+        alert(`Equally`);
     }
 
     else if (firstNumber > secondNumber) {
@@ -82,3 +82,24 @@ function handleFormSubmit(event) {
 }
 
 document.getElementById('nearest-numbers').addEventListener('submit', handleFormSubmit);
+
+let counter = 0;
+let randomNumber = Math.floor(Math.random() * 5) + 1;
+console.log(randomNumber);
+
+function guessNumber(event) {
+    event.preventDefault();
+
+    counter++;
+
+    const guessedNumber = Number(document.getElementById('guess-number').value);
+
+    if (randomNumber === guessedNumber) {
+        alert(`You guessed it from the ${counter} time`)
+    }
+    else {
+        alert("You didn't guess")
+    }
+}
+
+document.getElementById('guess').addEventListener('submit', guessNumber);

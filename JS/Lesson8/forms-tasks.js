@@ -46,8 +46,39 @@ function addNameToList(event) {
     const name = event.target.value.trim();
     const outputElement = document.getElementsByTagName('h3')[0];
     if (name) {
-        outputElement.innerText += `${name},  `;
+        outputElement.innerText += ` ${name},`;
     }
 }
 
-document.querySelector('form.name-list').addEventListener('blur', addNameToList);
+document.getElementById('name').addEventListener('blur', addNameToList);
+
+
+
+function alertNearestNumber(n1, n2) {
+
+    const firstNumber = Math.abs(100 - n1);
+    const secondNumber = Math.abs(100 - n2);
+
+    if (firstNumber == secondNumber) {
+        alert(`Equal`);
+    }
+
+    else if (firstNumber > secondNumber) {
+        alert(n2);
+    }
+
+    else {
+        alert(n1);
+    }
+}
+
+function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const n1 = Number(document.getElementById('number1').value);
+    const n2 = Number(document.getElementById('number2').value);
+
+    alertNearestNumber(n1, n2);
+}
+
+document.getElementById('nearest-numbers').addEventListener('submit', handleFormSubmit);

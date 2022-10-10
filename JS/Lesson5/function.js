@@ -39,6 +39,22 @@
 // }
 // alert(sumTwoNumber("","",'div'))
 
+// function multiOpertator (n1, n2, operator) {
+//     n1 = 10;
+//     n2 = 5;
+
+//     if (operator === "sum"){
+//        return n1 + n2;
+//     } else if (operator === "sub"){
+//          return n1 - n2;
+//     } else if (operator === "div"){
+//            return n1 / n2;
+//     } else if (operator === "mult"){
+//            return n1 * n2;
+//      }else{}
+//   }
+//   console.info(multiOpertator("","","div"))
+
 
 function getRandomNumber() {
     return Math.floor(Math.random() * 10) + 1;

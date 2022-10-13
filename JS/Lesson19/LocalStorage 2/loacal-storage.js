@@ -24,4 +24,5 @@ const renderUserProfileCard = (profile) => {
 };
 
 const profileInfoFromLocalStorage = JSON.parse(localStorage.getItem('profile'));
+
 renderUserProfileCard(profileInfoFromLocalStorage);

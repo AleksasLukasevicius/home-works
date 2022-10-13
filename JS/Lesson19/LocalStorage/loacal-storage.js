@@ -18,9 +18,9 @@ const renderUserProfileCard = (profile) => {
     const userDescription = document.createElement('h5');
     userDescription.innerText = profile.userDescription;
 
-    const card = document.createElement('div');
-    card.append(userProfilePicture, userFullName, userDescription);
-    document.body.append(card);
+    const userCard = document.createElement('div');
+    userCard.append(userProfilePicture, userFullName, userDescription);
+    document.body.append(userCard);
 };
 
 const profileInfoFromLocalStorage = JSON.parse(localStorage.getItem('profile'));

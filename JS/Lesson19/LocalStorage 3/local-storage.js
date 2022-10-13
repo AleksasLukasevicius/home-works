@@ -24,15 +24,11 @@ document.querySelector('form').addEventListener('submit', (event) => {
     const [name, surname] = fullName.split(' ');
 
     const usersInlocalStorage = JSON.parse(localStorage.getItem(LOCAL_STORAGE_ITEM_KEY));
-    console.info(usersInlocalStorage);
     if (usersInlocalStorage && usersInlocalStorage.length) {
         localStorage.setItem(LOCAL_STORAGE_ITEM_KEY, JSON.stringify([...usersInlocalStorage, { name, surname }]));
     } else {
         localStorage.setItem(LOCAL_STORAGE_ITEM_KEY, JSON.stringify([{ name, surname }]));
     }
-    console.info(localStorage);
-    console.info(localStorage.length);
-
     renderUsersTable();
 });
 

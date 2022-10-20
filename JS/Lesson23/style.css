@@ -1,5 +1,6 @@
-table,
+table#todos,
 tr,
-th {
+th,
+td {
   border: 1px solid black;
 }

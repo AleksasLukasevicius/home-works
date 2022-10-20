@@ -5,10 +5,13 @@ createTodoForm.addEventListener("submit", (event) => {
 
     const todoTitle = document.querySelector("#todo-title").value.trim();
     const todoCompleted = document.querySelector("#todo-completed").checked;
+    const fakeBackendTodos.lenght = localStorage.getItem("todos") || [];
 
     const newTodo = {
         title: todoTitle,
         completed: todoCompleted
     };
     console.info({ newTodo });
+
+    if (fakeBackendTodos.lenght)
 })

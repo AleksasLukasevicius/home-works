@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 23 Add Element</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form id="create-todo-form">
+      <fieldset>
+        <label for="title">Pavadinimas</label>
+        <input id="todo-title" name="title" placeholder="1984" />
+      </fieldset>
+      <fieldset>
+        <label for="isCopleted">Completed</label>
+        <input id="todo-completed" name="isCopleted" type="checkbox" />
+      </fieldset>
+
+      <button type="submit">Add element</button>
+    </form>
+
+    <script type="module" src="./modules/createTodo.js"></script>
+  </body>
+</html>

@@ -1,8 +1,18 @@
+body {
+  width: 50%;
+}
+
 table#todo-list,
 #todo-list tr,
 #todo-list th,
 #todo-list td {
   border: 1px solid black;
+}
+
+header,
+table,
+form {
+  margin: 0 auto;
 }
 
 table#todo-list tr td:nth-child(even) {
@@ -14,4 +24,9 @@ form > fieldset {
 }
 form > button {
   margin-top: 1rem;
+}
+
+header {
+  display: flex;
+  background-color: aqua;
 }

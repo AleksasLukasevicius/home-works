@@ -8,14 +8,19 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <header>
+      <a href="./index.html">Pradinis</a>
+      <a href="./add.html">Pridėti užduotį</a>
+    </header>
+
     <form id="create-todo-form">
       <fieldset>
-        <label for="title">Pavadinimas</label>
-        <input id="todo-title" name="title" placeholder="1984" />
+        <label for="title">Užduotis</label>
+        <input id="todo-title" name="title" placeholder="Sportuoti" />
       </fieldset>
       <fieldset>
-        <label for="isCopleted">Completed</label>
-        <input id="todo-completed" name="isCopleted" type="checkbox" />
+        <label for="copleted">Completed</label>
+        <input id="todo-completed" name="copleted" type="checkbox" />
       </fieldset>
 
       <button type="submit">Add element</button>

@@ -22,12 +22,8 @@ const addRow = (rowItem) => {
     tbody.append(rowElement);
 }
 
-const populateTable = async () => {
+export const populateTable = async () => {
     const todos = await getTodos();
 
-    todos.forEach(todoItem => addRow(todoItem)
-
-    );
+    todos.forEach(todoItem => addRow(todoItem));
 };
-
-export { populateTable };

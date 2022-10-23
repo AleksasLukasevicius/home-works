@@ -1,5 +1,5 @@
 body {
-  width: 50%;
+  font-family: "Courier New", Courier, monospace;
 }
 
 table#todo-list,
@@ -12,6 +12,7 @@ table#todo-list,
 header,
 table,
 form {
+  width: 75%;
   margin: 0 auto;
 }
 
@@ -22,11 +23,20 @@ table#todo-list tr td:nth-child(even) {
 form > fieldset {
   margin-bottom: 1rem;
 }
+
 form > button {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 header {
   display: flex;
   background-color: aqua;
+  justify-content: space-around;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  font-size: large;
 }

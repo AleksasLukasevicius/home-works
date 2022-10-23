@@ -11,7 +11,7 @@ const showAdditionalStatus = (isSuccessfullyAdded) => {
         return;
     }
     alert("Could't add to-do");
-
+    throw Error("Don't added");
 };
 
 createTodoForm.addEventListener("submit", (event) => {
@@ -29,9 +29,9 @@ createTodoForm.addEventListener("submit", (event) => {
         completed
     };
 
-    localStorage.setItem(localStorageTodoName, JSON.stringify([newTodo, ...fakeBackendTodos]));
-
     showAdditionalStatus(isSuccessfullyAdded)
+
+    localStorage.setItem(localStorageTodoName, JSON.stringify([newTodo, ...fakeBackendTodos]));
 });
 
 

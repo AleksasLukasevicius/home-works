@@ -3,7 +3,10 @@ const getTodos = async () => {
         const response = await fetch("https://jsonplaceholder.typicode.com/todos");
         const todos = await response.json();
 
-        return todos;
+        const fakeBackendTodos = JSON.parse(localStorage.getItem("todos")) || [];
+
+
+        return [...fakeBackendTodos, ...todos];
     }
     catch (error) {
         console.error(error)

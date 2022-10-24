@@ -5,22 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Database project</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <form id="getPostNumberForm">
-      <label for="postNumberInput">Enter post number</label>
-      <input
-        type="number"
-        name="postNumberInput"
-        id="postNumberInput"
-        required
-        min="1"
-        max="100"
-        step="1"
-        placeholder="5"
-      />
-      <button type="submit">submit</button>
+      <fieldset>
+        <legend>Data base project</legend>
+        <label for="postNumberInput">Enter post number</label>
+        <input
+          type="number"
+          name="postNumberInput"
+          id="postNumberInput"
+          required
+          min="1"
+          max="100"
+          step="1"
+          placeholder="5"
+        />
+        <button type="submit">Submit</button>
+      </fieldset>
     </form>
+
+    <section id="postCntainer">
+      <div>
+        <span class="postHeading">Title:</span>
+        <span id="postTitle"></span>
+      </div>
+
+      <div>
+        <span class="postHeading">Body:</span>
+        <span id="postBody"></span>
+      </div>
+
+      <textarea
+        name="New body input"
+        id="newPostBodyInput"
+        cols="30"
+        rows="2"
+        aria-label="new body imput"
+        placeholder="Enter your new body text …"
+      ></textarea>
+
+      <button id="updatePostButton">Update</button>
+    </section>
 
     <script type="module" src="./modules/main.js"></script>
   </body>

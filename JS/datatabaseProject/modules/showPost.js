@@ -1,9 +1,14 @@
-const postElement = document.createElement("h4");
-
 const showPost = (post) => {
-    postElement.innerText = JSON.stringify(post);
+    const postTitle = document.querySelector("#postTitle");
+    const postBody = document.querySelector("#postBody");
+    const postContainer = document.body.querySelector("#postCntainer");
+    const updatePostButton = document.body.querySelector("#updatePostButton");
 
-    document.body.append(postElement)
+    postTitle.innerText = post.title;
+    postBody.innerText = post.body;
+
+    postContainer.style.visibility = "visible";
+    updatePostButton.style.visibility = "visible";
 }
 
 export { showPost }

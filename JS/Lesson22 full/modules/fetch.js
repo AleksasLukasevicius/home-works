@@ -6,9 +6,9 @@ const getRobots = async () => {
         console.info({ robots })
 
         return robots;
+
     } catch (error) {
         console.error(error)
-
     }
 }
 

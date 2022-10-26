@@ -12,12 +12,11 @@ const createVIPCheckBox = (robots) => {
         tbodyElement.replaceChildren();
 
         if (!isChecked) {
-            //rodyk visus
-            populateTableBody(robots, tbodyElement);
+            populateTableBody(robots, tbodyElement);            //rodyk visus
 
             return;
-        }//rodyk VIP
-        const VIPRobots = robots.filter((robot) => robot.vip);
+        }
+        const VIPRobots = robots.filter((robot) => robot.vip);  //rodyk VIP
 
         populateTableBody(VIPRobots, tbodyElement);
     };

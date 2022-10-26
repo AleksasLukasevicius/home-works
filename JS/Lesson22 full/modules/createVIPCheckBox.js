@@ -1,9 +1,10 @@
 import { createElementWithParams, populateTableBody } from "./createTable.js"
 
 const createVIPCheckBox = (robots) => {
-    const checkboxElement = createElementWithParams("input", { type: "checkbox", name: "VIP" });
-    const checkboxElementLabel = createElementWithParams("label", { for: "VIP" });
-    checkboxElementLabel.textContent = "VIP";
+    const checkboxElement = createElementWithParams("input", { type: "checkbox", name: "Select VIP robots" });
+    const checkboxElementLabel = createElementWithParams("label", { for: "Select VIP robots" });
+    const checkboxElementForm = createElementWithParams("form", { name: "checkboxVIPform" });
+    checkboxElementLabel.textContent = "Select VIP robots";
 
     const onVIPCheckboxClick = (event) => {
         const isChecked = event.target.checked;
@@ -23,7 +24,8 @@ const createVIPCheckBox = (robots) => {
 
     checkboxElement.addEventListener("change", onVIPCheckboxClick);
 
-    document.body.prepend(checkboxElement, checkboxElementLabel);
+    checkboxElementForm.prepend(checkboxElement, checkboxElementLabel);
+    document.body.prepend(checkboxElementForm);
 };
 
 export { createVIPCheckBox };

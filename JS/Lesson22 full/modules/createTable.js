@@ -31,7 +31,6 @@ const createTable = (robots) => {
     populateTableBody(robots, tbodyElement);
 
     tableElement.append(theadElement, tbodyElement);
-
     document.body.prepend(tableElement);
 
 }

@@ -1,9 +1,14 @@
 import { getRobots } from "./fetch.js";
 import { createTable } from "./createTable.js";
-import { createVIPCheckBox } from "./createVIPCheckBox.js";
+import { createVIPCheckbox } from "./createVIPCheckbox.js";
+import { createSearchForm } from "./createSearchForm.js";
 
 const robots = await getRobots();
 
-createTable(robots);
+const state = { robots, fetchedRobots: [...robots], isVIPChecked: undefined, searchValue: "", };
 
-createVIPCheckBox(robots);
+createTable(state.robots);
+
+createVIPCheckbox(state);
+
+createSearchForm(state);

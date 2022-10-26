@@ -15,9 +15,9 @@ const populateTableBody = (robots, tbodyElement) => {
 };
 
 const createTable = (robots) => {
-    const tableElement = document.body.createElement("table");
-    const theadElement = document.body.createElement("thead");
-    const tbodyElement = document.body.createElement("tbody");
+    const tableElement = document.createElement("table");
+    const theadElement = document.createElement("thead");
+    const tbodyElement = document.createElement("tbody");
 
     const idHeader = createElementWithParams("th", { innerText: "ID" });
     const imgHeader = createElementWithParams("th", { innerText: "Image" });
@@ -32,7 +32,7 @@ const createTable = (robots) => {
 
     tableElement.append(theadElement, tbodyElement);
 
-    document.body.append(tableElement);
+    document.body.prepend(tableElement);
 
 }
 

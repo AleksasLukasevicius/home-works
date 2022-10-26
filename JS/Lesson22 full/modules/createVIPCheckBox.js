@@ -1,8 +1,7 @@
 import { createElementWithParams, populateTableBody } from "./createTable.js"
 
-const createVIPCheckBox = () => {
-    const checkboxElement = createElementWithParams("input", { type: checkbox, name: "VIP" });
-
+const createVIPCheckBox = (robots) => {
+    const checkboxElement = createElementWithParams("input", { type: "checkbox", name: "VIP" });
     const checkboxElementLabel = createElementWithParams("label", { for: "VIP" });
     checkboxElementLabel.textContent = "VIP";
 
@@ -10,11 +9,12 @@ const createVIPCheckBox = () => {
         const isChecked = event.target.checked;
         const tbodyElement = document.querySelector("tbody");
 
-        tbodyElement.replaceChildren()
+        tbodyElement.replaceChildren();
 
         if (!isChecked) {
             //rodyk visus
-            populateTableBody(robots, tbodyElement)
+            populateTableBody(robots, tbodyElement);
+
             return;
         }//rodyk VIP
         const VIPRobots = robots.filter((robot) => robot.vip);

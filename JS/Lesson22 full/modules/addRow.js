@@ -1,4 +1,4 @@
-import { createElementWithParams } from "./createTable";
+import { createElementWithParams } from "./createTable.js";
 
 const getTableDataElement = (text) => {
     const tdElement = createElementWithParams("td", { textContent: text });

@@ -1,0 +1,9 @@
+img {
+  height: 200px;
+  width: auto;
+}
+
+div {
+  border: 1px solid gray;
+  margin: 20px auto;
+}

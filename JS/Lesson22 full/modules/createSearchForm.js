@@ -9,7 +9,7 @@ const createSearchForm = (state) => {
     formElement.addEventListener("submit", (event) => {
         event.preventDefault();
 
-        const searchValue = inputElement.value.trim().toLowerCase();
+        const searchValue = inputElement.value.trim().toLocaleLowerCase();
 
         state.searchValue = searchValue;
 

@@ -11,6 +11,7 @@ const createVIPCheckbox = (state) => {
         const isVIPChecked = event.target.checked;
 
         state.isVIPChecked = isVIPChecked;
+
         filterRobots(state);
     };
 

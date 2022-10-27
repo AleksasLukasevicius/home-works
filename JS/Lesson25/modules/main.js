@@ -1,19 +1,14 @@
 import { getProducts } from "./getProducts.js";
 import { rendreProducts } from "./renderProducts.js";
 
-const products = await getProducts();
+let products = await getProducts();
+
+const onProductDelete = (deletedId) => {
+    products.filter(product => product.id != deletedId);
+
+    rendreProducts(products);
+}
 
 rendreProducts(products);
 
-const deleteButton = document.querySelector("#delete-button");
-
-const deleteProduct = async () => {
-    try {
-        const response = await fetch("https://golden-whispering-show.glitch.me/2", {
-            method: "DELETE",
-        });
-    } catch (error) {
-        console.error(error);
-
-    }
-};
+export { onProductDelete };

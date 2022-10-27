@@ -5,7 +5,7 @@ const showPost = (post) => {
     const updatePostButton = document.body.querySelector("#updatePostButton");
 
     postTitle.innerText = post.title;
-    postBody.innerText = post.body;
+    postBody.innerText = post.body.replaceAll("\n", ". ");
 
     postContainer.style.visibility = "visible";
     updatePostButton.style.visibility = "visible";

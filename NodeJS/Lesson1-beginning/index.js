@@ -23,4 +23,4 @@ casual.define('user', () => {
 
 const user = casual.user;
 
-console.info(user);
+console.info(JSON.stringify(user));

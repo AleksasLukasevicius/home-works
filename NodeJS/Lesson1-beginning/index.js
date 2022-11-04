@@ -21,6 +21,6 @@ casual.define('user', () => {
     };
 });
 
-const user = casual.user;
+const user = JSON.stringify(casual.user);
 
-console.info(JSON.stringify(user));
+console.info(user);

@@ -3,9 +3,10 @@ const cors = require("cors");
 
 const app = express()
 const PORT = 5_000;
+const users = [{ name: "Jonas" }, { name: "Tomas" }, { name: "Alex" }];
 
 app.use(express.json());
-
+app.use(cors());
 app.get("/", (_, res) => {
     res.send("Sveiki!");
 });
@@ -13,26 +14,25 @@ app.get("/", (_, res) => {
 app.post("/", (req, res) => {
     console.info({ requestBody: req.body });
 
-    const age = req.body.age || 5;
+    const age = req.body?.age || 0;
 
     const provideAge = age ? age : 0;
 
     console.info({ age, provideAge });
 
-    res.send({ ageTimesTwo: age * 2 });
+    res.send({ ageTimesTwo: provideAge * 2 });
 });
 
-const users = [{ name: "Jonas" }, { name: "Tomas" }, { name: "Alex" }];
 
 app.get("/:userId", (req, res) => {
-
+    console.info(req.params);
     const userId = +req.params?.userId;
 
     if (userId <= userId.lenght - 1 && userId >= 0) {
         res.send(users[userId])
     }
 
-    res.send(`Yuor user id is${userId}`);
+    res.send({ info: "User not found" });
 });
 
 app.listen(PORT, () => console.info(`Server is on ${PORT} port`)) 

@@ -1,5 +1,7 @@
-const userInfoSubmitButton = document.querySelectorAll("#user-info-submit-button");
+const userInfoSubmitButton = document.querySelector("#user-info-submit-button");
 const userParagraph = document.createElement('p');
+
+console.info(userInfoSubmitButton)
 
 userInfoSubmitButton.addEventListener("click", async () => {
 

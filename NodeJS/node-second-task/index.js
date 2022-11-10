@@ -28,12 +28,14 @@ app.post("/", (req, res) => {
 app.get("/:userId", (req, res) => {
     console.info(req.params);
     const userId = +req.params?.userId;
+    console.info(users[userId]);
 
-    if (userId <= userId.lenght - 1 && userId >= 0) {
+    if (userId <= users.length - 1 && userId >= 0) {
         res.send(users[userId])
+    } else {
+        res.send({ info: "User not found" });
     }
 
-    res.send({ info: "User not found" });
 });
 
 app.listen(PORT, () => console.info(`Server is on ${PORT} port`)) 

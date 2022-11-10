@@ -1,12 +1,13 @@
 const express = require("express");
 const cors = require("cors");
 
-const app = express()
+const app = express();
 const PORT = 5_000;
 const users = [{ name: "Jonas" }, { name: "Tomas" }, { name: "Alex" }];
 
 app.use(express.json());
 app.use(cors());
+
 app.get("/", (_, res) => {
     res.send("Sveiki!");
 });
@@ -14,7 +15,7 @@ app.get("/", (_, res) => {
 app.post("/", (req, res) => {
     console.info({ requestBody: req.body });
 
-    const age = req.body?.age || 0;
+    const age = req.body?.age || 100;
 
     const provideAge = age ? age : 0;
 

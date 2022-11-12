@@ -24,17 +24,26 @@ app.post("/", (req, res) => {
     res.send({ ageTimesTwo: provideAge * 2 });
 });
 
+// app.get("/:userId", (req, res) => {
+//     console.info(req.params);
+//     const userId = +req.params?.userId;
+//     console.info(users[userId]);
 
-app.get("/:userId", (req, res) => {
+//     if (userId <= users.length - 1 && userId >= 0) {
+//         res.send(users[userId])
+//     } else {
+//         res.send({ info: "User not found" });
+//     }
+
+// });
+
+app.get("/:userName", (req, res) => {
     console.info(req.params);
-    const userId = +req.params?.userId;
-    console.info(users[userId]);
+    const { userName } = req.params;
+    // const userName = req.params.userName;
+    const user = users.find(curentUser => curentUser.name.toLocaleLowerCase() === userName.toLocaleLowerCase().trim());
 
-    if (userId <= users.length - 1 && userId >= 0) {
-        res.send(users[userId])
-    } else {
-        res.send({ info: "User not found" });
-    }
+    res.send(user ?? { info: "User not found" });
 
 });
 

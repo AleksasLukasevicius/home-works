@@ -9,9 +9,17 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/", (_, res) => {
-    console.info("tikrinsim ESlint");
     res.send("Sveiki!");
 });
+
+app.get("/date", (req, res) => {
+    const { locale } = req.query || "en-US";
+    // const locale = req.query.locale || "en-US";
+
+    const formateedDate = new Date().toLocaleString("locale");
+
+    res.send(formateedDate);
+})
 
 app.post("/", (req, res) => {
     console.info({ requestBody: req.body });

@@ -9,6 +9,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/", (_, res) => {
+    console.info("tikrinsim ESlint");
     res.send("Sveiki!");
 });
 

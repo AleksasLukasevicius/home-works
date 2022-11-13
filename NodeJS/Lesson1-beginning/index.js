@@ -7,9 +7,9 @@ const randomPersonSuffix = casual.name_suffix;
 const randomPersonFirstName = casual.first_name;
 const randomPersonLastName = casual.last_name;
 
-console.info(`${city} ${randomNumber}`);
+console.info(city, randomNumber);
 
-console.info(`${randomPersonSuffix} ${randomPersonFirstName} ${randomPersonLastName}`);
+console.info(randomPersonSuffix, randomPersonFirstName, randomPersonLastName);
 
 // Generate object with randomly generated fields
 casual.define('user', () => {

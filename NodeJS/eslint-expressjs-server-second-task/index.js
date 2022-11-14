@@ -9,28 +9,28 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/", (_, res) => {
-    res.send("Sveiki!");
+	res.send("Sveiki!");
 });
 
 app.get("/date", (req, res) => {
-    const { locale } = req.query || "en-US";
-    // const locale = req.query.locale || "en-US";
+	const { locale } = req.query || "en-US";
+	// const locale = req.query.locale || "en-US";
 
-    const formateedDate = new Date().toLocaleString("locale");
+	const formateedDate = new Date().toLocaleString("locale");
 
-    res.send(formateedDate);
-})
+	res.send(formateedDate);
+});
 
 app.post("/", (req, res) => {
-    console.info({ requestBody: req.body });
+	console.info({ requestBody: req.body });
 
-    const age = req.body?.age || 100;
+	const age = req.body?.age || 100;
 
-    const provideAge = age ? age : 0;
+	const provideAge = age ? age : 0;
 
-    console.info({ age, provideAge });
+	console.info({ age, provideAge });
 
-    res.send({ ageTimesTwo: provideAge * 2 });
+	res.send({ ageTimesTwo: provideAge * 2 });
 });
 
 // app.get("/:userId", (req, res) => {
@@ -47,13 +47,16 @@ app.post("/", (req, res) => {
 // });
 
 app.get("/:userName", (req, res) => {
-    console.info(req.params);
-    const { userName } = req.params;
-    // const userName = req.params.userName;
-    const user = users.find(curentUser => curentUser.name.toLocaleLowerCase() === userName.toLocaleLowerCase().trim());
+	console.info(req.params);
+	const { userName } = req.params;
+	// const userName = req.params.userName;
+	const user = users.find(
+		(curentUser) =>
+			curentUser.name.toLocaleLowerCase() ===
+			userName.toLocaleLowerCase().trim()
+	);
 
-    res.send(user ?? { info: "User not found" });
-
+	res.send(user ?? { info: "User not found" });
 });
 
-app.listen(PORT, () => console.info(`Server is on ${PORT} port`)) 
+app.listen(PORT, () => console.info(`Server is on ${PORT} port`));

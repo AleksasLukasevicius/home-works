@@ -3,7 +3,6 @@ const cors = require("cors");
 const app = express();
 const PORT = 5_000;
 
-
 app.use(cors());
 
 app.get("/", (req, res) => {

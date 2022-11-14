@@ -16,9 +16,9 @@ app.get("/date", (req, res) => {
 	const { locale } = req.query || "en-US";
 	// const locale = req.query.locale || "en-US";
 
-	const formateedDate = new Date().toLocaleString("locale");
+	const formatedDate = new Date().toLocaleString("locale");
 
-	res.send(formateedDate);
+	res.send(formatedDate);
 });
 
 app.post("/", (req, res) => {

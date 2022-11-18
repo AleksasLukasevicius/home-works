@@ -11,7 +11,7 @@ const userNames = ["Alex", "Nadia", "Sofija", "Julija", "Murka :)"];
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => {
+app.get("/", (_, res) => {
   res.send(userNames).end();
 });
 
@@ -20,11 +20,11 @@ app.post("/", (req, res) => {
   const isDublicateName = userNames.find((curName) => curName === name);
 
   if (!name || typeof name !== "string") {
-    return res.status(400).end("incorrect name provided");
+    return res.status(400).end("Incorrect name provided");
   }
 
   if (isDublicateName) {
-    return res.status(400).end("this name is already exists");
+    return res.status(400).end("This name is already exists");
   }
 
   userNames.push(name);

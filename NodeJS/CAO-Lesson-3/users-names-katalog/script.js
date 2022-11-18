@@ -16,30 +16,33 @@ addNewUserNameForm.addEventListener("submit", async (event) => {
       }),
     });
 
+    usersNames = await response.json();
+
     await renderNames();
 
-    newUserNameInput.textContent = "";
+    newUserNameInput.value = "";
   } catch (error) {
     alert(error);
   }
 });
 
-const renderNames = async () => {
-  const usersNameList = document.querySelector("#usersNameList");
+const renderNames = async (isInitialRender) => {
+  if (isInitialRender) {
+    const response = await fetch(HOSTNAME);
+    usersNames = await response.json();
+  }
+
+  const usersNamesList = document.querySelector("#usersNameList");
 
   const response = await fetch(HOSTNAME);
-  const usersNames = await response.json();
-
-  console.info(response, usersNames);
+  usersNames = await response.json();
 
   usersNames.forEach((newUserName) => {
     const userNameElement = document.createElement("li");
 
     userNameElement.innerText = newUserName;
-    usersNameList.append(userNameElement);
+    usersNamesList.append(userNameElement);
   });
 };
-
-console.info({ usersNameList });
 
 renderNames();

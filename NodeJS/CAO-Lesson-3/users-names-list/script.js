@@ -12,7 +12,7 @@ addNewUserNameForm.addEventListener("submit", async (event) => {
   const newUserLastName = newUserLastNameInput.value.trim();
 
   try {
-    // Pavyzdys, kai naudojami POST metodu grąžinti vardai.
+    // POST metodu grąžinti user'iai.
     const response = await fetch("http://localhost:5000", {
       method: "POST",
       headers: { "Content-Type": "application/json; charset=UTF-8" },

@@ -1,48 +1,30 @@
-const addNewUserNameForm = document.body.querySelector("#addNewUserNameForm");
-const HOSTNAME = "http://localhost:5000/";
+const addNewUserNameForm = document.body.querySelector("#addNewUserForm");
+let usersNames = [];
 
 addNewUserNameForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const newUserNameInput = document.body.querySelector("#newUserNameInput");
   const newUserName = newUserNameInput.value.trim();
+  const newUserLastNameInput = document.body.querySelector(
+    "#newUserLastNameInput"
+  );
+  const newUserLastName = newUserLastNameInput.value.trim();
 
   try {
-    await fetch(HOSTNAME, {
+    // Pavyzdys, kai naudojami POST metodu grąžinti vardai.
+    const response = await fetch("http://localhost:5000", {
       method: "POST",
       headers: { "Content-Type": "application/json; charset=UTF-8" },
       body: JSON.stringify({
-        name: newUserName, // arba tiesiog newUserName
+        name: newUserName,
+        lastName: newUserLastName, // arba tiesiog newUserName
       }),
     });
 
-    usersNames = await response.json();
-
-    await renderNames();
-
     newUserNameInput.value = "";
+    newUserLastNameInput.value = "";
   } catch (error) {
     alert(error);
   }
 });
-
-const renderNames = async (isInitialRender) => {
-  if (isInitialRender) {
-    const response = await fetch(HOSTNAME);
-    usersNames = await response.json();
-  }
-
-  const usersNamesList = document.querySelector("#usersNameList");
-
-  const response = await fetch(HOSTNAME);
-  usersNames = await response.json();
-
-  usersNames.forEach((newUserName) => {
-    const userNameElement = document.createElement("li");
-
-    userNameElement.innerText = newUserName;
-    usersNamesList.append(userNameElement);
-  });
-};
-
-renderNames();

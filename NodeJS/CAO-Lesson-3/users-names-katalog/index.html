@@ -7,14 +7,19 @@
     <title>User name form</title>
   </head>
   <body>
-    <form id="addNewUserNameForm">
-      <legend>Enter new user name</legend>
-      <input id="newUserNameInput" />
-      <button id="newUserNameSubmit" type="submit">Enter</button>
+    <form id="addNewUserForm">
+      <legend>New user name and last name</legend>
+      <p><input id="newUserNameInput" /></p>
+      <p><input id="newUserLastNameInput" /></p>
+      <p>
+        <button id="newUserNameSubmit" type="submit">
+          Add new user name and last name
+        </button>
+      </p>
     </form>
     <section>
-      <ul id="usersNameList"></ul>
+      <h2><a href="./users-names-list.html">Users names:</a></h2>
     </section>
-    <script src="./script.js"></script>
+    <script type="module" src="./script.js"></script>
   </body>
 </html>

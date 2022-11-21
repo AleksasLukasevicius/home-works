@@ -31,8 +31,6 @@ app.get("/user/:id", (req, res) => {
     return res.status(400).send("User by Id does not exist").end();
   }
 
-  // res.send(userById).end();
-
   res.send(userById ?? { info: "User not found" });
 });
 

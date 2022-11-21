@@ -29,7 +29,7 @@ app.post("/", (req, res) => {
     return res.status(400).end("Incorrect name provided");
   }
 
-  if (isDublicateName ?? isDublicateLastName) {
+  if (isDublicateName && isDublicateLastName) {
     return res.status(400).end("This name or last name is already exists");
   }
 

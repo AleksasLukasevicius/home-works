@@ -29,6 +29,22 @@ app.get("/users", async (_, res) => {
   }
 });
 
+app.get("/user/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const connection = await client.connect();
+    const data = await connection
+      .db(DB)
+      .collection(dbCollection)
+      .findOne({ firstName: "Aleksas" })
+      .toArray();
+    await connection.close();
+    return res.send(data);
+  } catch (error) {
+    res.status(500).send({ error });
+  }
+});
+
 app.post("/user", async (req, res) => {
   const { firstName, lastName } = req.body;
 

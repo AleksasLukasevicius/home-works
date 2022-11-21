@@ -22,11 +22,18 @@ app.get("/:car", (req, res) => {
 });
 
 //filter by id
-app.get("/id/:id", (req, res) => {
-  const id = +req.params.id;
-  const userByID = data.filter((curentUser) => curentUser.id === id);
+app.get("/user/:id", (req, res) => {
+  const userId = +req.params.id;
 
-  res.send({ userByID }).end();
+  const userById = data.find((curentUser) => curentUser.id === userId);
+
+  if (!userById) {
+    return res.status(400).send("User by Id does not exist").end();
+  }
+
+  // res.send(userById).end();
+
+  res.send(userById ?? { info: "User not found" });
 });
 
 //filter users by emails
@@ -39,15 +46,16 @@ app.get("/user/email", (_, res) => {
 //filter users by gender
 app.get("/gender/:gender", (req, res) => {
   const { gender } = req.params;
+
   const usersByGender = data.filter(
     (user) => user.gender.toLowerCase() === gender.toLowerCase()
   );
 
-  const filtereUserNameLastName = usersByGender.map(
+  const filterGenderNameLastName = usersByGender.map(
     (user) => `${user.first_name} ${user.last_name}`
   );
 
-  res.send(filtereUserNameLastName).end();
+  res.send(filterGenderNameLastName).end();
 });
 
 app.listen(PORT, () => console.info(`Server is running no port ${PORT}`));

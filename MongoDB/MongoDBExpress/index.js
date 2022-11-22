@@ -15,24 +15,24 @@ app.use(express.json());
 app.use(cors());
 
 app.post("/collecctions", async (req, res) => {
-  const { tableName } = req.body;
+  const { collectionName } = req.body;
 
-  if (!tableName) {
-    return res.send({ message: "no table name proided" }).end();
+  if (!collectionName) {
+    return res.send({ message: "No collection name provided" }).end();
   }
 
   try {
     const connection = await client.connect();
-    const DB = connection.db(DB);
+    const dataBase = connection.db(DB);
 
-    await DB.createCollection(tableName);
+    // await dataBase.createCollection(collectionName); //sukuria
+    await dataBase.dropCollection(collectionName); //istrina
 
     await connection.close();
-
-    res.status(201).end();
   } catch (error) {
-    res.status(400).send({ message: error }).end();
+    res.send({ message: error }).end();
   }
+  res.status(201).send(`deleted ${collectionName} collection`).end();
 });
 
 app.get("/users", async (_, res) => {
@@ -86,10 +86,10 @@ app.get("/user/:id", async (req, res) => {
 });
 
 app.post("/user", async (req, res) => {
-  const { firstName, lastName } = req.body || {};
+  const { firstName, lastName, isStudent, age } = req.body || {};
 
   if (!firstName || !lastName) {
-    return res.status(400).send("Nepateikti first name ir last name").end();
+    return res.status(400).send("First name and last name not provided").end();
   }
 
   if (typeof firstName !== "string" || typeof lastName !== "string") {
@@ -104,10 +104,12 @@ app.post("/user", async (req, res) => {
     const dbRes = await connection.db(DB).collection(DBCOLLECTION).insertOne({
       firstName,
       lastName,
-      isStudent: false,
-      age: 35,
+      isStudent,
+      age,
     });
+
     await connection.close();
+
     return res.send(dbRes);
   } catch (error) {
     res.status(500).send({ error });

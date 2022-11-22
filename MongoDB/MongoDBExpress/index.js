@@ -5,11 +5,11 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = +process.env.PORT || 5000;
 const URI = process.env.URI;
 const client = new MongoClient(URI);
 const DB = process.env.DB;
-const dbCollection = process.env.dbCollection;
+const DBCOLLECTION = process.env.DBCOLLECTION;
 
 app.use(express.json());
 app.use(cors());
@@ -19,7 +19,7 @@ app.get("/users", async (_, res) => {
     const connection = await client.connect();
     const data = await connection
       .db(DB)
-      .collection(dbCollection)
+      .collection(DBCOLLECTION)
       .find()
       .toArray();
     await connection.close();
@@ -35,7 +35,7 @@ app.get("/user/:id", async (req, res) => {
     const connection = await client.connect();
     const data = await connection
       .db(DB)
-      .collection(dbCollection)
+      .collection(DBCOLLECTION)
       .findOne({ firstName: "Aleksas" })
       .toArray();
     await connection.close();
@@ -46,21 +46,22 @@ app.get("/user/:id", async (req, res) => {
 });
 
 app.post("/user", async (req, res) => {
-  const { firstName, lastName } = req.body;
+  const { firstName, lastName } = req.body || {};
 
   if (!firstName || !lastName) {
-    res.status(400).send("Nepateikti firstName ir lastName").end();
-    return;
+    return res.status(400).send("Nepateikti first name ir last name").end();
   }
 
   if (typeof firstName !== "string" || typeof lastName !== "string") {
-    res.status(400).send(`${firstName} and ${lastName} are not a string`).end();
-    return;
+    return res
+      .status(400)
+      .send(`${firstName} and ${lastName} are not a string`)
+      .end();
   }
 
   try {
     const connection = await client.connect();
-    const dbRes = await connection.db(DB).collection(dbCollection).insertOne({
+    const dbRes = await connection.db(DB).collection(DBCOLLECTION).insertOne({
       firstName,
       lastName,
       isStudent: false,

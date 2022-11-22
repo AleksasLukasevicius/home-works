@@ -1,4 +1,4 @@
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 const express = require("express");
 const cors = require("cors");
 
@@ -13,6 +13,27 @@ const DBCOLLECTION = process.env.DBCOLLECTION;
 
 app.use(express.json());
 app.use(cors());
+
+app.post("/collecctions", async (req, res) => {
+  const { tableName } = req.body;
+
+  if (!tableName) {
+    return res.send({ message: "no table name proided" }).end();
+  }
+
+  try {
+    const connection = await client.connect();
+    const DB = connection.db(DB);
+
+    await DB.createCollection(tableName);
+
+    await connection.close();
+
+    res.status(201).end();
+  } catch (error) {
+    res.status(400).send({ message: error }).end();
+  }
+});
 
 app.get("/users", async (_, res) => {
   try {
@@ -29,15 +50,34 @@ app.get("/users", async (_, res) => {
   }
 });
 
-app.get("/user/:id", async (req, res) => {
+app.get("/filtered-users", async (req, res) => {
+  const { firstName, lastName } = req.query;
+
   try {
-    const { id } = req.params;
     const connection = await client.connect();
     const data = await connection
       .db(DB)
       .collection(DBCOLLECTION)
-      .findOne({ firstName: "Aleksas" })
+      .find({ firstName, lastName })
       .toArray();
+
+    await connection.close();
+    return res.send(data);
+  } catch (error) {
+    res.status(500).send({ error });
+  }
+});
+
+app.get("/user/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const connection = await client.connect();
+    const data = await connection
+      .db(DB)
+      .collection(DBCOLLECTION)
+      .findOne({ _id: ObjectId(id) });
+    // .toArray();
     await connection.close();
     return res.send(data);
   } catch (error) {

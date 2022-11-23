@@ -67,6 +67,14 @@ app.patch("/order/:id", async (req, res) => {
   const { id } = req.params;
   const { productName, quantity } = req.body;
 
+  if (!productName) {
+    return res.send({ message: "No product name provided" }).end();
+  }
+
+  if (typeof productName !== "string") {
+    return res.status(400).send(`${productName} is not a string`).end();
+  }
+
   try {
     const connection = await client.connect();
     const data = connection.db(DB);
@@ -89,6 +97,10 @@ app.patch("/order/:id", async (req, res) => {
 //delete order by id
 app.delete("/order/:id", async (req, res) => {
   const { id } = req.params;
+
+  if (!id) {
+    return res.send({ message: "No id provided" }).end();
+  }
 
   try {
     const connection = await client.connect();

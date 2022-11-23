@@ -106,6 +106,7 @@ app.delete("/order/:id", async (req, res) => {
   }
 });
 
+//response test
 app.post("/", (_, res) => {
   res.send({ message: "Welcome to Alex project" });
 });

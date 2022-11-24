@@ -14,7 +14,6 @@ const DBCOLLECTION = process.env.DBCOLLECTION;
 app.use(express.json());
 app.use(cors());
 
-//all orders
 app.get("/orders", async (_, res) => {
   try {
     const connection = await client.connect();
@@ -23,14 +22,15 @@ app.get("/orders", async (_, res) => {
       .collection(DBCOLLECTION)
       .find()
       .toArray();
+
     await connection.close();
-    return res.send(data);
+
+    return res.send(data).end();
   } catch (error) {
-    res.status(500).send({ error });
+    res.status(500).send({ error }).end();
   }
 });
 
-// new order;
 app.post("/order", async (req, res) => {
   const { productName, quantity, isInStock, createDate } = req.body || {};
 
@@ -56,13 +56,12 @@ app.post("/order", async (req, res) => {
 
     await connection.close();
 
-    return res.send(data);
+    return res.send(data).end();
   } catch (error) {
-    res.status(500).send({ error });
+    res.status(500).send({ error }).end();
   }
 });
 
-//update order product name  and  quantity
 app.patch("/order/:id", async (req, res) => {
   const { id } = req.params;
   const { productName, quantity } = req.body;
@@ -94,7 +93,6 @@ app.patch("/order/:id", async (req, res) => {
   }
 });
 
-//delete order by id
 app.delete("/order/:id", async (req, res) => {
   const { id } = req.params;
 
@@ -118,9 +116,8 @@ app.delete("/order/:id", async (req, res) => {
   }
 });
 
-//response test
 app.post("/", (_, res) => {
-  res.send({ message: "Welcome to Alex project" });
+  res.send({ message: "Welcome to Alex project" }).end();
 });
 
-app.listen(PORT, () => console.info(`Server is runnig on ${PORT} port`));
+app.listen(PORT, () => console.info(`Server is running on ${PORT} port`));

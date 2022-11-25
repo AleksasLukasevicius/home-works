@@ -117,7 +117,7 @@ app.post("/user", async (req, res) => {
 });
 
 app.post("/", (_, res) => {
-  res.send({ message: "Welcome to Alex project" });
+  res.send({ message: "Welcome to Alex project" }).end();
 });
 
 app.listen(PORT, () => console.info(`Server is runnig on ${PORT} port`));

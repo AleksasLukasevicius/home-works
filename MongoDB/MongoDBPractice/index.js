@@ -51,7 +51,7 @@ app.post("/order", async (req, res) => {
         productName,
         quantity,
         isInStock,
-        createDate: new Date(createDate),
+        createDate: new Date(createDate).toISOString(),
       });
 
     await connection.close();
@@ -63,27 +63,43 @@ app.post("/order", async (req, res) => {
 });
 
 app.patch("/order/:id", async (req, res) => {
-  const { id } = req.params;
   const { productName, quantity } = req.body;
+  const { id } = req.params;
+  const isProperProductName = productName && typeof productName === "string";
+  const isProperQuantity =
+    typeof quantity === "number" && !Number.isNaN(quantity);
 
-  if (!productName) {
-    return res.send({ message: "No product name provided" }).end();
+  if (!productName && !quantity) {
+    return res
+      .status(400)
+      .send({ message: "Product name and quantity not provided" })
+      .end();
   }
 
-  if (typeof productName !== "string") {
-    return res.status(400).send(`${productName} is not a string`).end();
-  }
+  // if (!isProperProductName) {
+  //   return res.status(400).send(`${productName} is not a string`).end();
+  // }
+
+  // if (!isProperQuantity) {
+  //   return res.status(400).send(`${quantity} is not a number`).end();
+  // }
 
   try {
     const connection = await client.connect();
     const data = connection.db(DB);
+    const updateValues = {};
+
+    if (isProperProductName) {
+      updateValues.productName = productName;
+    }
+
+    if (isProperQuantity) {
+      updateValues.quantity = quantity;
+    }
 
     const order = await data
       .collection(DBCOLLECTION)
-      .findOneAndUpdate(
-        { _id: ObjectId(id) },
-        { $set: { productName, quantity } }
-      );
+      .findOneAndUpdate({ _id: ObjectId(id) }, { $set: updateValues });
 
     await connection.close();
 
@@ -97,7 +113,7 @@ app.delete("/order/:id", async (req, res) => {
   const { id } = req.params;
 
   if (!id) {
-    return res.send({ message: "No id provided" }).end();
+    return res.status(400).send({ message: "No id provided" }).end();
   }
 
   try {
@@ -110,7 +126,13 @@ app.delete("/order/:id", async (req, res) => {
 
     await connection.close();
 
-    res.send(order).end();
+    if (order.deletedCount) {
+      return res.status(200).send(order).end();
+    }
+    res
+      .status(404)
+      .send({ message: "An order with the provided id does not exists." })
+      .end();
   } catch (error) {
     return res.send({ error }).end();
   }

@@ -62,6 +62,36 @@ app.post("/order", async (req, res) => {
   }
 });
 
+app.post("/orders", async (req, res) => {
+  const newOrders = req.body;
+  const isOrdersProvided = Array.isArray(newOrders) && newOrders?.length;
+
+  const isCorrectOrder = (newOrder) => {
+    const { productName, quantity, isInStock, createDate } = newOrder;
+  };
+
+  if (!isOrdersProvided) {
+    res.status(404).send("Plesae provide an array of objects.");
+  }
+
+  newOrders.forEach(isCorrectOrder);
+  // newOrders.forEach((newOrder) => isCorrectOrder(newOrder));
+
+  try {
+    const connection = await client.connect();
+    const data = await connection
+      .db(DB)
+      .collection(DBCOLLECTION)
+      .insertMany(newOrders);
+
+    await connection.close();
+
+    return res.send(data).end();
+  } catch (error) {
+    res.status(500).send({ error }).end();
+  }
+});
+
 app.patch("/order/:id", async (req, res) => {
   const { productName, quantity } = req.body;
   const { id } = req.params;

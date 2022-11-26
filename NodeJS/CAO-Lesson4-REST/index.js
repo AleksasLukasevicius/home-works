@@ -35,7 +35,7 @@ app.get("/user/:id", (req, res) => {
 });
 
 //filter users by emails
-app.get("/user/email", (_, res) => {
+app.get("/users/email", (_, res) => {
   const usersEmails = data.map((user) => user.email);
 
   res.send(usersEmails).end();

@@ -58,4 +58,22 @@ app.post("/pet", async (req, res) => {
   }
 });
 
+app.get("/pets/:type", async (req, res) => {
+  const { type } = req.params;
+  try {
+    const connection = await client.connect();
+    const data = await connection
+      .db(DB)
+      .collection(DBCOLLECTION)
+      .find({ type })
+      .toArray();
+
+    await connection.close();
+
+    return res.send(data).end();
+  } catch (error) {
+    res.status(500).send({ error }).end();
+  }
+});
+
 app.listen(PORT, () => console.info(`Server is running on ${PORT} port`));

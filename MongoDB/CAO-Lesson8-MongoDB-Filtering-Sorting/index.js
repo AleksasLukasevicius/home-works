@@ -60,6 +60,7 @@ app.post("/pet", async (req, res) => {
 
 app.get("/pets/:type", async (req, res) => {
   const { type } = req.params;
+
   try {
     const connection = await client.connect();
     const data = await connection

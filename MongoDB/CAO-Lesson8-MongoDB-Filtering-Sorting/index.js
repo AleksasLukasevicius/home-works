@@ -35,7 +35,7 @@ app.post("/pet", async (req, res) => {
   const { name, type, age } = req.body || {};
 
   if (!name) {
-    return res.status(400).send("Product name not provided").end();
+    return res.status(400).send("Pet name not provided").end();
   }
 
   if (typeof name !== "string") {
@@ -86,33 +86,6 @@ app.get("/pets/age/byoldest", async (req, res) => {
       .find()
       .sort({ age: -1 })
       .toArray();
-
-    await connection.close();
-
-    return res.send(data).end();
-  } catch (error) {
-    res.status(500).send({ error }).end();
-  }
-});
-
-app.post("/pet", async (req, res) => {
-  const { name, type, age } = req.body || {};
-
-  if (!name) {
-    return res.status(400).send("Pet name not provided").end();
-  }
-
-  if (typeof name !== "string") {
-    return res.status(400).send(`${name} is not a string`).end();
-  }
-
-  try {
-    const connection = await client.connect();
-    const data = await connection.db(DB).collection(DBCOLLECTION).insertOne({
-      name,
-      type,
-      age,
-    });
 
     await connection.close();
 

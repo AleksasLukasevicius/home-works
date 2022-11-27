@@ -77,16 +77,14 @@ app.get("/pets/:type", async (req, res) => {
   }
 });
 
-app.get("/pets/byoldest", async (req, res) => {
-  const { type } = req.params;
-
+app.get("/pets/age/byoldest", async (req, res) => {
   try {
     const connection = await client.connect();
     const data = await connection
       .db(DB)
       .collection(DBCOLLECTION)
-      .find({ type })
-      .sort({ age: 1 })
+      .find()
+      .sort({ age: -1 })
       .toArray();
 
     await connection.close();

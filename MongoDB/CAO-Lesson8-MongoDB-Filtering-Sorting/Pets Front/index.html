@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css"
     />
+    <link rel="stylesheet" href="style.css" />
     <title>Pets</title>
   </head>
   <body>
@@ -15,27 +16,27 @@
 
     <h1>Pets</h1>
 
-    <button id="dog-button">Dog</button>
-    <button id="cat-button">Cat</button>
-    <button id="bunny-button">Bunny</button>
+    <button id="dog-button" class="selected">Dog</button>
+    <button id="cat-button" class="selected">Cat</button>
+    <button id="bunny-button" class="selected">Bunny</button>
 
     <table id="pets-table">
       <thead>
         <tr>
           <th>Name</th>
           <th>Type</th>
-          <th>Age(Asc)</th>
+          <th id="age-sort">Age(Asc)</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Sharik</td>
-          <td>Dog</td>
-          <td>9</td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
       </tbody>
     </table>
 
-    <script type="module" src="./script.js"></script>
+    <script type="module" src="./getPets.js"></script>
   </body>
 </html>

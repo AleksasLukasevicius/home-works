@@ -14,13 +14,14 @@ const DBCOLLECTION = process.env.DBCOLLECTION;
 app.use(express.json());
 app.use(cors());
 
-app.get("/pets", async (_, res) => {
+app.get("/pets/:types/:order?", async (req, res) => {
   try {
     const connection = await client.connect();
     const data = await connection
       .db(DB)
       .collection(DBCOLLECTION)
-      .find()
+      .find({ type: { $in: req.params.types?.split(",") } })
+      .sort({ age: req.params.order?.toLowerCase() === "dsc" ? -1 : 1 })
       .toArray();
 
     await connection.close();

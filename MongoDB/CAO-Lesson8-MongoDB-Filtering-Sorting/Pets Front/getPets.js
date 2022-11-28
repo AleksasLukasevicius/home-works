@@ -32,9 +32,9 @@ function showPets(data) {
   });
 }
 
-fetch("http://localhost:5000/pets")
-  .then((res) => res.json())
-  .then((data) => showPets(data));
+// fetch("http://localhost:5000/pets")
+//   .then((res) => res.json())
+//   .then((data) => showPets(data));
 
 document.querySelector("#age-sort").addEventListener("click", (event) => {
   const text = event.target.textContent;

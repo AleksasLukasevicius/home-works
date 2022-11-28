@@ -1,19 +1,9 @@
 let orderSelection = "asc";
 let petSelection = ["dog", "cat", "bunny"];
 
-function showPets(data) {
+function dataDisplay(data) {
   const table = document.querySelector("tbody");
   table.innerHTML = "";
-
-  function getPets() {
-    fetch(
-      `http://localhost:5000/pets/${petSelection.join(",")}/${orderSelection}}`
-    )
-      .then((res) => res.json())
-      .then((data) => showPets(data));
-  }
-
-  getPets();
 
   data.forEach((pet) => {
     const tableRowElement = document.createElement("tr");
@@ -32,9 +22,19 @@ function showPets(data) {
   });
 }
 
-// fetch("http://localhost:5000/pets")
-//   .then((res) => res.json())
-//   .then((data) => showPets(data));
+fetch("http://localhost:5000/pets")
+  .then((res) => res.json())
+  .then((data) => dataDisplay(data));
+
+function getData() {
+  fetch(
+    `http://localhost:5000/pets/${petSelection.join(",")}/${orderSelection}}`
+  )
+    .then((res) => res.json())
+    .then((data) => dataDisplay(data));
+}
+
+getData();
 
 document.querySelector("#age-sort").addEventListener("click", (event) => {
   const text = event.target.textContent;
@@ -46,7 +46,7 @@ document.querySelector("#age-sort").addEventListener("click", (event) => {
     orderSelection = "asc";
   }
 
-  getPets();
+  getData();
 });
 
 document.querySelectorAll("button").forEach((button) =>
@@ -62,6 +62,6 @@ document.querySelectorAll("button").forEach((button) =>
     } else {
       petSelection.push(petClicked);
     }
-    getPets();
+    getData();
   })
 );

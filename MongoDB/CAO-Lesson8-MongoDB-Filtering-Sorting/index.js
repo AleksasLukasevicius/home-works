@@ -14,7 +14,7 @@ const DBCOLLECTION = process.env.DBCOLLECTION;
 app.use(express.json());
 app.use(cors());
 
-app.get("/pets/:types/:order?", async (req, res) => {
+app.get("/pets/:types?/:order?", async (req, res) => {
   try {
     const connection = await client.connect();
     const data = await connection
@@ -35,8 +35,8 @@ app.get("/pets/:types/:order?", async (req, res) => {
 app.post("/pet", async (req, res) => {
   const { name, type, age } = req.body || {};
 
-  if (!name) {
-    return res.status(400).send("Pet name not provided").end();
+  if (!name || !type || !age) {
+    return res.status(400).send("Pet name or type or age not provided").end();
   }
 
   if (typeof name !== "string") {
@@ -78,22 +78,22 @@ app.get("/pets/:type", async (req, res) => {
   }
 });
 
-app.get("/pets/age/byoldest", async (req, res) => {
-  try {
-    const connection = await client.connect();
-    const data = await connection
-      .db(DB)
-      .collection(DBCOLLECTION)
-      .find()
-      .sort({ age: -1 })
-      .toArray();
+// app.get("/pets/age/byoldest", async (req, res) => {
+//   try {
+//     const connection = await client.connect();
+//     const data = await connection
+//       .db(DB)
+//       .collection(DBCOLLECTION)
+//       .find()
+//       .sort({ age: -1 })
+//       .toArray();
 
-    await connection.close();
+//     await connection.close();
 
-    return res.send(data).end();
-  } catch (error) {
-    res.status(500).send({ error }).end();
-  }
-});
+//     return res.send(data).end();
+//   } catch (error) {
+//     res.status(500).send({ error }).end();
+//   }
+// });
 
 app.listen(PORT, () => console.info(`Server is running on ${PORT} port`));

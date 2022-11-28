@@ -63,7 +63,7 @@ app.post("/order", async (req, res) => {
 });
 
 app.post("/orders", async (req, res) => {
-  const newOrders = req.body;
+  const { newOrders } = req.body;
   const isOrdersProvided = Array.isArray(newOrders) && newOrders?.length;
 
   const isCorrectOrder = (newOrder) => {
@@ -86,7 +86,7 @@ app.post("/orders", async (req, res) => {
 
     await connection.close();
 
-    return res.send(data).end();
+    res.send(data).end();
   } catch (error) {
     res.status(500).send({ error }).end();
   }
@@ -165,6 +165,29 @@ app.delete("/order/:id", async (req, res) => {
       .end();
   } catch (error) {
     return res.send({ error }).end();
+  }
+});
+
+app.get("/orders-count", async (req, res) => {
+  const { productName } = req.body;
+  try {
+    const connection = await client.connect();
+    const ordersCount = await connection
+      .db(DB)
+      .collection(DBCOLLECTION)
+      .count({ productName });
+    const data = await connection
+      .db(DB)
+      .collection(DBCOLLECTION)
+      .find()
+      .toArray();
+
+    await connection.close();
+
+    res.send({ ordersCount, data }).end();
+  } catch (error) {
+    res.status(500).send({ error }).end();
+    throw Error(error);
   }
 });
 

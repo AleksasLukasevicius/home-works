@@ -168,23 +168,25 @@ app.delete("/order/:id", async (req, res) => {
   }
 });
 
-app.get("/orders-count", async (req, res) => {
+app.get("/orders-analysis", async (req, res) => {
   const { productName } = req.body;
+
+  //to do if
+
   try {
     const connection = await client.connect();
     const ordersCount = await connection
       .db(DB)
       .collection(DBCOLLECTION)
       .count({ productName });
-    const data = await connection
+    const quantities = await connection
       .db(DB)
       .collection(DBCOLLECTION)
-      .find()
-      .toArray();
+      .distinct("quantity");
 
     await connection.close();
 
-    res.send({ ordersCount, data }).end();
+    res.send({ ordersCount, quantities }).end();
   } catch (error) {
     res.status(500).send({ error }).end();
     throw Error(error);

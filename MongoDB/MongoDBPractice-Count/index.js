@@ -34,6 +34,7 @@ app.get("/users", async (_, res) => {
 app.get("/users-count", async (req, res) => {
   const { firsttName } = req.body;
   try {
+    const docs = [];
     const connection = await client.connect();
     const usersCount = await connection
       .db(DB)
@@ -44,6 +45,11 @@ app.get("/users-count", async (req, res) => {
       .collection(DBCOLLECTION)
       .find()
       .toArray();
+    const aggregationCursor = collection.aggregate(pipeline);
+
+    for await (const doc of aggregationCursor) {
+      docs.push(doc);
+    }
 
     await connection.close();
 
@@ -52,10 +58,6 @@ app.get("/users-count", async (req, res) => {
     res.status(500).send({ error }).end();
     throw Error(error);
   }
-});
-
-app.post("/", (_, res) => {
-  res.send({ message: "Welcome to Alex project" }).end();
 });
 
 app.listen(PORT, () => console.info(`Server is running on ${PORT} port`));

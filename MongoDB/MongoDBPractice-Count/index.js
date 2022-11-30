@@ -32,28 +32,30 @@ app.get("/users", async (_, res) => {
 });
 
 app.get("/users-count", async (req, res) => {
-  const { firsttName } = req.body;
+  const { firstName } = req.body;
   try {
-    const docs = [];
+    const elements = [];
     const connection = await client.connect();
+
     const usersCount = await connection
       .db(DB)
       .collection(DBCOLLECTION)
-      .count({ firsttName });
-    const data = await connection
+      .count({ firstName });
+
+    const users = await connection
       .db(DB)
       .collection(DBCOLLECTION)
-      .find()
-      .toArray();
+      .distinct("firstName");
+
     const aggregationCursor = collection.aggregate(pipeline);
 
-    for await (const doc of aggregationCursor) {
-      docs.push(doc);
+    for await (const element of aggregationCursor) {
+      elements.push(element);
     }
 
     await connection.close();
 
-    res.send({ usersCount, data }).end();
+    res.send({ elements, usersCount, users }).end();
   } catch (error) {
     res.status(500).send({ error }).end();
     throw Error(error);

@@ -1,4 +1,4 @@
-const { MongoClient, ObjectId } = require("mongodb");
+const { MongoClient } = require("mongodb");
 const express = require("express");
 const cors = require("cors");
 
@@ -14,48 +14,78 @@ const DBCOLLECTION = process.env.DBCOLLECTION;
 app.use(express.json());
 app.use(cors());
 
-app.get("/users", async (_, res) => {
+app.get("/users-count", async (_, res) => {
+  //ToDo if???
+
   try {
     const connection = await client.connect();
-    const data = await connection
-      .db(DB)
-      .collection(DBCOLLECTION)
-      .find()
-      .toArray();
-
-    await connection.close();
-
-    return res.send(data).end();
-  } catch (error) {
-    res.status(500).send({ error }).end();
-  }
-});
-
-app.get("/users-count", async (req, res) => {
-  const { firstName } = req.body;
-  try {
-    const elements = [];
-    const connection = await client.connect();
-
     const usersCount = await connection
       .db(DB)
       .collection(DBCOLLECTION)
-      .count({ firstName });
+      .count({ lastName: "Lukaševičius" });
 
-    const users = await connection
+    await connection.close();
+
+    res.send({ usersCount }).end();
+  } catch (error) {
+    res.status(500).send({ error }).end();
+    throw Error(error);
+  }
+});
+
+app.get("/users-uniqnames", async (_, res) => {
+  //ToDo if???
+
+  try {
+    const connection = await client.connect();
+    const usersNames = await connection
       .db(DB)
       .collection(DBCOLLECTION)
       .distinct("firstName");
 
-    const aggregationCursor = collection.aggregate(pipeline);
+    await connection.close();
 
-    for await (const element of aggregationCursor) {
-      elements.push(element);
+    res.send({ usersNames }).end();
+  } catch (error) {
+    res.status(500).send({ error }).end();
+    throw Error(error);
+  }
+});
+
+app.get("/students-avgage", async (_, res) => {
+  //ToDo if???
+
+  const pipeline = [
+    {
+      $match: {
+        isStudent: true,
+      },
+    },
+    {
+      $group: {
+        _id: "$isStudent",
+        avgAge: { $avg: "$age" },
+      },
+    },
+    {
+      $sort: { avgAge: -1 },
+    },
+  ];
+  try {
+    const students = [];
+    const connection = await client.connect();
+    const aggregationCursor = await connection
+      .db(DB)
+      .collection(DBCOLLECTION)
+      .aggregate(pipeline);
+
+    for await (const student of aggregationCursor) {
+      students.push(student);
     }
 
     await connection.close();
 
-    res.send({ elements, usersCount, users }).end();
+    res.send({ students }).end();
   } catch (error) {
     res.status(500).send({ error }).end();
     throw Error(error);

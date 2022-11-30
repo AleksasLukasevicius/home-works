@@ -169,7 +169,7 @@ app.delete("/order/:id", async (req, res) => {
 });
 
 app.get("/orders-analysis", async (req, res) => {
-  const { isInStock } = req.body;
+  // const { isInStock } = req.body;
   const pipeline = [
     {
       $match: {
@@ -193,10 +193,10 @@ app.get("/orders-analysis", async (req, res) => {
     const elements = [];
     const connection = await client.connect();
 
-    const ordersCount = await connection
+    const elementsCount = await connection
       .db(DB)
       .collection(DBCOLLECTION)
-      .count({ isInStock });
+      .count({ isInStock: true });
 
     const products = await connection
       .db(DB)
@@ -214,7 +214,7 @@ app.get("/orders-analysis", async (req, res) => {
 
     await connection.close();
 
-    res.send({ elements, ordersCount, products }).end();
+    res.send({ elements, elementsCount, products }).end();
   } catch (error) {
     res.status(500).send({ error }).end();
     throw Error(error);

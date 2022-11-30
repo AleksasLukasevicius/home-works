@@ -169,24 +169,52 @@ app.delete("/order/:id", async (req, res) => {
 });
 
 app.get("/orders-analysis", async (req, res) => {
-  const { productName } = req.body;
+  const { isInStock } = req.body;
+  const pipeline = [
+    {
+      $match: {
+        isInStock: false,
+      },
+    },
+    {
+      $group: {
+        _id: "$isInStock",
+        totalQuantity: { $sum: "$quantity" },
+      },
+    },
+    {
+      $sort: { totalQuantity: -1 },
+    },
+  ];
 
   //to do if
 
   try {
+    const elements = [];
     const connection = await client.connect();
+
     const ordersCount = await connection
       .db(DB)
       .collection(DBCOLLECTION)
-      .count({ productName });
-    const quantities = await connection
+      .count({ isInStock });
+
+    const products = await connection
       .db(DB)
       .collection(DBCOLLECTION)
-      .distinct("quantity");
+      .distinct("productName");
+
+    const aggregationCursor = await connection
+      .db(DB)
+      .collection(DBCOLLECTION)
+      .aggregate(pipeline);
+
+    for await (const element of aggregationCursor) {
+      elements.push(element);
+    }
 
     await connection.close();
 
-    res.send({ ordersCount, quantities }).end();
+    res.send({ elements, ordersCount, products }).end();
   } catch (error) {
     res.status(500).send({ error }).end();
     throw Error(error);

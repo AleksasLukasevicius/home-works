@@ -1,43 +1,26 @@
+import { petsTable } from "./petsTable.js";
+
 let orderSelection = "asc";
 let petSelection = ["dog", "cat", "bunny"];
 
-function dataDisplay(data) {
-  const table = document.querySelector("tbody");
-  table.innerHTML = "";
+const getPets = async () => {
+  try {
+    const response = await fetch(
+      `http://localhost:5000/pets/${petSelection.join(",")}/${orderSelection}}`
+    );
+    const pets = await response.json();
 
-  data.forEach((pet) => {
-    const tableRowElement = document.createElement("tr");
-    const tableNameElement = document.createElement("td");
-    const tableTypeElement = document.createElement("td");
-    const tableAgeElement = document.createElement("td");
+    petsTable(pets);
+  } catch (error) {
+    console.info(error);
+  }
+};
 
-    const { name, type, age } = pet;
+await getPets();
 
-    tableNameElement.textContent = name;
-    tableTypeElement.textContent = type;
-    tableAgeElement.textContent = age;
-
-    tableRowElement.append(tableNameElement, tableTypeElement, tableAgeElement);
-    table.append(tableRowElement);
-  });
-}
-
-fetch("http://localhost:5000/pets")
-  .then((res) => res.json())
-  .then((data) => dataDisplay(data));
-
-function getData() {
-  fetch(
-    `http://localhost:5000/pets/${petSelection.join(",")}/${orderSelection}}`
-  )
-    .then((res) => res.json())
-    .then((data) => dataDisplay(data));
-}
-
-getData();
-
-document.querySelector("#age-sort").addEventListener("click", (event) => {
+document.querySelector("#age-sort").addEventListener("click", async (event) => {
   const text = event.target.textContent;
+
   if (text.includes("Asc")) {
     event.target.textContent = text.replace("Asc", "Dsc");
     orderSelection = "dcs";
@@ -46,11 +29,11 @@ document.querySelector("#age-sort").addEventListener("click", (event) => {
     orderSelection = "asc";
   }
 
-  getData();
+  await getPets();
 });
 
 document.querySelectorAll("button").forEach((button) =>
-  button.addEventListener("click", (event) => {
+  button.addEventListener("click", async (event) => {
     event.target.classList.toggle("selected");
 
     const petClicked = event.target.textContent.toLowerCase();
@@ -62,6 +45,6 @@ document.querySelectorAll("button").forEach((button) =>
     } else {
       petSelection.push(petClicked);
     }
-    getData();
+    await getPets();
   })
 );

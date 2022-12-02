@@ -1,4 +1,4 @@
-const { MongoClient, ObjectId } = require("mongodb");
+const { MongoClient } = require("mongodb");
 const express = require("express");
 const cors = require("cors");
 
@@ -14,37 +14,22 @@ const DBCOLLECTION = process.env.DBCOLLECTION;
 app.use(express.json());
 app.use(cors());
 
-app.get("/pets", async (req, res) => {
-  try {
-    const connection = await client.connect();
-    const pets = await connection
-      .db(DB)
-      .collection(DBCOLLECTION)
-      .find()
-      .sort()
-      .toArray();
-
-    await connection.close();
-
-    return res.send(pets).end();
-  } catch (error) {
-    res.status(500).send({ error }).end();
-  }
-});
-
 app.get("/pets/:types?/:order?", async (req, res) => {
+  const { order } = req.params;
+  const { types } = req.params;
+
   try {
     const connection = await client.connect();
     const pets = await connection
       .db(DB)
       .collection(DBCOLLECTION)
-      .find({ type: { $in: req.params.types?.split(",") } })
-      .sort({ age: req.params.order?.toLowerCase() === "dsc" ? -1 : 1 })
+      .find({ type: { $in: types?.split(",") } })
+      .sort({ age: order?.toLowerCase() === "dsc" ? -1 : 1 })
       .toArray();
 
     await connection.close();
 
-    return res.send(pets).end();
+    res.send(pets).end();
   } catch (error) {
     res.status(500).send({ error }).end();
   }
@@ -73,7 +58,7 @@ app.post("/pet", async (req, res) => {
 
     return res.send(pet).end();
   } catch (error) {
-    res.status(500).send({ error }).end();
+    return res.status(500).send({ error }).end();
   }
 });
 
@@ -90,13 +75,13 @@ app.get("/pets/:type", async (req, res) => {
 
     await connection.close();
 
-    return res.send(pets).end();
+    res.send(pets).end();
   } catch (error) {
     res.status(500).send({ error }).end();
   }
 });
 
-app.get("/pets/age/byoldest", async (req, res) => {
+app.get("/pets-age-by-oldest", async (_, res) => {
   try {
     const connection = await client.connect();
     const pets = await connection
@@ -108,7 +93,7 @@ app.get("/pets/age/byoldest", async (req, res) => {
 
     await connection.close();
 
-    return res.send(pets).end();
+    res.send(pets).end();
   } catch (error) {
     res.status(500).send({ error }).end();
   }

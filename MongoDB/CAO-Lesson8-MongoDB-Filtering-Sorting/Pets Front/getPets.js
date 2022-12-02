@@ -6,7 +6,7 @@ let petSelection = ["dog", "cat", "bunny"];
 const getPets = async () => {
   try {
     const response = await fetch(
-      `http://localhost:5000/pets/${petSelection.join(",")}/${orderSelection}}`
+      `http://localhost:5000/pets/${petSelection.join(",")}/${orderSelection}`
     );
     const pets = await response.json();
 

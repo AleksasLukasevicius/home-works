@@ -5,15 +5,16 @@ document.body
 
     const name = document.querySelector("#pet-name").value.trim();
     const age = +document.querySelector("#pet-age").value;
-    const type = document.querySelector("#pet-type").value;
+    const type = document.querySelector("#pet-type").value.toLocaleLowerCase();
 
     try {
-      const request = await fetch("http://localhost:5000/pet", {
+      const newPet = await fetch("http://localhost:5000/pet", {
         method: "POST",
         headers: { "Content-Type": "application/json; charset=UTF-8" },
         body: JSON.stringify({ name, age, type }),
       });
-      return request;
+
+      return newPet;
     } catch (error) {
       alert(error);
     }

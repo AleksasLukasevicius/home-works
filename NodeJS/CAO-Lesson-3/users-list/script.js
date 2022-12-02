@@ -24,6 +24,7 @@ addNewUserNameForm.addEventListener("submit", async (event) => {
 
     newUserNameInput.value = "";
     newUserLastNameInput.value = "";
+    return response;
   } catch (error) {
     alert(error);
   }

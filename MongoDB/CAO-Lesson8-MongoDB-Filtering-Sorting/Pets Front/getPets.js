@@ -1,4 +1,4 @@
-import { petsTable } from "./petsTable.js";
+import { showPets } from "./showPets.js";
 
 let orderSelection = "asc";
 let petSelection = ["dog", "cat", "bunny"];
@@ -10,9 +10,9 @@ const getPets = async () => {
     );
     const pets = await response.json();
 
-    petsTable(pets);
+    showPets(pets);
   } catch (error) {
-    console.info(error);
+    console.error(error);
   }
 };
 

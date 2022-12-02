@@ -1,4 +1,4 @@
-const petsTable = (pets) => {
+const showPets = (pets) => {
   const table = document.querySelector("tbody");
   table.innerHTML = "";
 
@@ -19,4 +19,4 @@ const petsTable = (pets) => {
   });
 };
 
-export { petsTable };
+export { showPets };

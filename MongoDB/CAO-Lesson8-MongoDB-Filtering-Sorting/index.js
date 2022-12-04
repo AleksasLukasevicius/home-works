@@ -36,7 +36,8 @@ app.get("/pets/:types?/:order?", async (req, res) => {
 });
 
 app.post("/pet", async (req, res) => {
-  const { name, type, age } = req.body || {};
+  const { name, age } = req.body || {};
+  const type = req.body.type.trim().toLocaleLowerCase();
 
   if (!name || !type || !age) {
     return res.status(400).send("Pet name or type or age not provided").end();

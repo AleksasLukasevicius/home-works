@@ -32,6 +32,7 @@ app.get("/pets/:types?/:order?", async (req, res) => {
     res.send(pets).end();
   } catch (error) {
     res.status(500).send({ error }).end();
+    throw Error(error);
   }
 });
 
@@ -59,7 +60,8 @@ app.post("/pet", async (req, res) => {
 
     return res.send(pet).end();
   } catch (error) {
-    return res.status(500).send({ error }).end();
+    res.status(500).send({ error }).end();
+    throw Error(error);
   }
 });
 
@@ -79,6 +81,7 @@ app.get("/pets/:type", async (req, res) => {
     res.send(pets).end();
   } catch (error) {
     res.status(500).send({ error }).end();
+    throw Error(error);
   }
 });
 
@@ -97,6 +100,7 @@ app.get("/pets-age-by-oldest", async (_, res) => {
     res.send(pets).end();
   } catch (error) {
     res.status(500).send({ error }).end();
+    throw Error(error);
   }
 });
 

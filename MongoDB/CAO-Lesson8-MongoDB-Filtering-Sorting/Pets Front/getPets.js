@@ -23,7 +23,7 @@ document.querySelector("#age-sort").addEventListener("click", async (event) => {
 
   if (text.includes("Asc")) {
     event.target.textContent = text.replace("Asc", "Dsc");
-    orderSelection = "dcs";
+    orderSelection = "dsc";
   } else {
     event.target.textContent = text.replace("Dsc", "Asc");
     orderSelection = "asc";

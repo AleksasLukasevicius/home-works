@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Pets</title>
+  </head>
+  <body>
+    <a href="./add.html">Add pet</a>
+
+    <h1>Pets</h1>
+
+    <button id="dog-button" class="selected">Dog</button>
+    <button id="cat-button" class="selected">Cat</button>
+    <button id="bunny-button" class="selected">Bunny</button>
+
+    <table id="pets-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th id="age-sort">Age (Asc)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script type="module" src="./getPets.js"></script>
+  </body>
+</html>

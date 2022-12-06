@@ -77,6 +77,17 @@ p {
   padding: 0rem 0rem;
 }
 
+form {
+  display: flex;
+  background-color: #fff;
+  width: 75%;
+  display: flex;
+  align-items: baseline;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0rem 0rem;
+}
+
 .button-container {
   width: 30%;
   display: flex;

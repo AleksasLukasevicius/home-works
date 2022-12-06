@@ -12,34 +12,40 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <title>Users</title>
+
+    <title>New Membership</title>
   </head>
   <body>
     <header>
       <nav>
-        <a href="./index.html">Membersihps</a>
-        <a id="url" href="./users.html">Users</a>
+        <a id="url" href="./index.html">Membersihps</a>
+        <a href="./users.html">Users</a>
       </nav>
     </header>
     <main>
       <section class="wrapper">
         <div class="title-conatiner">
           <div>
-            <h1>Users Managment</h1>
-            <p></p>
+            <h1>Membership Managment</h1>
+            <p>
+              Here you can manage your membershio packages. Note: Make sure are
+              not deleting or deactivating packages assigned to active users.
+            </p>
           </div>
           <div class="button-container">
-            <button id="button">+ New User</button>
+            <button id="button">+ New Membership</button>
           </div>
         </div>
+
+        <form id="new-element">
+          <label for="memberhip-name">Name</label>
+          <input name="memberhip-name" id="input-memberhip-name" />
+          <label for="memberhip-price">Name</label>
+          <input name="memberhip-price" id="input--memberhipprice" />
+          <label for="discription">Name</label>
+          <textarea name="discription" id="" cols="30" rows="10"></textarea>
+        </form>
       </section>
-      <section></section>
     </main>
     <footer>Copyright © 2022 Membership Managment</footer>
   </body>

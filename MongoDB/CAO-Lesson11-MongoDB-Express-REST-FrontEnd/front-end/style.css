@@ -1,12 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-}
-body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Inter", "Roboto", sans-serif;
 }
 
 nav {
@@ -19,13 +16,39 @@ nav {
 a {
   text-decoration: none;
   font-style: 100;
+  color: #b5b7df;
+}
+
+#url {
+  color: #7f84e3;
+}
+
+a:active {
+  color: yellow;
+}
+
+a:link,
+a:visited {
+  color: #cfd0dd;
+}
+
+a:hover,
+a:active {
+  color: #4d54df;
 }
 
 main {
   background-color: rgb(226, 238, 238);
 }
 
-h3 {
+footer {
+  text-align: center;
+  font-size: small;
+  background-color: rgb(226, 238, 238);
+  padding-bottom: 2rem;
+}
+
+h1 {
   font-weight: 400;
 }
 
@@ -62,15 +85,15 @@ p {
 }
 
 .button-container #button {
-  /* margin: 50px 0; */
+  width: 10rem;
   padding: 10px 15px;
   background-color: #7f84e3;
   box-shadow: 0 0 2px 2px rgba(185, 173, 173, 0.5);
   border: #222;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   color: #fff;
   font-weight: 500;
-  font-size: 1em;
+  font-size: small;
   text-align: center;
 }
 

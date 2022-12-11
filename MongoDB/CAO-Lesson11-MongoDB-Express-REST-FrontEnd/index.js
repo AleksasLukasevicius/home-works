@@ -22,7 +22,7 @@ app.get("/memberships", async (req, res) => {
       .db(DB)
       .collection(SERVICESDBCOLLECTION)
       .find()
-      .sort()
+      .sort({ price: 1 })
       .toArray();
 
     await connection.close();
@@ -36,17 +36,12 @@ app.get("/memberships", async (req, res) => {
 
 app.post("/memberships", async (req, res) => {
   const { name, price, description } = req.body || {};
-  const type = req.body.type.trim().toLocaleLowerCase();
 
   if (!name || !price || !description) {
     return res
       .status(400)
       .send("Membership name or price or description not provided")
       .end();
-  }
-
-  if (typeof name !== "string") {
-    return res.status(400).send(`${name} is not a string`).end();
   }
 
   try {
@@ -99,60 +94,75 @@ app.delete("/memberships/:id", async (req, res) => {
 });
 
 app.get("/users/:order", async (req, res) => {
+  const shouldOrderAscendingly = req.params.order?.toLowerCase() === "asc";
+
+  const usersWithMembershipName = [];
   try {
     const connection = await client.connect();
     const users = await connection
       .db(DB)
       .collection(USERSDBCOLLECTION)
       .find()
-      .sort()
+      .sort({
+        lastName: shouldOrderAscendingly ? 1 : -1,
+        firstName: shouldOrderAscendingly ? 1 : -1,
+      })
       .toArray();
 
-    await connection.close();
-
-    res.send(users).end();
-  } catch (error) {
-    res.status(500).send({ error }).end();
-  }
-});
-
-app.post("/users", async (req, res) => {
-  const { name, surname, email, service_id } = req.body || {};
-
-  if (!name || !surname || !email || service_id) {
-    return res
-      .status(400)
-      .send("Membership name or price or description not provided")
-      .end();
-  }
-
-  if (typeof name !== "string") {
-    return res.status(400).send(`${name} is not a string`).end();
-  }
-
-  try {
-    const connection = await client.connect();
-    const membership = await connection
-      .db(DB)
-      .collection(USERSDBCOLLECTION)
-      .insertOne({
-        name,
-        surname,
-        email,
-        service_id,
+    for (const user of users) {
+      const service = await DB.collection(SERVICESDBCOLLECTION).findOne({
+        _id: ObjectId(user.service_id),
       });
 
+      usersWithMembershipName.push({ ...user, membership_name: service.name });
+    }
+
     await connection.close();
 
-    res.send(membership).end();
+    res.send(usersWithMembershipName).end();
   } catch (error) {
     res.status(500).send({ error }).end();
     throw Error(error);
   }
 });
 
-app.get("/", (_, res) => {
-  res.send({ message: "Welcome to Alex project" }).end();
+app.post("/users", async (req, res) => {
+  const { firstName, lastName, email, service_id } = req.body || {};
+
+  const userIp =
+    req.ip || req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+
+  if (!firstName || !lastName || !email) {
+    return res
+      .status(400)
+      .send("Membership name or price or description not provided")
+      .end();
+  }
+
+  if (typeof firstName !== "string") {
+    return res.status(400).send(`${firstName} is not a string`).end();
+  }
+
+  try {
+    const connection = await client.connect();
+    const user = await connection
+      .db(DB)
+      .collection(USERSDBCOLLECTION)
+      .insertOne({
+        firstName,
+        lastName,
+        email,
+        service_id,
+        userIp,
+      });
+
+    await connection.close();
+
+    res.send(user).end();
+  } catch (error) {
+    res.status(500).send({ error }).end();
+    throw Error(error);
+  }
 });
 
 app.listen(PORT, () => console.info(`Server is runnig on ${PORT} port`));

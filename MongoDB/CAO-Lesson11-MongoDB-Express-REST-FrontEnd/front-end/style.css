@@ -10,9 +10,16 @@ header {
   background-color: #fff;
 }
 
+body {
+  background-color: rgb(226, 238, 238);
+  min-height: 100vh;
+}
+
 header {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 3rem;
 }
 
 nav {
@@ -45,15 +52,12 @@ a:active {
   color: #4d54df;
 }
 
-body {
-  background-color: rgb(226, 238, 238);
-}
-
 footer {
+  position: fixed;
+  bottom: 1rem;
+  width: 100%;
   text-align: center;
   font-size: small;
-  background-color: rgb(226, 238, 238);
-  padding-bottom: 2rem;
 }
 
 h1 {
@@ -87,6 +91,7 @@ p {
 
 #form-conteiner {
   background-color: #fff;
+  box-shadow: 0 0 10px 1px rgba(185, 173, 173, 0.5);
   display: flex;
   width: 80%;
   padding: 1rem 1rem;
@@ -95,7 +100,7 @@ p {
   align-items: center;
 }
 
-#new-element {
+#new-memberhip-form {
   display: flex;
   flex-direction: column;
 }
@@ -111,16 +116,20 @@ input {
   padding: 0 2rem;
 }
 
+input::placeholder {
+  opacity: 0.5;
+}
+
 textarea {
   border: none;
   box-shadow: 0 0 2px 2px rgba(185, 173, 173, 0.5);
   padding: 0 2rem;
 }
 
-#new-element div {
+#new-memberhip-form div {
   display: grid;
-  gap: 25px 25px;
-  grid-template-columns: 10rem 40rem;
+  gap: 2rem 2rem;
+  grid-template-columns: 1fr 8fr;
   padding: 10px;
   align-items: center;
 }

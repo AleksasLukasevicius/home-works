@@ -11,14 +11,14 @@ const MYSQL_CONFIG = {
   host: process.env.host,
   port: process.env.port,
   database: process.env.database,
-  sslmode: process.env.sslmode,
+  // sslmode: process.env.sslmode,
 };
 
 console.info(MYSQL_CONFIG);
 
 app.use(express.json());
 
-app.post("/table", async (_, res) => {
+app.post("/table", async (req, res) => {
   const name = req.body?.name.trim();
 
   try {
@@ -26,12 +26,60 @@ app.post("/table", async (_, res) => {
 
     await connection.execute(
       `CREATE table ${name}(id int NOT NULL AUTO_INCREMENT, firstName varchar(35), PRIMARY KEY (id))`
-    ); // todo use request body
+    );
+
+    await connection.end();
+
+    res.status(201).send({ message: "Table was created" }).end();
   } catch (error) {
     res.status(500).send({ error }).end();
     return console.error; //console.error({error})
   }
-  res.send({ message: "Welcome to SQL Alex project" }).end();
+});
+
+app.delete("/table", async (req, res) => {
+  const name = req.body?.name.trim();
+
+  if (!name) {
+    return res.status(400).send(`Incorrect table name provided: ${name}`).end();
+  }
+
+  try {
+    const connection = await mysql.createConnection(MYSQL_CONFIG);
+
+    await connection.execute(`DROP table ${name}`);
+
+    await connection.end();
+
+    res.status(202).send({ message: "Table was suceessfuly dropped" }).end();
+  } catch (error) {
+    res.status(500).send({ error }).end();
+    return console.error; //console.error({error})
+  }
+});
+
+app.post("/user", async (req, res) => {
+  const firstName = req.body?.firstName.trim();
+
+  if (!firstName) {
+    return res
+      .status(400)
+      .send(`Incoreect first name provided: ${firstName}.`)
+      .end();
+  }
+
+  try {
+    const connection = await mysql.createConnection(MYSQL_CONFIG);
+
+    await connection.execute(
+      `INSERT INTO users (firstName) VALUES ('${firstName}') `
+    );
+
+    res.status(201).send("User successfully created").end();
+  } catch (error) {
+    res.status(500).send(error).end();
+    return console.error;
+  }
 });
 
 app.listen(SERVER_PORT, () =>

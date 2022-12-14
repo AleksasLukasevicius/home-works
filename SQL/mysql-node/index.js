@@ -5,14 +5,17 @@ require("dotenv").config();
 
 const app = express();
 const SERVER_PORT = process.env.SERVER_PORT || 5_000;
-const MYSQL_CONFIG = {
-  user: process.env.user,
-  password: process.env.password,
-  host: process.env.host,
-  port: process.env.port,
-  database: process.env.database,
-  // sslmode: process.env.sslmode,
-};
+const MYSQL_CONFIG =
+  "mysql://doadmin:AVNS_dRiXCcaOAGjr077Zhzs@db-mysql-fra1-82114-do-user-13084810-0.b.db.ondigitalocean.com:25060/defaultdb?ssl-mode=REQUIRED";
+
+// {
+//   user: process.env.user,
+//   password: process.env.password,
+//   host: process.env.host,
+//   port: process.env.port,
+//   database: process.env.database,
+//   sslmode: process.env.sslmode,
+// };
 
 console.info(MYSQL_CONFIG);
 
@@ -59,6 +62,7 @@ app.delete("/table", async (req, res) => {
 });
 
 app.post("/user", async (req, res) => {
+  const tableName = req.body?.tableName.trim();
   const firstName = req.body?.firstName.trim();
 
   if (!firstName) {
@@ -72,10 +76,85 @@ app.post("/user", async (req, res) => {
     const connection = await mysql.createConnection(MYSQL_CONFIG);
 
     await connection.execute(
-      `INSERT INTO users (firstName) VALUES ('${firstName}') `
+      `INSERT INTO ${tableName} (firstName) VALUES ('${firstName}') `
     );
 
     res.status(201).send("User successfully created").end();
+  } catch (error) {
+    res.status(500).send(error).end();
+    return console.error;
+  }
+});
+
+app.get("/users", async (req, res) => {
+  try {
+    const connection = await mysql.createConnection(MYSQL_CONFIG);
+
+    // const result = (await connection.execute(`SELECT * FROM users`))[0];
+    const result = await connection.execute(`SELECT * FROM users`);
+
+    await connection.end();
+
+    res.send(result[0]).end();
+  } catch (error) {
+    res.status(500).send(error).end();
+    return console.error;
+  }
+});
+
+app.get("/user/:id", async (req, res) => {
+  // const { id } = +req.params;
+  const id = +req.params.id.trim();
+
+  console.log({ id });
+
+  if (id < 0 || Number.isNaN(id) || typeof id !== "number") {
+    return res
+      .status(400)
+      .send({
+        error: `Please provide a proper id in the URL: current id ${id} incorrect.`,
+      })
+      .end();
+  }
+  try {
+    const connection = await mysql.createConnection(MYSQL_CONFIG);
+
+    const result = await connection.execute(
+      `SELECT * FROM users WHERE id=${id}`
+    );
+
+    await connection.end();
+
+    console.log(result);
+
+    res.send(result[0]).end();
+  } catch (error) {
+    res.status(500).send(error).end();
+    return console.error;
+  }
+});
+
+app.post("/users", async (req, res) => {
+  const { firstName } = req.body;
+
+  if (typeof firstName !== "string" || !firstName) {
+    return res
+      .status(400)
+      .send(`Incoreect first name provided: ${firstName}.`)
+      .end();
+  }
+
+  try {
+    const connection = await mysql.createConnection(MYSQL_CONFIG);
+
+    const result = await connection.execute(
+      `SELECT * FROM users WHERE firstName='${firstName}'`
+      // `SELECT * FROM users WHERE firstName='${mysql.escape(firstName)}'`
+    );
+
+    await connection.end();
+
+    res.send(result[0]).end();
   } catch (error) {
     res.status(500).send(error).end();
     return console.error;

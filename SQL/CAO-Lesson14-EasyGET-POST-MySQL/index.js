@@ -1,3 +1,4 @@
+const { query } = require("express");
 const express = require("express");
 const mysql = require("mysql2/promise");
 
@@ -57,6 +58,33 @@ app.post("/shirt", async (req, res) => {
     return res.status(400).send(`not all shirt details are provided`).end();
   }
 
+  switch (size) {
+    case "XS":
+    case "S":
+    case "M":
+    case "L":
+    case "XL":
+      console.info("Add to database");
+      break;
+    default:
+      console.error(
+        "Unrecognized sizes. Size must be one of these: XS, S, M, L, XL."
+      );
+  }
+
+  // if (
+  //   size !== "XS" ||
+  //   size !== "S" ||
+  //   size !== "M" ||
+  //   size !== "L" ||
+  //   size !== "XL"
+  // ) {
+  //   return res
+  //     .status(400)
+  //     .send("Size must be one of these: XS, S, M, L, XL")
+  //     .end();
+  // }
+
   try {
     const connection = await mysql.createConnection(MYSQL_CONFIG);
 
@@ -74,7 +102,7 @@ app.post("/shirt", async (req, res) => {
       .end();
   } catch (error) {
     res.status(500).send({ error }).end();
-    return console.error; //console.error({error})
+    return console.error(); //console.error({error})
   }
 });
 
@@ -83,7 +111,7 @@ app.get("/shirts", async (_, res) => {
     const connection = await mysql.createConnection(MYSQL_CONFIG);
 
     const result = await connection.execute(
-      `SELECT * FROM shirts ORDER BY price LIMIT 10`
+      `SELECT * FROM shirts ORDER BY  price ASC LIMIT 10`
     );
 
     await connection.end();
@@ -91,7 +119,29 @@ app.get("/shirts", async (_, res) => {
     res.status(201).send(result[0]).end();
   } catch (error) {
     res.status(500).send({ error }).end();
-    return console.error; //console.error({error})
+    return console.error(); //console.error({error})
+  }
+});
+app.get("/shirts-by-size", async (req, res) => {
+  const size = req.query.size.toLocaleUpperCase();
+  const limit = req.query.limit;
+
+  const query =
+    size && limit
+      ? `SELECT * FROM shirts WHERE size='${size}' ORDER BY price ASC LIMIT ${limit}`
+      : `SELECT * FROM shirts ORDER BY price ASC LIMIT 10`;
+
+  try {
+    const connection = await mysql.createConnection(MYSQL_CONFIG);
+
+    const result = await connection.execute(query);
+
+    await connection.end();
+
+    res.status(201).send(result[0]).end();
+  } catch (error) {
+    res.status(500).send({ error }).end();
+    return console.error(); //console.error({error})
   }
 });
 
@@ -104,7 +154,7 @@ app.get("/", async (_, res) => {
     res.status(201).send({ message: `Server is running` }).end();
   } catch (error) {
     res.status(500).send({ error }).end();
-    return console.error; //console.error({error})
+    return console.error(); //console.error({error})
   }
 });
 
@@ -117,7 +167,7 @@ app.get("*", async (_, res) => {
     res.status(404).send({ message: `Page not found` }).end();
   } catch (error) {
     res.status(500).send({ error }).end();
-    return console.error; //console.error({error})
+    return console.error(); //console.error({error})
   }
 });
 

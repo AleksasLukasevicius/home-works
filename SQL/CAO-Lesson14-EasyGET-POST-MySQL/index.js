@@ -64,12 +64,17 @@ app.post("/shirt", async (req, res) => {
     case "M":
     case "L":
     case "XL":
-      console.info("Add to database");
+      res
+        .status(201)
+        .send({ message: `Add Size ${size} to database` })
+        .end();
+      // console.info("Add to database");
       break;
     default:
-      console.error(
-        "Unrecognized sizes. Size must be one of these: XS, S, M, L, XL."
-      );
+      return res
+        .status(400)
+        .send("Unrecognized size. Size must be one of sizes: XS, S, M, L, XL.")
+        .end();
   }
 
   // if (
@@ -125,6 +130,13 @@ app.get("/shirts", async (_, res) => {
 app.get("/shirts-by-size", async (req, res) => {
   const size = req.query.size.toLocaleUpperCase();
   const limit = req.query.limit;
+
+  if (!size || !limit) {
+    return res
+      .status(400)
+      .send(`not Size or Limit shirt details are provided`)
+      .end();
+  }
 
   const query =
     size && limit

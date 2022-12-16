@@ -3,8 +3,6 @@ require("./config");
 const express = require("express");
 const mysql = require("mysql2/promise");
 
-// require("dotenv").config();
-
 const app = express();
 const SERVER_PORT = process.env.SERVER_PORT || 5_000;
 const MYSQL_CONFIG = {
@@ -52,22 +50,27 @@ app.post("/table", async (req, res) => {
 
 app.post("/item", async (req, res) => {
   const title = mysql.escape(req.body?.title.trim());
+  const cleanTitle = title.replaceAll("'", "");
 
-  if (!title) {
+  console.info({ cleanTitle });
+
+  if (!cleanTitle) {
     return res.status(400).send(`Not title provided`).end();
   }
 
   try {
     const connection = await mysql.createConnection(MYSQL_CONFIG);
 
-    await connection.execute(`INSERT INTO items (title) VALUES (${title})`);
+    await connection.execute(
+      `INSERT INTO items (title) VALUES ('${cleanTitle}')`
+    );
 
     await connection.end();
 
     res
       .status(201)
       .send({
-        message: `Item: ${title} successfully created`,
+        message: `Item: ${cleanTitle} successfully created`,
       })
       .end();
   } catch (error) {
@@ -137,8 +140,6 @@ app.delete("/item-by-id/:id", async (req, res) => {
     );
 
     await connection.end();
-
-    console.log({ result });
 
     res
       .status(200)

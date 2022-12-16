@@ -72,7 +72,7 @@ app.post("/item", async (req, res) => {
       .end();
   } catch (error) {
     res.status(500).send({ error }).end();
-    return console.error(); //console.error({error})
+    return console.error();
   }
 });
 

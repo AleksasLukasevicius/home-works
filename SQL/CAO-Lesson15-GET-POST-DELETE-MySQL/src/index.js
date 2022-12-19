@@ -50,8 +50,6 @@ app.post("/item", async (req, res) => {
   const title = mysql.escape(req.body?.title.trim());
   const cleanTitle = title.replaceAll("'", "");
 
-  console.info({ cleanTitle });
-
   if (!cleanTitle) {
     return res.status(400).send(`Not title provided`).end();
   }

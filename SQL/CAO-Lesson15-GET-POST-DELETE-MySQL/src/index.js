@@ -97,13 +97,13 @@ app.get("/items", async (req, res) => {
   try {
     const connection = await mysql.createConnection(MYSQL_CONFIG);
 
-    const result = await connection.execute(
-      `SELECT * FROM items LIMIT ${cleanLimit}`
-    );
+    const result = (
+      await connection.execute(`SELECT * FROM items LIMIT ${cleanLimit}`)
+    )[0];
 
     await connection.end();
 
-    res.status(201).send(result[0]).end();
+    res.status(201).send(result).end();
   } catch (error) {
     res.status(500).send({ error }).end();
     return console.error({ error });

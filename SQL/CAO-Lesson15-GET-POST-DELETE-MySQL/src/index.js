@@ -4,7 +4,7 @@ const express = require("express");
 const mysql = require("mysql2/promise");
 
 const app = express();
-const SERVER_PORT = process.env.SERVER_PORT || 5_000;
+const SERVER_PORT = +process.env.SERVER_PORT || 5_000;
 const MYSQL_CONFIG = {
   user: process.env.user,
   password: process.env.password,
@@ -14,13 +14,11 @@ const MYSQL_CONFIG = {
   // sslmode: process.env.sslmode,
 };
 
-console.info(MYSQL_CONFIG);
-
 app.use(express.json());
 
 app.post("/table", async (req, res) => {
   const tableName = mysql.escape(req.body?.tableName.trim());
-  cleanTableName = tableName.replaceAll("'", "");
+  const cleanTableName = tableName.replaceAll("'", "");
 
   if (!cleanTableName) {
     return res
@@ -44,7 +42,7 @@ app.post("/table", async (req, res) => {
       .end();
   } catch (error) {
     res.status(500).send({ error }).end();
-    return console.error; //console.error({error})
+    return console.error({ error });
   }
 });
 
@@ -75,7 +73,7 @@ app.post("/item", async (req, res) => {
       .end();
   } catch (error) {
     res.status(500).send({ error }).end();
-    return console.error();
+    return console.error({ error });
   }
 });
 
@@ -108,11 +106,11 @@ app.get("/items", async (req, res) => {
     res.status(201).send(result[0]).end();
   } catch (error) {
     res.status(500).send({ error }).end();
-    return console.error(); //console.error({error})
+    return console.error({ error });
   }
 });
 
-app.delete("/item-by-id/:id", async (req, res) => {
+app.delete("/item/:id", async (req, res) => {
   const id = mysql.escape(req.params.id.trim());
   const cleanItemId = +id.replaceAll("'", "");
 
@@ -135,19 +133,17 @@ app.delete("/item-by-id/:id", async (req, res) => {
   try {
     const connection = await mysql.createConnection(MYSQL_CONFIG);
 
-    const result = await connection.execute(
-      `DELETE FROM items WHERE id = ${cleanItemId}`
-    );
+    await connection.execute(`DELETE FROM items WHERE id = ${cleanItemId}`);
 
     await connection.end();
 
     res
-      .status(200)
+      .status(202)
       .send({ message: `Item with id:${cleanItemId} was deleted` })
       .end();
   } catch (error) {
     res.status(500).send(error).end();
-    return console.error;
+    return console.error({ error });
   }
 });
 
@@ -157,10 +153,10 @@ app.get("/", async (_, res) => {
 
     await connection.end();
 
-    res.status(201).send({ message: `Server is running and connected` }).end();
+    res.status(200).send({ message: `Server is running and connected` }).end();
   } catch (error) {
     res.status(500).send({ error }).end();
-    return console.error(); //console.error({error})
+    return console.error({ error });
   }
 });
 

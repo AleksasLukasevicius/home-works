@@ -1,6 +1,5 @@
 require("./config");
 
-const e = require("express");
 const express = require("express");
 const mysql = require("mysql2/promise");
 
@@ -127,17 +126,32 @@ app.delete("/item/:id", async (req, res) => {
   }
   try {
     const connection = await mysql.createConnection(MYSQL_CONFIG);
-    const existingIds = (
-      await connection.execute(`SELECT id FROM items WHERE id = ${cleanItemId}`)
+
+    // const existingIds = (
+    //   await connection.execute(`SELECT id FROM items WHERE id = ${cleanItemId}`)
+    // )[0];
+
+    // if (!existingIds.length) {
+    //   return res
+    //     .status(404)
+    //     .send(`item with id:${cleanItemId} not exist`)
+    //     .end();
+    // } else {
+    // }
+    const result = (
+      await connection.execute(`DELETE FROM items WHERE id = ${cleanItemId}`)
     )[0];
-    console.info(existingIds);
-    if (!existingIds.length) {
-      return res.status(404).send(`not id:${cleanItemId} provided`).end();
-    } else {
-      await connection.execute(`DELETE FROM items WHERE id = ${cleanItemId}`);
-    }
 
     await connection.end();
+
+    if (!result.affectedRows) {
+      return res
+        .status(404)
+        .send({
+          message: `Item with id:${cleanItemId} is not exist and not deleted`,
+        })
+        .end();
+    }
 
     res
       .status(202)

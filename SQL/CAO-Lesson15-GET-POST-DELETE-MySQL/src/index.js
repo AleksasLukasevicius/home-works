@@ -1,5 +1,6 @@
 require("./config");
 
+const e = require("express");
 const express = require("express");
 const mysql = require("mysql2/promise");
 
@@ -112,10 +113,6 @@ app.delete("/item/:id", async (req, res) => {
   const id = mysql.escape(req.params.id.trim());
   const cleanItemId = +id.replaceAll("'", "");
 
-  if (!cleanItemId) {
-    return res.status(404).send(`not id provided`).end();
-  }
-
   if (
     cleanItemId <= 0 ||
     Number.isNaN(cleanItemId) ||
@@ -130,8 +127,15 @@ app.delete("/item/:id", async (req, res) => {
   }
   try {
     const connection = await mysql.createConnection(MYSQL_CONFIG);
-
-    await connection.execute(`DELETE FROM items WHERE id = ${cleanItemId}`);
+    const existingIds = (
+      await connection.execute(`SELECT id FROM items WHERE id = ${cleanItemId}`)
+    )[0];
+    console.info(existingIds);
+    if (!existingIds.length) {
+      return res.status(404).send(`not id:${cleanItemId} provided`).end();
+    } else {
+      await connection.execute(`DELETE FROM items WHERE id = ${cleanItemId}`);
+    }
 
     await connection.end();
 

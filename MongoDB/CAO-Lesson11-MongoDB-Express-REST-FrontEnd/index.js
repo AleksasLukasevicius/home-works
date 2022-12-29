@@ -15,14 +15,14 @@ const USERSDBCOLLECTION = process.env.USERSDBCOLLECTION;
 app.use(express.json());
 app.use(cors());
 
-app.get("/memberships", async (req, res) => {
+app.get("/memberships", async (_, res) => {
   try {
     const connection = await client.connect();
     const memberships = await connection
       .db(DB)
       .collection(SERVICESDBCOLLECTION)
       .find()
-      .sort({ price: 1 })
+      .sort({ price: -1 })
       .toArray();
 
     await connection.close();
@@ -110,9 +110,10 @@ app.get("/users/:order", async (req, res) => {
       .toArray();
 
     for (const user of users) {
-      const service = await DB.collection(SERVICESDBCOLLECTION).findOne({
-        _id: ObjectId(user.service_id),
-      });
+      const service = await connection
+        .db(DB)
+        .collection(SERVICESDBCOLLECTION)
+        .findOne({ _id: ObjectId(user.service_id) });
 
       usersWithMembershipName.push({ ...user, membership_name: service.name });
     }

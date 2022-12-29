@@ -10,20 +10,20 @@ const getCars = async () => {
     }
 
     return cars;
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
 
-    if (err.message === "Failed to fetch") {
+    if (error.message === "Failed to fetch") {
       const sectionContainer = document.body.querySelector("#cars");
       sectionContainer.replaceChildren();
 
-      const noConEL = document.createElement("h2");
-      noConEL.textContent = "No connection with server!";
+      const noConnnectionELement = document.createElement("h2");
+      noConnnectionELement.textContent = "No connection with server!";
 
-      sectionContainer.append(noConEL);
+      sectionContainer.append(noConnnectionELement);
     }
 
-    throw Error(err);
+    throw Error(error);
   }
 };
 

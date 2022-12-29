@@ -35,9 +35,9 @@ const addCar = async () => {
     }
 
     if (response.status >= 400) {
-      const msg = await response.json();
+      const message = await response.json();
 
-      alert(msg.error);
+      alert(message.error);
     }
   } catch (error) {
     alert(error.message);

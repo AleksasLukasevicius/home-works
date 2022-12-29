@@ -39,7 +39,7 @@ const renderCars = async () => {
 
     const carImageElement = document.createElement("img");
     carImageElement.src = image;
-    carImageElement.alt = "car-photo";
+    carImageElement.alt = `${title}`;
 
     const deleteCarContainer = document.createElement("div");
     deleteCarContainer.className = "deleteCarContainer";

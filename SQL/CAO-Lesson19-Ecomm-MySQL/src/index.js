@@ -124,11 +124,20 @@ app.delete("/products/:id", async (req, res) => {
       .end();
   }
 
-  if (password != psw) {
+  if (!password) {
     return res
       .status(400)
       .send({
-        error: `Password is incorrect incorrect.`,
+        error: `Please provide a proper passowrd.`,
+      })
+      .end();
+  }
+
+  if (password !== psw) {
+    return res
+      .status(400)
+      .send({
+        error: `Password is incorrect.`,
       })
       .end();
   }
@@ -136,17 +145,6 @@ app.delete("/products/:id", async (req, res) => {
   try {
     const connection = await mysql.createConnection(MYSQL_CONFIG);
 
-    // const existingIds = (
-    //   await connection.execute(`SELECT id FROM products WHERE id = ${cleanProductId}`)
-    // )[0];
-
-    // if (!existingIds.length) {
-    //   return res
-    //     .status(404)
-    //     .send(`Product with id:${cleanProductId} not exist`)
-    //     .end();
-    // } else {
-    // }
     const result = (
       await connection.execute(
         `DELETE FROM products WHERE id = ${cleanProductId}`

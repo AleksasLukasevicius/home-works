@@ -20,7 +20,7 @@ app.get("/categories", async (_, res) => {
     const connection = await client.connect();
     const categories = await connection
       .db(DB)
-      .collection(CATEGORIESDBCOLLECTION)
+      .collection(DBCOLLECTION)
       .find()
       .toArray();
 

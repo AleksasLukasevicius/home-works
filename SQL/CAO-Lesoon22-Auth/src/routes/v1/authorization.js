@@ -2,6 +2,7 @@ const express = require("express");
 const Joi = require("joi");
 const mysql = require("mysql2/promise");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const MYSQL_CONFIG = {
   user: process.env.user,
@@ -10,6 +11,8 @@ const MYSQL_CONFIG = {
   port: process.env.port,
   database: process.env.database,
 };
+
+const jwtSecret = process.env.JWT_SECRET;
 
 const router = express.Router();
 
@@ -38,7 +41,7 @@ router.post("/register", async (req, res) => {
 
     await connection.end();
 
-    return res.status(201).send(data);
+    return res.status(201).send(data).end();
   } catch (error) {
     console.info(error);
     res.status(500).send({ error: "Please try again" }).end();
@@ -63,7 +66,7 @@ router.post("/login", async (req, res) => {
 
     await connection.end();
 
-    if (data.length === 0) {
+    if (!data.length) {
       return res
         .status(400)
         .send({ error: `Incorrect email or password` })
@@ -73,7 +76,15 @@ router.post("/login", async (req, res) => {
     const isAuthed = bcrypt.compareSync(userData.password, data[0].password);
 
     if (isAuthed) {
-      return res.status(201).send({ message: `User is authorizited` }).end();
+      const token = jwt.sign(
+        { id: data[0].id, email: data[0].email },
+        jwtSecret
+      );
+
+      return res
+        .status(201)
+        .send({ message: `Succesufuly logined`, token })
+        .end();
     }
     return res.status(400).send({ error: `Incorrect password` }).end();
   } catch (error) {

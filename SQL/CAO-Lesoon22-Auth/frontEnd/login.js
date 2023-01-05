@@ -32,9 +32,6 @@ loginForm.addEventListener("submit", async (event) => {
 
       localStorage.setItem("token", data.token);
 
-      console.log("Logged in succesfully");
-      console.log(data);
-
       window.location.assign(`./content.html`);
     }
 

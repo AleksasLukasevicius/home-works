@@ -23,7 +23,7 @@ app.use(cors());
 app.use("/v1/authorization/", authorization);
 app.use("/v1/content", content);
 
-app.get("/users", async (req, res) => {
+app.get("/users", async (_, res) => {
   try {
     const connection = await mysql.createConnection(MYSQL_CONFIG);
 
@@ -38,7 +38,7 @@ app.get("/users", async (req, res) => {
   }
 });
 
-app.get("/", (req, res) => {
+app.get("/", (_, res) => {
   res.status(200).send({ message: "Server is running" });
 });
 

@@ -17,7 +17,7 @@ const jwtSecret = process.env.JWT_SECRET;
 const router = express.Router();
 
 const userSchema = Joi.object({
-  email: Joi.string().trim().lowercase().required(),
+  email: Joi.string().email().trim().lowercase().required(),
   password: Joi.string().required(),
 });
 
@@ -28,7 +28,7 @@ router.post("/register", async (req, res) => {
     userData = await userSchema.validateAsync(userData);
   } catch (error) {
     console.info(error);
-    res.status(400).send({ error: "Incorrect data sent" }).end();
+    return res.status(400).send({ error: "Incorrect data sent" }).end();
   }
 
   try {
@@ -44,7 +44,7 @@ router.post("/register", async (req, res) => {
     return res.status(201).send(data).end();
   } catch (error) {
     console.info(error);
-    res.status(500).send({ error: "Please try again" }).end();
+    return res.status(500).send({ error: "Please try again" }).end();
   }
 });
 
@@ -55,7 +55,10 @@ router.post("/login", async (req, res) => {
     userData = await userSchema.validateAsync(userData);
   } catch (error) {
     console.info(error);
-    res.status(400).send({ error: "Incorrect email or passwor sent" }).end();
+    return res
+      .status(400)
+      .send({ error: "Incorrect email or passwor sent" })
+      .end();
   }
 
   try {
@@ -68,7 +71,7 @@ router.post("/login", async (req, res) => {
 
     if (!data.length) {
       return res
-        .status(400)
+        .status(401)
         .send({ error: `Incorrect email or password` })
         .end();
     }
@@ -80,16 +83,16 @@ router.post("/login", async (req, res) => {
         { id: data[0].id, email: data[0].email },
         jwtSecret
       );
-
+      // console.info(token);
       return res
         .status(201)
-        .send({ message: `Succesufuly logined`, token })
+        .send({ message: `Succesufuly logined in`, token })
         .end();
     }
-    return res.status(400).send({ error: `Incorrect password` }).end();
+    return res.status(401).send({ error: `Incorrect password` }).end();
   } catch (error) {
     console.info(error);
-    res.status(500).send({ error: "Please try again" }).end();
+    return res.status(500).send({ error: "Please try again" }).end();
   }
 });
 

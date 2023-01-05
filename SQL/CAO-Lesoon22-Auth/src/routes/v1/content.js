@@ -5,7 +5,7 @@ const router = express.Router();
 const { isLoggedIn } = require("../../middleware");
 
 router.get("/", isLoggedIn, (req, res) => {
-  console.info(req.headers);
+  console.info(req.user);
   res.status(200).send("Route");
 });
 

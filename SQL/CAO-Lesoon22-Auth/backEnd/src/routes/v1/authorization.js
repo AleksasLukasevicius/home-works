@@ -49,7 +49,7 @@ router.post("/login", async (req, res) => {
     console.info(error);
     return res
       .status(400)
-      .send({ error: "Incorrect email or passwor sent" })
+      .send({ error: "Incorrect user email or password sent" })
       .end();
   }
 

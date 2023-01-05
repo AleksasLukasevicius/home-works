@@ -1,12 +1,12 @@
-const express = require("express");
+import { Router } from "express";
 
-const router = express.Router();
+const router = Router();
 
-const { isLoggedIn } = require("../../middleware");
+import { isLoggedIn } from "../../middleware.js";
 
 router.get("/", isLoggedIn, (req, res) => {
-  console.info(req.user);
+  // console.info(req.user);
   res.status(200).send("Route");
 });
 
-module.exports = router;
+export default router;

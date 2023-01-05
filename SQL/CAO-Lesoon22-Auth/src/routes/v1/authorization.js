@@ -1,18 +1,10 @@
-const express = require("express");
-const Joi = require("joi");
-const mysql = require("mysql2/promise");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-
-const MYSQL_CONFIG = {
-  user: process.env.user,
-  password: process.env.password,
-  host: process.env.host,
-  port: process.env.port,
-  database: process.env.database,
-};
-
-const jwtSecret = process.env.JWT_SECRET;
+import express from "express";
+import Joi from "joi";
+import mysql from "mysql2/promise";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import { MYSQL_CONFIG } from "../../config.js";
+import { jwtSecret } from "../../config.js";
 
 const router = express.Router();
 
@@ -96,4 +88,4 @@ router.post("/login", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

@@ -8,7 +8,7 @@ export const isLoggedIn = (req, res, next) => {
     req.user = jwt.verify(token, jwtSecret);
     next();
   } catch (error) {
-    console.info(error);
-    return res.status(401).send({ error: `Invalid token` }).end();
+    res.status(401).send({ error: `Invalid token` }).end();
+    return console.info(error);
   }
 };

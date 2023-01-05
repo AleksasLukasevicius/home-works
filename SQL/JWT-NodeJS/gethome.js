@@ -1,24 +1,25 @@
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-
 dotenv.config();
 
-const jwtSecret = process.env.jwtSecret;
+const jwtSecret = process.env.JWT_SECRET;
 
 export const getHome = (req, res) => {
-  const token = req.cookie.token;
+  const token = req.cookies.token;
+
+  console.info(req.cookies.token);
 
   let payload = null;
 
   if (!token) {
-    return res.status(401).sent({ error: `User unauthorised` }).end();
+    return res.status(401).send({ error: `User unauthorised` }).end();
   }
 
   try {
     payload = jwt.verify(token, jwtSecret);
   } catch (error) {
     if (error instanceof jwt.JsonWebTokenError) {
-      return res.status(401).sent({ error: `User not authorized` }).end();
+      return res.status(401).send({ error: `User not authorized` }).end();
     }
     return res.status(400).end();
   }

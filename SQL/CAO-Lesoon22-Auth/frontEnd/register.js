@@ -1,6 +1,6 @@
-const loginForm = document.querySelector("#login-form");
+const registerForm = document.querySelector("#register-form");
 
-loginForm.addEventListener("submit", async (event) => {
+registerForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const emailInputValue = document.querySelector("#email-input").value.trim();
@@ -26,14 +26,14 @@ loginForm.addEventListener("submit", async (event) => {
       }
     );
 
-    if (response.ok) {
-      document.body.querySelector("#login-form").reset();
-      const data = await response.json();
+    // if (response.ok) {
+    //   document.body.querySelector("#register-form").reset();
+    //   const data = await response.json();
 
-      localStorage.setItem("token", data.token);
+    //   localStorage.setItem("token", data.token);
 
-      window.location.assign(`./content.html`);
-    }
+    //   window.location.assign(`./content.html`);
+    // }
 
     if (response.status >= 400) {
       const message = await response.json();

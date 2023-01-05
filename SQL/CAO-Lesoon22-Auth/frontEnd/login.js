@@ -1,14 +1,16 @@
 const loginForm = document.querySelector("#login-form");
 
-loginForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
+loginForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
 
   const emailInputValue = document.querySelector("#email-input").value.trim();
-  const pswInputValue = document.querySelector("#password-input").value.trim();
+  const passwordInputValue = document
+    .querySelector("#password-input")
+    .value.trim();
 
   const user = JSON.stringify({
     email: emailInputValue,
-    password: pswInputValue,
+    password: passwordInputValue,
   });
 
   try {
@@ -37,9 +39,9 @@ loginForm.addEventListener("submit", async (e) => {
     }
 
     if (response.status >= 400) {
-      const msg = await response.json();
+      const message = await response.json();
 
-      alert(msg.error);
+      alert(message.error);
     }
   } catch (error) {
     alert(error.message);

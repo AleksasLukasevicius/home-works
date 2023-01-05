@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-
 import { jwtSecret } from "./config.js";
 
 export const isLoggedIn = (req, res, next) => {

@@ -19,8 +19,8 @@ router.post("/register", async (req, res) => {
   try {
     userData = await userSchema.validateAsync(userData);
   } catch (error) {
-    console.info(error);
-    return res.status(400).send({ error: "Incorrect data sent" }).end();
+    res.status(400).send({ error: "Incorrect data sent" }).end();
+    return console.info(error);
   }
 
   try {
@@ -35,8 +35,8 @@ router.post("/register", async (req, res) => {
 
     return res.status(201).send(data).end();
   } catch (error) {
-    console.info(error);
-    return res.status(500).send({ error: "Please try again" }).end();
+    res.status(500).send({ error: "Please try again" }).end();
+    return console.info(error);
   }
 });
 
@@ -75,16 +75,17 @@ router.post("/login", async (req, res) => {
         { id: data[0].id, email: data[0].email },
         jwtSecret
       );
-      // console.info(token);
+
       return res
         .status(201)
         .send({ message: `Succesufuly logined in`, token })
         .end();
     }
+
     return res.status(401).send({ error: `Incorrect password` }).end();
   } catch (error) {
-    console.info(error);
-    return res.status(500).send({ error: "Please try again" }).end();
+    res.status(500).send({ error: "Please try again" }).end();
+    return console.info(error);
   }
 });
 

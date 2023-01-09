@@ -49,11 +49,35 @@
 
    <main>
       <div class="container">
-        <h1 class="title">Please login or register</h1>
-        
+        <h1 class="title">Login</h1>
+        <form id="login-form">
+          <div class="control">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email-input"
+              placeholder="email@email.com"
+              required
+            />
+          </div>
+          <div class="control">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password-input"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div class="control">
+            <button type="submit" class="btn">Login</button>
+          </div>
+        </form>
       </div>
     </main>
 
-    
+    <script type="module" src="./login.js"></script>
   </body>
 </html>

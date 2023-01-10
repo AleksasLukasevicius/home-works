@@ -8,21 +8,16 @@ loginForm.addEventListener("submit", async (event) => {
     .querySelector("#password-input")
     .value.trim();
 
-  const user = JSON.stringify({
-    email: emailInputValue,
-    password: passwordInputValue,
-  });
-
   try {
-    const myHeaders = new Headers();
-    myHeaders.append("Content-type", "application/json");
-
     const response = await fetch(
       "http://localhost:5000/v1/authorization/login",
       {
         method: "POST",
-        headers: myHeaders,
-        body: user,
+        headers: { "Content-Type": "application/json; charset=UTF-8" },
+        body: JSON.stringify({
+          email: emailInputValue,
+          password: passwordInputValue,
+        }),
       }
     );
 

@@ -8,32 +8,24 @@ registerForm.addEventListener("submit", async (event) => {
     .querySelector("#password-input")
     .value.trim();
 
-  const user = JSON.stringify({
-    email: emailInputValue,
-    password: passwordInputValue,
-  });
-
   try {
-    const myHeaders = new Headers();
-    myHeaders.append("Content-type", "application/json");
-
     const response = await fetch(
       "http://localhost:5000/v1/authorization/register",
       {
         method: "POST",
-        headers: myHeaders,
-        body: user,
+        headers: { "Content-Type": "application/json; charset=UTF-8" },
+        body: JSON.stringify({
+          email: emailInputValue,
+          password: passwordInputValue,
+        }),
       }
     );
 
-    // if (response.ok) {
-    //   document.body.querySelector("#register-form").reset();
-    //   const data = await response.json();
+    if (response.ok) {
+      document.body.querySelector("#register-form").reset();
 
-    //   localStorage.setItem("token", data.token);
-
-    //   window.location.assign(`./content.html`);
-    // }
+      window.location.assign(`./login.html`);
+    }
 
     if (response.status >= 400) {
       const message = await response.json();

@@ -1,7 +1,8 @@
 const getContent = async () => {
   try {
+    const accesToken = localStorage.getItem("token");
     const response = await fetch("http://localhost:5000/v1/content", {
-      headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+      headers: { authorization: `Bearer ${accesToken}` },
     });
 
     if (response.ok) {

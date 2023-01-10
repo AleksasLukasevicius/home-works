@@ -22,19 +22,21 @@ loginForm.addEventListener("submit", async (event) => {
 
     if (response.ok) {
       document.body.querySelector("#login-form").reset();
-      const data = await response.json();
+      const userData = await response.json();
 
-      localStorage.setItem("token", data.token);
+      localStorage.setItem("token", userData.token);
 
-      window.location.assign(`./content.html`);
+      window.location.assign(`./index.html`);
+
+      return alert("Succesufuly logged in");
     }
 
-    if (!response.status || response.status >= 400) {
+    if (!response.ok || response.status >= 400) {
       const message = await response.json();
 
       console.info({ message, response });
 
-      alert(message.error);
+      return alert(message.error || response.statusText);
     }
   } catch (error) {
     alert(error.message);

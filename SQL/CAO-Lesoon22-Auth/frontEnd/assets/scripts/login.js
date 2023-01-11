@@ -27,6 +27,8 @@ loginForm.addEventListener("submit", async (event) => {
 
       localStorage.setItem("token", data.token);
 
+      document.cookie = `accessToken=${data.token}; SameSite=None; Secure`;
+
       window.location.assign(`./content.html`);
     }
 

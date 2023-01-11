@@ -5,6 +5,7 @@ dotenv.config();
 const jwtSecret = process.env.JWT_SECRET;
 
 export const signIn = (req, res) => {
+  console.info(req.headers);
   const { userName, password } = req.body;
 
   const expiresIn = 60; //turi buti .env

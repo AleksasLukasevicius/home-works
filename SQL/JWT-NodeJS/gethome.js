@@ -7,7 +7,7 @@ const jwtSecret = process.env.JWT_SECRET;
 export const getHome = (req, res) => {
   const token = req.cookies.token;
 
-  console.info(req.cookies.token);
+  console.info(token);
 
   let payload = null;
 

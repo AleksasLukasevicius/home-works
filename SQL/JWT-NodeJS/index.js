@@ -1,5 +1,6 @@
 import cookieParser from "cookie-parser";
 import express from "express";
+import cors from "cors";
 import { getHome } from "./getHome.js";
 import { signIn } from "./signIn.js";
 
@@ -9,6 +10,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
 
 app.get("/home", getHome);
 app.post("/sign-in", signIn);

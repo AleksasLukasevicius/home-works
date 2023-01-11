@@ -38,26 +38,26 @@ app.get("/users/:id", (req, res) => {
 });
 
 //FETCH
-app.get("/users/:id", (req, res) => {
-  const id = +req.params.id;
+// app.get("/users/:id", (req, res) => {
+//   const id = +req.params.id;
 
-  fetch("https://api.github.com/users")
-    .then(async (response) => {
-      const usersResponse = await response.json();
-      const userById = usersResponse.find(
-        (user: { id: number }) => user.id === id
-      );
+//   fetch("https://api.github.com/users")
+//     .then(async (response) => {
+//       const usersResponse = await response.json();
+//       const userById = usersResponse.find(
+//         (user: { id: number }) => user.id === id
+//       );
 
-      if (!userById) {
-        return res.status(400).send({ message: "User doesnt exist" }).end();
-      }
+//       if (!userById) {
+//         return res.status(400).send({ message: "User doesnt exist" }).end();
+//       }
 
-      res.send(userById).end();
-    })
-    .catch((error) => {
-      console.error(error);
-      return res.status(error.status).send(error).end();
-    });
-});
+//       res.send(userById).end();
+//     })
+//     .catch((error) => {
+//       console.error(error);
+//       return res.status(error.status).send(error).end();
+//     });
+// });
 
 app.listen(PORT, () => console.info(`Server is running on: ${PORT}`));

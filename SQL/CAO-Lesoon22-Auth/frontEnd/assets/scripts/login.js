@@ -23,11 +23,11 @@ loginForm.addEventListener("submit", async (event) => {
 
     if (response.ok) {
       document.body.querySelector("#login-form").reset();
-      const data = await response.json();
+      const userData = await response.json();
 
-      localStorage.setItem("token", data.token);
+      localStorage.setItem("token", userData.token);
 
-      document.cookie = `accessToken=${data.token}; SameSite=None; Secure`;
+      document.cookie = `accessToken=${userData.token}; SameSite=None; Secure`;
 
       window.location.assign(`./content.html`);
     }

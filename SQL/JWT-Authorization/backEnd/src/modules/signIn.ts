@@ -1,7 +1,10 @@
-import jwt from "jsonwebtoken";
-import { TUserPayload } from "./getHome.js";
+// import dotenv from "dotenv";
+// dotenv.config();
 
-const jwtSecret = "passwordas"; //process.env.jwtSecret;
+import jwt from "jsonwebtoken";
+import { TUserPayload } from "./getHome";
+
+const jwtSecret = process.env.jwtSecret;
 
 export const signIn = (req, res) => {
   const { userName, password } = req.body;
@@ -13,7 +16,7 @@ export const signIn = (req, res) => {
 
   const users = {
     Jonas: "kaledos",
-    Andrius: "velykos",
+    Alex: "velykos",
   };
 
   if (typeof userName !== "string" || typeof password !== "string") {

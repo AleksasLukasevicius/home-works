@@ -7,10 +7,12 @@ try {
   });
 
   const authorizationData = await response.json();
+
   if (!response.ok || response.status >= 400) {
     alert(authorizationData?.error || response.statusText);
   }
 } catch (error) {
   alert(error.authorizationData);
-  return console.error(error);
+
+  console.error(error);
 }

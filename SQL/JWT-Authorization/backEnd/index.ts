@@ -1,5 +1,5 @@
-// import { config } from "dotenv";
-// config();
+import { config } from "dotenv";
+config();
 
 import express from "express";
 import cors from "cors";
@@ -9,7 +9,7 @@ import { signIn } from "./src/modules/signIn";
 import { isLoggedIn } from "./src/modules/utils/isLoggedIn";
 
 const app = express();
-const PORT = 5_001;
+const PORT = process.env.SERVER_PORT || 5_001;
 
 app.use(express.json());
 app.use(cors());

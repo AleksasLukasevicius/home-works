@@ -5,14 +5,12 @@ export type TUserPayload = { userName: string; issuedAt: number };
 const jwtSecret = process.env.jwtSecret;
 
 export const getHome = (req, res) => {
-  const token = req.cookies.token;
-
-  if (!token) {
-    return res.status(401).send({ error: "User unauthorised" }).end();
-  }
-
+  console.info(req.headers.authorization);
   try {
-    const payload: TUserPayload = jwt.verify(token, jwtSecret);
+    const payload: TUserPayload = jwt.verify(
+      req.headers.authorization.replace("Bearer ", ""),
+      jwtSecret
+    );
 
     res.send(`Welcome ${payload.userName}`).end();
   } catch (err) {

@@ -5,4 +5,4 @@ port=25060
 database=defaultdb
 sslmode=REQUIRED
 SERVER_PORT=5000
-JWT_SECRET=passwordas
+JWT_SECRET=123

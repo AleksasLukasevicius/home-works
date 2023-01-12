@@ -1,0 +1,16 @@
+const accessToken = localStorage.getItem("accessToken");
+
+try {
+  const response = await fetch("http://localhost:5001/user-settings", {
+    headers: { "Content-Type": "application/json; character=UTF-8" },
+    Authorization: `Berear ${accessToken}`,
+  });
+
+  const authorizationData = await response.json();
+  if (!response.ok || response.status >= 400) {
+    alert(authorizationData?.error || response.statusText);
+  }
+} catch (error) {
+  alert(error.authorizationData);
+  return console.error(error);
+}

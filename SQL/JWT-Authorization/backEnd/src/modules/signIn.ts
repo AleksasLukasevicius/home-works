@@ -1,7 +1,8 @@
-import jwt from "jsonwebtoken";
-import { TUserPayload } from "./getHome";
 import dotenv from "dotenv";
 dotenv.config();
+
+import jwt from "jsonwebtoken";
+import { TUserPayload } from "./getHome";
 
 const jwtSecret = process.env.JWT_SECRET;
 

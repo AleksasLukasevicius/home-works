@@ -1,7 +1,6 @@
+import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
-
-import jwt from "jsonwebtoken";
 
 export type TUserPayload = { userName: string; issuedAt: number };
 

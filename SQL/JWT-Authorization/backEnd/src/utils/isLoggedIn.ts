@@ -8,7 +8,7 @@ export const isLoggedIn = (req, res, next) => {
 
   let payload = null;
 
-  const isAuthorized = accessToken; // TODO: JWT validation
+  const isAuthorized = accessToken;
 
   if (!isAuthorized) {
     return res.status(401).send({ error: "User unauthorized" }).end();

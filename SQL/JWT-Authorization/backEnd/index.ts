@@ -6,7 +6,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import { getHome } from "./src/modules/getHome";
 import { signIn } from "./src/modules/signIn";
-import { isLoggedIn } from "./src/modules/utils/isLoggedIn";
+import { isLoggedIn } from "./src/utils/isLoggedIn";
 
 const app = express();
 const PORT = process.env.SERVER_PORT || 5_001;
@@ -14,11 +14,6 @@ const PORT = process.env.SERVER_PORT || 5_001;
 app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
-// app.use(isLoggedIn);
-
-// app.get("/welcome", (_, res) => {
-//   res.send({ message: "Welcome!" });
-// });
 
 app.get("/user-settings", isLoggedIn, getHome);
 app.post("/sign-in", signIn);

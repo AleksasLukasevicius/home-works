@@ -1,10 +1,9 @@
-// import dotenv from "dotenv";
-// dotenv.config();
-
 import jwt from "jsonwebtoken";
 import { TUserPayload } from "./getHome";
+import dotenv from "dotenv";
+dotenv.config();
 
-const jwtSecret = process.env.jwtSecret;
+const jwtSecret = process.env.JWT_SECRET;
 
 export const signIn = (req, res) => {
   const { userName, password } = req.body;

@@ -1,11 +1,13 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import jwt from "jsonwebtoken";
 
 export type TUserPayload = { userName: string; issuedAt: number };
 
-const jwtSecret = process.env.jwtSecret;
+const jwtSecret = process.env.JWT_SECRET;
 
 export const getHome = (req, res) => {
-  console.info(req.headers.authorization);
   try {
     const payload: TUserPayload = jwt.verify(
       req.headers.authorization.replace("Bearer ", ""),
@@ -13,8 +15,8 @@ export const getHome = (req, res) => {
     );
 
     res.send(`Welcome ${payload.userName}`).end();
-  } catch (err) {
-    if (err instanceof jwt.JsonWebTokenError) {
+  } catch (error) {
+    if (error instanceof jwt.JsonWebTokenError) {
       return res.status(401).send({ error: "User unauthorised" }).end();
     }
     return res.status(400).end();

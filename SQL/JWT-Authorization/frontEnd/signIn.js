@@ -19,6 +19,7 @@ signInForm.addEventListener("submit", async (event) => {
     });
 
     const authorizationData = await response.json();
+
     if (!response.ok || response.status >= 400) {
       return alert(authorizationData?.error || response.statusText);
     }

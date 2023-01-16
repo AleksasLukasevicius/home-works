@@ -8,11 +8,7 @@ try {
     },
   });
 
-  console.info(response);
-
   const authorizationData = await response.json();
-
-  console.info(authorizationData);
 
   if (!response.ok || response.status >= 400) {
     alert(authorizationData?.error || response.statusText);

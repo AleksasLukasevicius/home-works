@@ -26,7 +26,7 @@ export const isLoggedIn = (req, res, next) => {
     return res.status(400).end();
   }
 
-  res.send(`Welcome ${payload.userName}`);
+  res.send({ message: `Welcome ${payload.userName}` });
 
   return next();
 };

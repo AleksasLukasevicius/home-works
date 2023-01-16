@@ -13,7 +13,7 @@ export const getHome = (req, res) => {
       jwtSecret
     );
 
-    res.send(`Welcome ${payload.userName}`).end();
+    res.send({ message: `Welcome ${payload.userName}` }).end();
   } catch (error) {
     if (error instanceof jwt.JsonWebTokenError) {
       return res.status(401).send({ error: "User unauthorised" }).end();

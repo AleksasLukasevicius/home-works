@@ -22,7 +22,7 @@ loginForm.addEventListener("submit", async (event) => {
     );
 
     if (response.ok) {
-      document.body.querySelector("#login-form").reset();
+      loginForm.reset();
       const userData = await response.json();
 
       localStorage.setItem("token", userData.token);
@@ -32,10 +32,10 @@ loginForm.addEventListener("submit", async (event) => {
       window.location.assign(`./content.html`);
     }
 
-    if (response.status >= 400) {
+    if (!response.ok || response.status >= 400) {
       const message = await response.json();
 
-      alert(message.error);
+      alert(message.error || message.statusText);
     }
   } catch (error) {
     alert(error.message);

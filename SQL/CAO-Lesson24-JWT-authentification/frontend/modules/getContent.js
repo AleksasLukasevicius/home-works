@@ -7,6 +7,7 @@ const getContent = async () => {
 
     if (!response.ok || response.status >= 400) {
       alert(content.error);
+
       return window.location.assign(`./login.html`);
     }
 

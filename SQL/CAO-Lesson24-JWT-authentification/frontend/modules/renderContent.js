@@ -7,10 +7,10 @@ const renderContent = async () => {
   sectionContainer.replaceChildren();
 
   if (!contents.length) {
-    const noDataEl = document.createElement("h2");
-    noDataEl.textContent = "No data in database";
+    const noDataElement = document.createElement("h2");
+    noDataElement.textContent = "No data in database";
 
-    sectionContainer.append(noDataEl);
+    sectionContainer.append(noDataElement);
   }
 
   contents.forEach((article) => {
@@ -22,15 +22,15 @@ const renderContent = async () => {
     const titleContainer = document.createElement("div");
     titleContainer.className = "titleContainer";
 
-    const titleEl = document.createElement("h2");
-    const dateEl = document.createElement("p");
-    const contentEl = document.createElement("p");
+    const dateElement = document.createElement("p");
+    const titleElement = document.createElement("h2");
+    const contentElement = document.createElement("p");
 
-    titleEl.textContent = title;
-    dateEl.textContent = date.slice(0, 10);
-    contentEl.textContent = content;
+    dateElement.textContent = date.slice(0, 10);
+    titleElement.textContent = title;
+    contentElement.textContent = content;
 
-    titleContainer.append(title, dateEl);
+    titleContainer.append(dateElement, title);
 
     contentContainer.append(titleContainer, content);
 

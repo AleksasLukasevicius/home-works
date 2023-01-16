@@ -22,17 +22,21 @@ registerForm.addEventListener("submit", async (event) => {
     );
 
     if (response.ok) {
-      document.body.querySelector("#register-form").reset();
+      registerForm.reset();
+
+      alert("Registered successfuly");
 
       window.location.assign(`./login.html`);
     }
 
-    if (response.status >= 400) {
+    if (!response.ok || response.status >= 400) {
       const message = await response.json();
 
       alert(message.error);
     }
   } catch (error) {
     alert(error.message);
+
+    console.error(error);
   }
 });

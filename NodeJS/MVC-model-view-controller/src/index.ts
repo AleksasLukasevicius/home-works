@@ -1,5 +1,5 @@
 import express from "express";
-import { router } from "./controller/productController";
+import { router } from "./controllers/productController";
 
 const app = express();
 const PORT = 5_000;

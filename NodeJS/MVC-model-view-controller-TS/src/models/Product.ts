@@ -1,7 +1,7 @@
 export class Product {
-  price: any;
-  title: any;
-  isAvailable: any;
+  price: number;
+  title: string;
+  isAvailable: boolean;
 
   constructor(price: number, title: string, isAvailable: boolean) {
     this.price = price;

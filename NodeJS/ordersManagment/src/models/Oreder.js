@@ -1,13 +1,20 @@
 export class Order {
-  name;
+  orderName;
   orderId;
   orderedAt;
   completedAt;
   products; // ProductId[]
   totalPrice;
 
-  constructor(name, orderId, initOrderedAt, completedAt, products, totalPrice) {
-    this.name = name;
+  constructor(
+    orderName,
+    orderId,
+    orderedAt,
+    completedAt,
+    products,
+    totalPrice
+  ) {
+    this.orderName = orderName;
     this.orderId = orderId;
     this.orderedAt = orderedAt;
     this.completedAt = completedAt;

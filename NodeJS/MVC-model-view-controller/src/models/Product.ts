@@ -1,9 +1,9 @@
 export class Product {
-  price;
-  title;
-  isAvailable;
+  price: any;
+  title: any;
+  isAvailable: any;
 
-  constructor(price, title, isAvailable) {
+  constructor(price: number, title: string, isAvailable: boolean) {
     this.price = price;
     this.title = title;
     this.isAvailable = isAvailable;

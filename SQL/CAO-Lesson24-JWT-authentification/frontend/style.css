@@ -7,19 +7,19 @@ body {
 }
 
 #content {
-  margin: 40px 0;
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  justify-content: center;
-  gap: 40px;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .contentContainer {
   text-align: center;
-  border-radius: 5px;
+  border-radius: 1rem;
   border: 1px solid #f2f2f2;
-  padding: 20px 0;
-  width: 300px;
+  padding: 2rem 0;
+  width: 12rem;
 }
 
 header {
@@ -58,6 +58,7 @@ nav.visible {
 }
 
 nav a {
+  text-decoration: none;
   color: #000;
   display: block;
   padding: 0.5rem 0;

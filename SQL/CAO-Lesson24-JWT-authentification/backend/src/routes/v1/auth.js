@@ -21,16 +21,16 @@ export const registerUser = async (req, res) => {
   try {
     const hashedPassword = bcrypt.hashSync(userData.password);
 
-    const con = await mysql.createConnection(MYSQL_CONFIG);
-    await con.execute(
+    const connection = await mysql.createConnection(MYSQL_CONFIG);
+    await connection.execute(
       `INSERT INTO users (email, password) VALUES (${mysql.escape(
         userData.email
       )}, '${hashedPassword}')`
     );
 
-    await con.end();
+    await connection.end();
 
-    return res.status(200).send("User registered successfully").end(); // res.send(data)
+    return res.status(201).send("User registered successfully").end(); // res.send(data)
   } catch (error) {
     return res.status(500).send({ error: error.message });
   }
@@ -46,12 +46,12 @@ export const loginUser = async (req, res) => {
   }
 
   try {
-    const con = await mysql.createConnection(MYSQL_CONFIG);
-    const [data] = await con.execute(
+    const connection = await mysql.createConnection(MYSQL_CONFIG);
+    const [data] = await connection.execute(
       `SELECT * FROM users WHERE email = ${mysql.escape(userData.email)}`
     );
 
-    await con.end();
+    await connection.end();
 
     if (!data.length) {
       return res

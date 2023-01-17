@@ -1,19 +1,19 @@
 import { getContent } from "./getContent.js";
 
 const renderContent = async () => {
-  const contents = await getContent();
+  const content = await getContent();
 
-  const sectionContainer = document.body.querySelector("#content");
-  sectionContainer.replaceChildren();
+  const sectionContentContainer = document.body.querySelector("#content");
+  sectionContentContainer.replaceChildren();
 
-  if (!contents.length) {
+  if (!content.length) {
     const noDataElement = document.createElement("h2");
-    noDataElement.textContent = "No data in database";
+    noDataElement.textContent = "No content in database";
 
-    sectionContainer.append(noDataElement);
+    sectionContentContainer.append(noDataElement);
   }
 
-  contents.forEach((article) => {
+  content.forEach((article) => {
     const { date, title, content } = article;
 
     const contentContainer = document.createElement("div");
@@ -22,19 +22,19 @@ const renderContent = async () => {
     const titleContainer = document.createElement("div");
     titleContainer.className = "titleContainer";
 
-    const dateElement = document.createElement("p");
-    const titleElement = document.createElement("h2");
+    const dateElement = document.createElement("h6");
+    const titleElement = document.createElement("h3");
     const contentElement = document.createElement("p");
 
     dateElement.textContent = date.slice(0, 10);
     titleElement.textContent = title;
     contentElement.textContent = content;
 
-    titleContainer.append(dateElement, title);
+    titleContainer.append(title);
 
-    contentContainer.append(titleContainer, content);
+    contentContainer.append(titleContainer, dateElement, content);
 
-    sectionContainer.append(contentContainer);
+    sectionContentContainer.append(contentContainer);
   });
 };
 

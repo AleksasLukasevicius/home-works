@@ -22,4 +22,4 @@ app.all("*", (_, res) => {
   res.status(404).send({ error: "Page not found" });
 });
 
-app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
+app.listen(PORT, () => console.info(`Server is running on port: ${PORT}`));

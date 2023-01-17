@@ -22,10 +22,10 @@ export const getArticles = async (req, res) => {
   }
 
   try {
-    const con = await mysql.createConnection(MYSQL_CONFIG);
-    const [result] = await con.execute("SELECT * FROM articles");
+    const connection = await mysql.createConnection(MYSQL_CONFIG);
+    const [result] = await connection.execute("SELECT * FROM articles");
 
-    await con.end();
+    await connection.end();
 
     return res.status(200).send(result).end();
   } catch (error) {

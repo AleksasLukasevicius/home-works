@@ -16,7 +16,7 @@ export const createProduct = (req, res) => {
   const isAvailable = req.body.isAvailable;
 
   if (!price || !title) {
-    return res.status(400).send({ error: "Inccorect data" });
+    return res.status(400).send({ error: "Inccorect data" }).end();
   }
 
   const newProduct = new Product(price, title, isAvailable);

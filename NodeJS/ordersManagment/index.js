@@ -13,6 +13,7 @@ app.use(express.json());
 console.info(getProducts());
 
 createProduct({
+  id: 1,
   name: "Phone",
   price: 150,
   isAvailable: true,

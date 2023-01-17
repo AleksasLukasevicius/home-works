@@ -2,11 +2,9 @@ import { Product } from "../models/Product.js";
 
 let products = [];
 
-export const createProduct = ({ name, price, isAvailable, imageURL }) => {
+export const createProduct = ({ id, name, price, isAvailable, imageURL }) => {
   try {
-    const product = new Product(name, price, isAvailable, imageURL);
-
-    console.info(product.price);
+    const product = new Product(id, name, price, isAvailable, imageURL);
 
     products.push(product);
   } catch (error) {

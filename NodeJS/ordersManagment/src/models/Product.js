@@ -1,23 +1,22 @@
 import Joi from "joi";
 
 const productSchema = Joi.object({
+  id: Joi.number(),
   name: Joi.string().trim().required(),
   price: Joi.number().required(),
   isAvailable: Joi.boolean(),
   imageURL: Joi.string().trim().lowercase().required(),
-  id: Joi.number(),
 });
 
 export class Product {
+  id;
   name;
   price;
   isAvailable;
   imageURL;
-  id;
 
-  constructor(name, price, isAvailable, imageURL, id) {
-    const newProductData = { name, price, isAvailable, imageURL, id };
-
+  constructor(id, name, price, isAvailable, imageURL) {
+    const newProductData = { id, name, price, isAvailable, imageURL };
     const productValidationResult = productSchema.validate(newProductData);
 
     if (productValidationResult.error) {
@@ -26,10 +25,10 @@ export class Product {
 
     console.info(productValidationResult);
 
+    this.id = id;
     this.name = name;
     this.price = price;
     this.isAvailable = isAvailable;
     this.imageURL = imageURL;
-    this.id = id;
   }
 }

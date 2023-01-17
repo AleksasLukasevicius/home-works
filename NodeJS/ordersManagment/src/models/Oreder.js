@@ -1,24 +1,17 @@
 export class Order {
   name;
-  id;
+  orderId;
   orderedAt;
   completedAt;
   products; // ProductId[]
   totalPrice;
 
-  constructor(
-    initName,
-    initId,
-    initOrderedAt,
-    initCompletedAt,
-    initProducts,
-    initTotalPrice
-  ) {
-    this.name = initName;
-    this.orderId = initId;
-    this.orderedAt = initOrderedAt;
-    this.completedAt = initCompletedAt;
-    this.products = initProducts;
-    this.totalPrice = initTotalPrice;
+  constructor(name, orderId, initOrderedAt, completedAt, products, totalPrice) {
+    this.name = name;
+    this.orderId = orderId;
+    this.orderedAt = orderedAt;
+    this.completedAt = completedAt;
+    this.products = products;
+    this.totalPrice = totalPrice;
   }
 }

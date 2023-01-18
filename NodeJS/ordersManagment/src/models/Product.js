@@ -4,7 +4,7 @@ const productSchema = Joi.object({
   id: Joi.number(),
   name: Joi.string().trim().required(),
   price: Joi.number().required(),
-  isAvailable: Joi.boolean(),
+  isAvailable: Joi.boolean().required(),
   imageURL: Joi.string().trim().lowercase().required(),
 });
 
@@ -15,15 +15,13 @@ export class Product {
   isAvailable;
   imageURL;
 
-  constructor(id, name, price, isAvailable, imageURL) {
+  constructor({ id, name, price, isAvailable, imageURL }) {
     const newProductData = { id, name, price, isAvailable, imageURL };
     const productValidationResult = productSchema.validate(newProductData);
 
     if (productValidationResult.error) {
       throw Error(productValidationResult.error);
     }
-
-    console.info(productValidationResult);
 
     this.id = id;
     this.name = name;

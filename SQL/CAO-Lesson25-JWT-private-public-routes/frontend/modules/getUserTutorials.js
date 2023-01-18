@@ -5,7 +5,9 @@ const getUserTutorials = async () => {
     ?.split("=")[1];
 
   if (!id) {
-    return alert("Please login to see your private tutorials");
+    alert("Please login to see your private tutorials");
+
+    return window.location.assign(`./login.html`);
   }
 
   try {
@@ -18,13 +20,15 @@ const getUserTutorials = async () => {
     const content = await response.json();
 
     if (!response.ok || response.status >= 400) {
-      return alert(content.error || content.statusText);
-      // return window.location.assign(`./login.html`);
+      alert(content.error || content.statusText);
+
+      return window.location.assign(`./login.html`);
     }
 
-    return content;
+    if (response.ok) {
+      return content;
+    }
   } catch (error) {
-    // alert(error.message);
     console.log(error);
   }
 };

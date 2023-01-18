@@ -17,7 +17,7 @@ const getUsersCount = async () => {
 const usersCount = await getUsersCount();
 
 const content = document.querySelector("#content");
-const usersCountEl = document.createElement("h1");
-usersCountEl.textContent = `Current users count in database: ${usersCount[0].usersCount}`;
+const usersCountElement = document.createElement("h2");
+usersCountElement.textContent = `Current database users count: ${usersCount[0].usersCount}`;
 
-content.append(usersCountEl);
+content.append(usersCountElement);

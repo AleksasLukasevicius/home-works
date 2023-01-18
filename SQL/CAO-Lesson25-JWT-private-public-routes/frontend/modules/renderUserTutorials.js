@@ -15,10 +15,10 @@ const renderContent = async () => {
   sectionContainer.replaceChildren();
 
   if (!tutorials.length) {
-    const noDataEl = document.createElement("h2");
-    noDataEl.textContent = "There is no tutorials assigned to you";
+    const noDataElemnet = document.createElement("h2");
+    noDataElemnet.textContent = "There is no tutorials assigned to you";
 
-    sectionContainer.append(noDataEl);
+    sectionContainer.append(noDataElemnet);
   }
 
   tutorials.forEach((tutorial) => {
@@ -28,18 +28,18 @@ const renderContent = async () => {
     const contentContainer = document.createElement("div");
     contentContainer.className = "contentContainer";
 
-    const titleContainer = document.createElement("div");
-    titleContainer.className = "titleContainer";
+    // const titleContainer = document.createElement("div");
+    // titleContainer.className = "titleContainer";
 
-    const titleEl = document.createElement("h2");
+    const titleElement = document.createElement("h4");
 
-    const contentEl = document.createElement("p");
+    const contentElement = document.createElement("p");
 
-    const privateEl = document.createElement("h5");
+    const privateElement = document.createElement("h5");
 
-    titleEl.textContent = title;
+    titleElement.textContent = title;
 
-    contentEl.textContent = content;
+    contentElement.textContent = content;
 
     if (!isPrivate) {
       isPrivate = "no";
@@ -47,11 +47,11 @@ const renderContent = async () => {
       isPrivate = "yes";
     }
 
-    privateEl.textContent = `Private: ${isPrivate}`;
+    privateElement.textContent = `Private: ${isPrivate}`;
 
-    titleContainer.append(title);
+    // titleContainer.append(title);
 
-    contentContainer.append(titleContainer, contentEl, privateEl);
+    contentContainer.append(titleElement, contentElement, privateElement);
 
     sectionContainer.append(contentContainer);
   });

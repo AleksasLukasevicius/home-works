@@ -29,9 +29,22 @@
     />
     <link rel="stylesheet" href="style.css" />
     <script src="./modules/hamburger.js" defer></script>
+  </head>
+
   <body class="wrapper">
+
     <header>
-      <h1>Login:</h1>
+
+      <div class="container">
+        
+        <div class="top-shelf">
+          <a href="./index.html">
+            <img src="./assets/images/logo.svg" alt="VetBee" />
+          </a>
+
+          <span class="material-icons" id="nav-hamburger">reorder</span>
+        </div>
+
       <nav>
         <a href="./index.html">Home</a>
         <a href="./login.html">Login</a>
@@ -41,16 +54,40 @@
         <a href="./post-tutorial.html">Post Tutorial</a>
       </nav>
     </header>
-    <form id="login-form">
-      <input id="email-input" type="email" placeholder="email" required />
-      <input
-        type="password"
-        id="password-input"
-        placeholder="password"
-        required
-      />
-      <button type="submit">login</button>
-    </form>
+
+    <main>
+      <div class="container">
+        <h1 class="title">Login</h1>
+
+        <form id="login-form">
+          <div class="control">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              autocomplete="email"
+              id="email-input"
+              placeholder="email@email.com"
+              required
+            />
+          </div>
+          <div class="control">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              autocomplete="current-password"
+              id="password-input"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div class="control">
+            <button type="submit" class="btn">Login</button>
+          </div>
+        </form>
+      </div>
+    </main>
 
     <script type="module" src="./modules/login.js"></script>
   </body>

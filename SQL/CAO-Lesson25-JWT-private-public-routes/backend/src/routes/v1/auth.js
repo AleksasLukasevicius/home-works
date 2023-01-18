@@ -91,6 +91,7 @@ export const getUserCount = async (_, res) => {
     res.send(result).end();
   } catch (err) {
     res.status(500).send(err).end();
+
     return console.error();
   }
 };

@@ -4,7 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Login</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <!-- <link rel="manifest" href="/site.webmanifest" /> -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -12,23 +27,19 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="./modules/hamburger.js" defer></script>
   </head>
   <body class="wrapper">
     <header>
-      <h1>Users Count:</h1>
+      <div class="container">
+        <div class="top-shelf">
+          <a href="./index.html">
+            <img src="./assets/images/logo.svg" alt="VetBee" />
+          </a>
+  
+          <span class="material-icons" id="nav-hamburger">reorder</span>
+        </div>
       <nav>
         <a href="./index.html">Home</a>
         <a href="./login.html">Login</a>
@@ -38,8 +49,12 @@
         <a href="./post-tutorial.html">Post Tutorial</a>
       </nav>
     </header>
-    <main class="wrapper">
-      <section id="content"></section>
+
+     <main>
+      <div class="container">
+        <h1 class="title">Users Count</h1>
+        <section id="content"></section>
+      </div>
     </main>
 
     <script type="module" src="./modules/getUsersCount.js"></script>

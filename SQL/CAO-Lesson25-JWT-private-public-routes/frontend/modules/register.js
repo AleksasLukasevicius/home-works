@@ -15,11 +15,14 @@ registerForm.addEventListener("submit", async (e) => {
     const myHeaders = new Headers();
     myHeaders.append("Content-type", "application/json");
 
-    const response = await fetch("http://localhost:5000/v1/auth/register", {
-      method: "POST",
-      headers: myHeaders,
-      body: user,
-    });
+    const response = await fetch(
+      "http://localhost:5000/v1/authorization/register",
+      {
+        method: "POST",
+        headers: myHeaders,
+        body: user,
+      }
+    );
 
     if (response.ok) {
       registerForm.reset();

@@ -1,6 +1,8 @@
 const getUsersCount = async () => {
   try {
-    const response = await fetch("http://localhost:5000/v1/auth/users");
+    const response = await fetch(
+      "http://localhost:5000/v1/authorization/users"
+    );
     const usersCount = await response.json();
 
     if (!response.ok || response.status >= 400) {

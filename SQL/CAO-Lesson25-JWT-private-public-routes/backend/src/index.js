@@ -19,14 +19,14 @@ app.use(express.json());
 
 app.post("/v1/authorization/register", registerUser);
 app.post("/v1/authorization/login", loginUser);
-app.get("/v1/authorization/users", getUserCount);
-
-app.get("/v1/tutorials", getTutorials);
-app.get("/v1/user-tutorials/:id", getUserTutorials);
 app.post("/v1/tutorials", postTutorial);
 
+app.get("/v1/authorization/users", getUserCount);
+app.get("/v1/tutorials", getTutorials);
+app.get("/v1/user-tutorials/:id", getUserTutorials);
+
 app.get("/", (_, res) => {
-  res.send({ msg: "Server is running" });
+  res.send({ message: "Server is running" });
 });
 
 app.all("*", (_, res) => {

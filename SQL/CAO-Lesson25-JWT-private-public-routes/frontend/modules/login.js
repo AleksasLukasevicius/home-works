@@ -28,12 +28,14 @@ loginForm.addEventListener("submit", async (e) => {
 
       document.cookie = `id=${userData.id}`;
 
+      alert("Successfully logged in");
+
       window.location.assign(`./index.html`);
       return;
     }
 
     if (!response.ok || response.status >= 400) {
-      return alert(userData.error || userData.statusText);
+      return alert(userData?.error || userData.statusText);
     }
   } catch (error) {
     alert(error.message);

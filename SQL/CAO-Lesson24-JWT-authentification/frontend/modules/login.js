@@ -23,11 +23,13 @@ loginForm.addEventListener("submit", async (e) => {
 
       localStorage.setItem("token", userData.token);
 
+      alert("Successfully logged in");
+
       window.location.assign(`./index.html`);
     }
 
     if (!response.ok || response.status >= 400) {
-      alert(userData.error || userData.statusText);
+      return alert(userData?.error || userData.statusText);
     }
   } catch (error) {
     alert(error.message);

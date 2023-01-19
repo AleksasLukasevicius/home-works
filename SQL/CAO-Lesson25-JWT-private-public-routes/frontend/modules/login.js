@@ -6,21 +6,16 @@ loginForm.addEventListener("submit", async (e) => {
   const emailInputValue = document.querySelector("#email-input").value.trim();
   const pswInputValue = document.querySelector("#password-input").value.trim();
 
-  const user = JSON.stringify({
-    email: emailInputValue,
-    password: pswInputValue,
-  });
-
   try {
-    const myHeaders = new Headers();
-    myHeaders.append("Content-type", "application/json");
-
     const response = await fetch(
       "http://localhost:5000/v1/authorization/login",
       {
         method: "POST",
-        headers: myHeaders,
-        body: user,
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          email: emailInputValue,
+          password: pswInputValue,
+        }),
       }
     );
 

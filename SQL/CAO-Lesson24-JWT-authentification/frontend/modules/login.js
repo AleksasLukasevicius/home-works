@@ -6,33 +6,28 @@ loginForm.addEventListener("submit", async (e) => {
   const emailInputValue = document.querySelector("#email-input").value.trim();
   const pswInputValue = document.querySelector("#password-input").value.trim();
 
-  const user = JSON.stringify({
-    email: emailInputValue,
-    password: pswInputValue,
-  });
-
   try {
-    const myHeaders = new Headers();
-    myHeaders.append("Content-type", "application/json");
-
     const response = await fetch("http://localhost:5000/v1/auth/login", {
       method: "POST",
-      headers: myHeaders,
-      body: user,
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({
+        email: emailInputValue,
+        password: pswInputValue,
+      }),
     });
 
-    const data = await response.json();
+    const userData = await response.json();
 
     if (response.ok) {
       loginForm.reset();
 
-      localStorage.setItem("token", data.token);
+      localStorage.setItem("token", userData.token);
 
       window.location.assign(`./index.html`);
     }
 
     if (!response.ok || response.status >= 400) {
-      alert(data.error || data.statusText);
+      alert(userData.error || userData.statusText);
     }
   } catch (error) {
     alert(error.message);

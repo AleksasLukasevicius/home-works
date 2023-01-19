@@ -34,13 +34,14 @@
   <body class="wrapper">
     <header>
       <div class="container">
-                <div class="top-shelf">
+        <div class="top-shelf">
           <a href="./index.html">
             <img src="./assets/images/logo.svg" alt="VetBee" />
           </a>
 
           <span class="material-icons" id="nav-hamburger">reorder</span>
         </div>
+      </div>
 
       <nav>
         <a href="./index.html">Home</a>
@@ -53,35 +54,38 @@
     </header>
 
     <main>
+      <div class="container">
+        <h1 class="title">User Tutorials:</h1>
 
-<div class="container">
-  <h1 class="title">User Tutorials:</h1>
+        <form id="tutorial-form">
+          <div class="control">
+            <label for="title-input">Title</label>
+            <input
+              name="title-input"
+              id="title-input"
+              placeholder="Tutorial Title"
+              required
+            />
+          </div>
 
-      
-      
-      <form id="tutorial-form">
-        <div class="control">
-          <label for="title-input">Title</label>
-        <input 
-        name="title-input"  id="title-input" placeholder="Tutorial Title" required />
-        </div>
+          <div class="control">
+            <label for="content-input">Content</label>
+            <input
+              name="content-input"
+              id="content-input"
+              placeholder="Tutorial Content"
+              required
+            />
+          </div>
 
-      <div class="control">
-        <label for="content-input">Content</label>
-        <input name="content-input" id="content-input" placeholder="Tutorial Content" required />
+          <div class="control">
+            <button class="btn" type="submit">Add Tutorial</button>
+          </div>
+        </form>
+
+        <section id="content"></section>
       </div>
-        
-      <div class="control">
-        <button class="btn" type="submit">Add Tutorial</button>
-      </div>
-
-      </form>
-
-      <section id="content"></section>
-    </main></div>
-
-      
-
+    </main>
 
     <script type="module" src="./modules/postTutorial.js"></script>
   </body>

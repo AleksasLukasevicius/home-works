@@ -1,43 +1,40 @@
 const registerForm = document.querySelector("#register-form");
 
-registerForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
+registerForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
 
   const emailInputValue = document.querySelector("#email-input").value.trim();
-  const pswInputValue = document.querySelector("#password-input").value.trim();
-
-  const user = JSON.stringify({
-    email: emailInputValue,
-    password: pswInputValue,
-  });
+  const passwordInputValue = document
+    .querySelector("#password-input")
+    .value.trim();
 
   try {
-    const myHeaders = new Headers();
-    myHeaders.append("Content-type", "application/json");
-
     const response = await fetch(
       "http://localhost:5000/v1/authorization/register",
       {
         method: "POST",
-        headers: myHeaders,
-        body: user,
+        headers: { "Content-Type": "application/json; charset=UTF-8" },
+        body: JSON.stringify({
+          email: emailInputValue,
+          password: passwordInputValue,
+        }),
       }
     );
 
     if (response.ok) {
       registerForm.reset();
 
-      alert("Registered successfuly");
-
       window.location.assign(`./login.html`);
+
+      return alert("Registered successfuly");
     }
 
     if (!response.ok || response.status >= 400) {
-      const data = await response.json();
+      const userData = await response.json();
 
-      return alert(data.error || data.statusText);
+      return alert(userData.error || userData.statusText);
     }
   } catch (error) {
-    console.log(error);
+    alert(error.message);
   }
 });

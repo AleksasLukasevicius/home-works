@@ -4,7 +4,9 @@ loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const emailInputValue = document.querySelector("#email-input").value.trim();
-  const pswInputValue = document.querySelector("#password-input").value.trim();
+  const passwordInputValue = document
+    .querySelector("#password-input")
+    .value.trim();
 
   try {
     const response = await fetch(
@@ -14,7 +16,7 @@ loginForm.addEventListener("submit", async (e) => {
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({
           email: emailInputValue,
-          password: pswInputValue,
+          password: passwordInputValue,
         }),
       }
     );

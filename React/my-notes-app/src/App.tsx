@@ -30,7 +30,15 @@ function App() {
         value={description}
         onChange={(event) => setDescription(event.target.value)}
       />
+
+      <p>{description}</p>
+
       <p></p>
+
+      <div>
+        i={i}, i+1={i + 1}, i antruoju {i ** 2}
+      </div>
+
       <button
         className="Button"
         type="button"
@@ -38,15 +46,8 @@ function App() {
           () => setI(i + 1) //naudoti tik pradinems produkatasm
         }
       >
-        Submit
+        Submit i antruoju
       </button>
-
-      <p>{description}</p>
-
-      <div>{i}</div>
-      <div>i+1={i}</div>
-
-      <p>i antruoju {i ** 2}</p>
     </div>
   );
 }

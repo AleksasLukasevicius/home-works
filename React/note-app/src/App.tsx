@@ -6,7 +6,6 @@ function App() {
   const [description, setDescription] = useState("");
 
   console.info(i);
-  console.info(description);
 
   return (
     <div className="App">
@@ -14,10 +13,21 @@ function App() {
         value={description}
         onChange={(event) => setDescription(event.target.value)}
       />
-      <button onClick={() => setI(i + 1)}>Submit</button> //naudoti tik
-      pradiniams projektams
-      <p> i antruoju {i ** 2}</p>
+      <button
+        type="button"
+        onClick={
+          () => setI(i + 1) //naudoti tik pradinems produkatasm
+        }
+      >
+        Submit
+      </button>
+
       <p>{description}</p>
+
+      <div>{i}</div>
+      <div>i+1={i}</div>
+
+      <h1>i antruoju {i ** 2}</h1>
     </div>
   );
 }

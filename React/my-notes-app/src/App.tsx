@@ -1,14 +1,16 @@
 import { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { Form } from "./Form";
-import Button from "./components/Button/Button.jsx";
+import { Form } from "./components/Form/Form";
+import { NoteForm } from "./components/Form/NoteForm";
+import Button from "./components/Button/Button";
+import Hero from "./components/Hero/Hero";
 
 function App() {
   const [i, setI] = useState(0);
   const [description, setDescription] = useState("");
 
-  const appButton = () => <Button />;
+  // const appButton = () => <Button />;
 
   return (
     <div className="App">
@@ -25,31 +27,47 @@ function App() {
       </header>
 
       <section>
-        <Form />
+        <NoteForm>
+          <h1>Note App</h1> <h2>Welcome!</h2>
+        </NoteForm>
       </section>
 
-      <input
-        value={description}
-        onChange={(event) => setDescription(event.target.value)}
-      />
+      <section>
+        <Hero title="Info Hero" subtitle="Info subtitle" color="red" />
+      </section>
 
-      <p>{description}</p>
+      <section>
+        {/* <Button text="Press Me!" /> */}
+        <Button>Text</Button>
+      </section>
 
-      <p></p>
+      <section>
+        <Form />
+      </section>
+      <form>
+        <input
+          value={description}
+          onChange={(event) => setDescription(event.target.value)}
+        />
 
-      <div>
-        i={i}, i+1={i + 1}, i antruoju {i ** 2}
-      </div>
+        <p>{description}</p>
 
-      <button
-        className="Button"
-        type="button"
-        onClick={
-          () => setI(i + 1) //naudoti tik pradinems produkatasm
-        }
-      >
-        Submit i antruoju
-      </button>
+        <p></p>
+
+        <div>
+          i={i}, i+1={i + 1}, i antruoju {i ** 2}
+        </div>
+
+        <button
+          className="Button"
+          type="button"
+          onClick={
+            () => setI(i + 1) //naudoti tik pradinems produkatasm
+          }
+        >
+          Submit i antruoju
+        </button>
+      </form>
     </div>
   );
 }

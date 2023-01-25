@@ -1,12 +1,14 @@
 import { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import "./components/Button/Button.css";
 import { Form } from "./Form";
+import Button from "./components/Button/Button.jsx";
 
 function App() {
   const [i, setI] = useState(0);
   const [description, setDescription] = useState("");
+
+  const appButton = () => <Button />;
 
   return (
     <div className="App">

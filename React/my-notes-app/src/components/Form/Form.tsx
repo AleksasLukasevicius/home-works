@@ -21,8 +21,6 @@ export const Form = () => {
       <form onSubmit={hanleSubmit} style={{ backgroundColor: "black" }}>
         <input value={note} onChange={handleChange} />
 
-        <p></p>
-
         <button type="submit">Sumbit</button>
       </form>
 

@@ -28,22 +28,23 @@ function App() {
 
       <section>
         <NoteForm>
-          <h1>Note App</h1> <h2>Welcome!</h2>
+          <h1>Notes App</h1> <h2>Welcome!</h2>
         </NoteForm>
       </section>
 
       <section>
-        <Hero title="Info Hero" subtitle="Info subtitle" color="red" />
+        <Hero title="Info Hero" subtitle="Info subtitle" color="blue" />
       </section>
 
       <section>
-        {/* <Button text="Press Me!" /> */}
-        <Button>Text</Button>
+        <Button text="Press Me!" />
+        {/* <Button><p>Text</p> </Button> */}
       </section>
 
       <section>
         <Form />
       </section>
+
       <form>
         <input
           value={description}

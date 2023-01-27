@@ -3,9 +3,9 @@ import { useState } from "react";
 export const NoteForm = (props: any) => {
   const [note, setNote] = useState("");
   const [notes, setNotes] = useState<string[]>([]);
-  const [areNoteShow, setAreNoteShow] = useState(true);
+  const [areNotesShown, setAreNotesShown] = useState(true);
 
-  console.info({ note, notes });
+  // console.info({ note, notes });
 
   return (
     <>
@@ -19,22 +19,23 @@ export const NoteForm = (props: any) => {
       />
 
       <input
-        checked={areNoteShow}
+        checked={areNotesShown}
         type="checkbox"
-        name="note-hide"
-        onChange={(event) => setAreNoteShow(event.target.checked)}
+        name="note-shown"
+        onChange={(event) => setAreNotesShown(event.target.checked)}
       />
 
       <button
         onClick={() => {
           setNotes([...notes, note]);
+
           setNote("");
         }}
       >
         Click
       </button>
 
-      {areNoteShow &&
+      {areNotesShown &&
         notes.map((currentNote, i) => (
           <p key={currentNote + i}> {currentNote}</p>
         ))}

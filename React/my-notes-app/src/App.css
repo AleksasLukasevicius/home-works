@@ -34,6 +34,10 @@ form {
   text-decoration: none;
 }
 
+section {
+  margin: 0 5rem;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

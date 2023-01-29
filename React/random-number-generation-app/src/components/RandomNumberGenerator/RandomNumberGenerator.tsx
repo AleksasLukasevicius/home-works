@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./RandomNumberGenerator.css";
 
 export const RandomNumberGenerator = () => {
   const [randomNumber, setRandomNumber] = useState(0);
@@ -7,7 +8,7 @@ export const RandomNumberGenerator = () => {
   const isImportantValue = randomNumber > 50;
 
   useEffect(() => {
-    // alert("Welcome");
+    alert("Welcome");
     setIsLoading(true);
 
     const products = fetch("https://jsonplaceholder.typicode.com/todos/1").then(
@@ -16,12 +17,12 @@ export const RandomNumberGenerator = () => {
 
     setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 2_000);
   }, []); // kai masyve keiciasi reiksmes - vykdyk koda funkcijoje
 
   useEffect(() => {
-    // alert(randomNumber);
-  }, [randomNumber, description]);
+    alert(randomNumber);
+  }, [randomNumber]);
 
   return (
     <>
@@ -38,6 +39,7 @@ export const RandomNumberGenerator = () => {
           <button
             onClick={() => {
               const magicNumber = Math.random() * 100;
+
               setRandomNumber(magicNumber);
             }}
           >

@@ -1,3 +1,6 @@
 .importantValue {
-  font-size: large;
+  color: red;
+}
+.boldValue {
+  font-weight: bold;
 }

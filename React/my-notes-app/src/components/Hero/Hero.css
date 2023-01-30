@@ -7,6 +7,15 @@
   color: aliceblue;
 }
 
+.red {
+  background-color: red;
+  padding: 1rem 0;
+  padding-left: 2rem;
+  margin-top: 1rem;
+  text-align: left;
+  color: aliceblue;
+}
+
 .blue h1,
 h4 {
   margin: 0;

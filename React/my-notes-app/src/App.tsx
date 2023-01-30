@@ -26,24 +26,18 @@ function App() {
         </a>
       </header>
 
-      <section>
-        <NoteForm>
-          <h1>Notes App</h1> <h2>Welcome!</h2>
-        </NoteForm>
-      </section>
+      <NoteForm>
+        <h1>Welcome!</h1>
+      </NoteForm>
 
-      <section>
-        <Hero title="Info Hero" subtitle="Info subtitle" color="blue" />
-      </section>
+      <Hero color="blue" title="Info Hero" subtitle="Info subtitle" />
 
-      <section>
-        <Button text="Press Me!" />
-        {/* <Button><p>Text</p> </Button> */}
-      </section>
+      <Button text="Press Me!" />
+      <Button>
+        <p>Text</p>{" "}
+      </Button>
 
-      <section>
-        <Form />
-      </section>
+      <Form />
 
       <form>
         <input
@@ -52,8 +46,6 @@ function App() {
         />
 
         <p>{description}</p>
-
-        <p></p>
 
         <div>
           i={i}, i+1={i + 1}, i antruoju {i ** 2}

@@ -37,6 +37,7 @@ function App() {
         products={products}
         fetchProducts={fetchProducts}
         setProducts={setProducts}
+        isLoading={isLoading}
       />
       <h2>Add product</h2>
       <PostProduct fetchProducts={fetchProducts} />

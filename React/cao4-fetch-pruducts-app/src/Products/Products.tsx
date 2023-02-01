@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const Products = ({ products, fetchProducts }: any) => {
+export const Products = ({ products, fetchProducts, isLoading }: any) => {
   const removeProduct = (id: number) => {
     axios
       .delete(`https://golden-whispering-show.glitch.me/${id}`)
@@ -10,24 +10,27 @@ export const Products = ({ products, fetchProducts }: any) => {
 
   return (
     <>
-      <div className="container">
-        {products &&
-          products.map((product: any, i: number) => (
-            <div className="product-container">
-              <img src={product.image} alt={product.title} />
-              <p>{product.title}</p>
-              <p className="price">{product.price}</p>
-              <button
-                onClick={() => {
-                  removeProduct(product.id);
-                }}
-              >
-                Delete
-              </button>
-            </div>
-          ))}
-      </div>
-      ;
+      {isLoading ? (
+        <p>Loading</p>
+      ) : (
+        <div className="container">
+          {products &&
+            products.map((product: any, i: number) => (
+              <div className="product-container">
+                <img src={product.image} alt={product.title} />
+                <p>{product.title}</p>
+                <p className="price">{product.price}</p>
+                <button
+                  onClick={() => {
+                    removeProduct(product.id);
+                  }}
+                >
+                  Delete
+                </button>
+              </div>
+            ))}
+        </div>
+      )}
     </>
   );
 };

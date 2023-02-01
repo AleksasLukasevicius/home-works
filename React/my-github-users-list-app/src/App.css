@@ -1,15 +1,9 @@
-#root {
-  display: flex;
-  justify-content: center;
-}
-
 .App {
   text-align: center;
-  width: 50rem;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 10vmin;
   pointer-events: none;
 }
 
@@ -21,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 1vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,19 +24,14 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-.post {
-  width: 50rem;
+.user-card {
+  max-width: fit-content;
   display: flex;
   padding: 1rem;
+  margin: 1rem;
   border: 2px solid black;
   border-radius: 1rem;
-  margin-top: 1rem;
-  justify-content: space-between;
-  align-items: center;
+  text-align: left;
 }
 
 @keyframes App-logo-spin {

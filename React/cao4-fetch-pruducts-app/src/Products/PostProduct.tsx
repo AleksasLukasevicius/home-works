@@ -30,7 +30,7 @@ export const PostProduct = ({ fetchProducts }: any) => {
   };
 
   return (
-    <form className="add-pruduct-form" onSubmit={handleProductSubmit}>
+    <form className="add-product-form" onSubmit={handleProductSubmit}>
       <div className="product-card">
         <input
           value={newProduct.title ?? ""}

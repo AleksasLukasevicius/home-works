@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: beige;
 }
 
 .App-logo {
@@ -35,17 +36,21 @@
   display: flex;
   margin: 1rem;
   padding: 1rem;
-  border: 1px solid black;
+  /* border: 1px solid gray; */
+  background-color: white;
   border-radius: 1rem;
   flex-direction: column;
   align-items: center;
+}
+.product-container p {
+  margin: 0.5rem;
 }
 
 .price {
   color: red;
 }
 
-.add-pruduct-form {
+.add-product-form {
   display: flex;
   flex-direction: column;
 }

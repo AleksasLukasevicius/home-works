@@ -8,6 +8,13 @@ export const PostProduct = ({ fetchProducts }: any) => {
     price: null,
   });
 
+  const handleInputChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    prop: string
+  ) => {
+    setNewProduct({ ...newProduct, [prop]: event.target.value });
+  };
+
   const handleProductSubmit: React.FormEventHandler<HTMLFormElement> = (
     event
   ) => {
@@ -20,13 +27,6 @@ export const PostProduct = ({ fetchProducts }: any) => {
       })
       .then(() => fetchProducts())
       .catch((error) => console.error(error));
-  };
-
-  const handleInputChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
-    prop: string
-  ) => {
-    setNewProduct({ ...newProduct, [prop]: event.target.value });
   };
 
   return (

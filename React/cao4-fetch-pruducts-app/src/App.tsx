@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { Products } from "./Products/Products";
-import { PostProduct } from "./Products/PostProduct";
+import { Products } from "./components/Products/Products";
+import { PostProduct } from "./components/Products/PostProduct";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -35,10 +35,11 @@ function App() {
       <h2>Products list</h2>
       <Products
         products={products}
+        isLoading={isLoading}
         fetchProducts={fetchProducts}
         setProducts={setProducts}
-        isLoading={isLoading}
       />
+
       <h2>Add product</h2>
       <PostProduct fetchProducts={fetchProducts} />
     </div>

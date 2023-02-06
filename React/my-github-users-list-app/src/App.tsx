@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import logo from "./logo.svg";
 import "./App.css";
-// import { UserCard } from "./components/UserCard";
-import { UserList } from "./components/UsersList";
+import { UsersList } from "./components/UsersList";
 
 function App() {
-  const userCard = [
-    { login: 1, url: "URL", type: "user" },
-    { login: 2, url: "URL", type: "user" },
-    { login: 3, url: "URL", type: "user" },
-  ];
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://api.github.com/users")
+      .then((response) => {
+        setUsers(response.data);
+      })
+      .catch((error) => console.error(error));
+  }, []);
 
   return (
     <div className="App">
@@ -17,7 +22,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
       </header>
 
-      <UserList userCard={userCard} />
+      <UsersList users={users} />
     </div>
   );
 }

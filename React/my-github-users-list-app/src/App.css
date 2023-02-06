@@ -34,6 +34,27 @@
   text-align: left;
 }
 
+.container {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+}
+
+.users-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid grey;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.users-container:hover {
+  cursor: pointer;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -1,22 +1,25 @@
 import React, { useState } from "react";
 
-export const UserCard = (props: any) => {
-  const [isIdShown, setIsIdShown] = useState(true);
+export const UserCard = ({ user }: any) => {
+  const [isIdShown, setIsIdShown] = useState(false);
+
+  const visibilityHandler = () => {
+    setIsIdShown((prevIsIdShown) => !prevIsIdShown);
+  };
 
   return (
-    <div className="user-card">
-      <div className="user-card-content">
-        <p>Login: {props.user.login}</p>
-        <p>URL: {props.user.url}</p>
-        <p>Type: {props.user.type}</p>
-
-        <input
-          checked={isIdShown}
-          type="checkbox"
-          name="showId"
-          onChange={(event) => setIsIdShown(event.target.checked)}
-        />
-      </div>
+    <div className="user-card" onClick={visibilityHandler}>
+      {isIdShown ? (
+        <p>{user.id}</p>
+      ) : (
+        <div>
+          <p>Login: {user.login}</p>
+          <p>
+            URL: <a href={user.url}>user</a>
+          </p>
+          <p>Type: {user.type}</p>
+        </div>
+      )}
     </div>
   );
 };

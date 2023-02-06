@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { NewStudentForm } from "./components/NewStudentForm";
-import { PostItem } from "./components/PostItem";
+import { PostList } from "./components/PostList";
 
 function App() {
+  const [posts, setPosts] = useState<any[]>([
+    { id: 1, title: "Javascript", body: "Description" },
+    { id: 2, title: "Javascript", body: "Description" },
+    { id: 3, title: "Javascript", body: "Description" },
+  ]);
   return (
     <div className="App">
       <NewStudentForm />
 
-      <PostItem post={{ id: 1, title: "Javascript", body: "Description" }} />
-      <PostItem post={{ id: 2, title: "Javascript", body: "Description" }} />
-      <PostItem post={{ id: 3, title: "Javascript", body: "Description" }} />
-      <PostItem post={{ id: 4, title: "Javascript", body: "Description" }} />
+      <PostList posts={posts} />
     </div>
   );
 }

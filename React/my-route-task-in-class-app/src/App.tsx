@@ -6,8 +6,8 @@ function App() {
     <div className="App">
       <MainRouter>
         <p>Alex WEB</p>
-        <button type="submit">Submit</button>
       </MainRouter>
+      <button type="submit">Submit</button>
     </div>
   );
 }

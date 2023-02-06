@@ -5,6 +5,11 @@ export const UserCard = ({ user }: any) => {
 
   const visibilityHandler = () => {
     setIsIdShown((prevIsIdShown) => !prevIsIdShown);
+
+    // if (!isIdShown) {
+    //   return setIsIdShown(true);
+    // }
+    // setIsIdShown(false);
   };
 
   return (

@@ -15,12 +15,9 @@ export const UserCard = ({ user }: any) => {
         <div className="user-card">
           <p>Login: {user.login}</p>
           <p>
-            {/* URL: <a href={user.url}>user url</a> */}
-
-            <a href={user.url} target="_blank" rel="noreferrer">
+            <a href={user.url} target="_blank" rel="noopener noreferrer">
               user url
             </a>
-            {/* <a href={user.url} target="_blank">Visit W3Schools!</a> */}
           </p>
           <p>Type: {user.type}</p>
         </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Button } from "./Button";
+import { Form } from "./Form/Form.styled";
 
 export const Add = () => {
   const [price, setPrice] = useState<number | null>(null);
@@ -19,43 +20,50 @@ export const Add = () => {
   };
 
   return (
-    <div>
-      <form
-        method="post"
-        onSubmit={(event) => {
-          event.preventDefault();
-          addRow();
+    <Form
+      method="post"
+      onSubmit={(event) => {
+        event.preventDefault();
+        addRow();
+      }}
+    >
+      <label htmlFor="input-people">People</label>
+      <input
+        name="input-people"
+        type="number"
+        placeholder="Enter people number"
+        value={people ?? ""}
+        onChange={(event) => {
+          let newPeople: string | number | null = event.target.value;
+
+          if (newPeople === "") {
+            newPeople = null;
+          } else {
+            newPeople = +newPeople;
+          }
+          setPeople(newPeople);
         }}
-      >
-        <input
-          name="input-price"
-          type="number"
-          placeholder="price"
-          value={price ?? ""}
-          //   value={`${price}`}
-          onChange={(event) => {
-            let newPrice: string | null | number = event.target.value;
+      />
 
-            if (newPrice === "") {
-              newPrice = null;
-            } else {
-              newPrice = +newPrice;
-            }
-            setPrice(newPrice);
-          }}
-        />
+      <label htmlFor="input-price">Price, €</label>
+      <input
+        name="input-price"
+        type="number"
+        placeholder="Enter price"
+        value={price ?? ""}
+        onChange={(event) => {
+          let newPrice: string | number | null = event.target.value;
 
-        <input
-          name="input-people"
-          type="number"
-          placeholder="people"
-          //   value={people || ""}
-          value={people ?? ""}
-          onChange={(event) => setPeople(+event.target.value)}
-        />
+          if (newPrice === "") {
+            newPrice = null;
+          } else {
+            newPrice = +newPrice;
+          }
+          setPrice(newPrice);
+        }}
+      />
 
-        <Button />
-      </form>
-    </div>
+      <Button />
+    </Form>
   );
 };

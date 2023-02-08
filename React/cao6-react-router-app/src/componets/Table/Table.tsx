@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { TableContainer } from "./Table.styled";
 
 export const Table = () => {
   const [data, setData] = useState<any[]>([]);
@@ -41,31 +42,29 @@ export const Table = () => {
       {isLoading ? (
         <p>Loading…</p>
       ) : (
-        <div>
-          <table>
-            <thead>
-              <tr>
-                <th>Order ID</th>
-                <th>Number of People</th>
-                <th>Price</th>
+        <TableContainer>
+          <thead>
+            <tr>
+              <th>Order Id</th>
+              <th>Number of People</th>
+              <th>Price, €</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((order) => (
+              <tr
+                onClick={() => {
+                  removeData(order.id);
+                }}
+                key={order.id}
+              >
+                <td>{order.id}</td>
+                <td>{order.people}</td>
+                <td>{order.price}</td>
               </tr>
-            </thead>
-            <tbody>
-              {data.map((order) => (
-                <tr
-                  onClick={() => {
-                    removeData(order.id);
-                  }}
-                  key={order.id}
-                >
-                  <td>{order.id}</td>
-                  <td>{order.people}</td>
-                  <td>{order.price}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+            ))}
+          </tbody>
+        </TableContainer>
       )}
     </>
   );

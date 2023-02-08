@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { AccountInfo } from "./AccountInfo";
 
 export const AccountInfoContainer = styled(AccountInfo)`
-  width: 75%;
+  width: 50%;
   background-color: #61dafb;
-  border: solid 2px black;
+  border: 20px solid black;
   margin: 1rem auto;
   padding: 1rem;
 `;

@@ -1,9 +1,9 @@
-import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { BorderContainer } from "./components/BorderContainers/BorderContainer";
 import { AccountInfo } from "./components/AccountInfo/AccountInfo";
-import { AccountInfoContainer } from "./components/AccountInfo/AccountInfo.styled";
+import { Button } from "./components/Button/Button";
+import { BlueButton } from "./components/Button/BlueButton";
 
 function App() {
   return (
@@ -16,9 +16,11 @@ function App() {
         <p>Edit src/App.tsx and save to reload.</p>
       </BorderContainer>
 
-      <AccountInfoContainer>
-        <AccountInfo account={{ name: "Alex", birthdate: new Date() }} />
-      </AccountInfoContainer>
+      <AccountInfo account={{ name: "Alex", birthdate: new Date() }} />
+
+      <Button />
+
+      <BlueButton />
     </div>
   );
 }

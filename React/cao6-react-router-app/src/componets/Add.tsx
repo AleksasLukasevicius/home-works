@@ -53,6 +53,7 @@ export const Add = () => {
           value={people ?? ""}
           onChange={(event) => setPeople(+event.target.value)}
         />
+
         <Button />
       </form>
     </div>

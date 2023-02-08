@@ -22,7 +22,7 @@ export const Table = () => {
   }, []);
 
   const removeData = (id: any) => {
-    const shouldDelete = window.confirm("Are you sure you want to delete?");
+    const shouldDelete = window.confirm("Are you sure want to delete?");
 
     if (!shouldDelete) {
       return;
@@ -56,6 +56,7 @@ export const Table = () => {
                   onClick={() => {
                     removeData(order.id);
                   }}
+                  key={order.id}
                 >
                   <td>{order.id}</td>
                   <td>{order.people}</td>

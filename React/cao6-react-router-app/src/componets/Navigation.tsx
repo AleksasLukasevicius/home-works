@@ -12,7 +12,7 @@ export const Navigation = () => {
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/add" element={<Add />} />
-        <Route path="*" element={<h1>Ops! Where is my favoritre page</h1>} />
+        <Route path="*" element={<h1>Ops! Where is not yuor page</h1>} />
       </Routes>
     </BrowserRouter>
   );

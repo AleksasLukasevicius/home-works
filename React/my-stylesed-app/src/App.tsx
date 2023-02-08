@@ -4,6 +4,8 @@ import { BorderContainer } from "./components/BorderContainers/BorderContainer";
 import { AccountInfo } from "./components/AccountInfo/AccountInfo";
 import { Button } from "./components/Button/Button";
 import { BlueButton } from "./components/Button/BlueButton";
+import { ButtonGreen } from "./components/Button/ButtonGreen";
+import { AccountInfoContainer } from "./components/AccountInfo/AccountInfo.styled";
 
 function App() {
   return (
@@ -16,11 +18,14 @@ function App() {
         <p>Edit src/App.tsx and save to reload.</p>
       </BorderContainer>
 
-      <AccountInfo account={{ name: "Alex", birthdate: new Date() }} />
+      <AccountInfoContainer>
+        <AccountInfo account={{ name: "Alex", birthdate: new Date() }} />
+      </AccountInfoContainer>
 
       <Button />
 
       <BlueButton />
+      <ButtonGreen />
     </div>
   );
 }

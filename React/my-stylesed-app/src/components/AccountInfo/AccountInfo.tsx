@@ -1,12 +1,12 @@
-import { AccountInfoContainer } from "./AccountInfo.styled";
-
-export const AccountInfo = ({ children }: any) => {
+export const AccountInfo = ({ children, className }: any) => {
   const { account } = children.props;
 
   return (
-    <AccountInfoContainer>
+    // <AccountInfoContainer>
+    <div className={className}>
       <p>{account.name}</p>
       <p>{account.birthdate.toLocaleString()}</p>
-    </AccountInfoContainer>
+    </div>
+    // </AccountInfoContainer>
   );
 };

@@ -12,6 +12,7 @@ export const TableContainer = styled.table`
   }
 
   th {
+    font-size: 1.5rem;
     padding-top: 12px;
     padding-bottom: 12px;
     background-color: black;

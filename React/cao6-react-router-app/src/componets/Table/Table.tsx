@@ -23,7 +23,9 @@ export const Table = () => {
   }, []);
 
   const removeData = (id: any) => {
-    const shouldDelete = window.confirm("Are you sure want to delete?");
+    const shouldDelete = window.confirm(
+      `Are you sure want to delete order ${id}?`
+    );
 
     if (!shouldDelete) {
       return;

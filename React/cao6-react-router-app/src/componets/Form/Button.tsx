@@ -1,3 +1,3 @@
 export const Button = () => {
-  return <button type="submit">Add</button>;
+  return <button type="submit">Enter</button>;
 };

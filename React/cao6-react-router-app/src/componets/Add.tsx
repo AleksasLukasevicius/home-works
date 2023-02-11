@@ -1,7 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-import { Button } from "./Form//Button";
 import { Form } from "./Form/Form.styled";
+import { ButtonStyle } from "./Form/Button.styled";
+import { Button } from "./Form/Button";
 
 export const Add = () => {
   const [price, setPrice] = useState<number | null>(null);
@@ -62,8 +63,8 @@ export const Add = () => {
           setPrice(newPrice);
         }}
       />
-
       <Button />
+      <ButtonStyle />
     </Form>
   );
 };

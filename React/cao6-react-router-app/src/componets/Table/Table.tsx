@@ -14,7 +14,7 @@ export const Table = () => {
       .finally(() => {
         setTimeout(() => {
           setIsLoading(false);
-        }, 1000);
+        }, 100);
       });
   };
 

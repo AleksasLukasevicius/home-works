@@ -1,7 +1,5 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { Navigation } from "./coponents/Navigation";
+import { Navigation } from "./coponents/Navigation/Navigation";
 
 function App() {
   return (

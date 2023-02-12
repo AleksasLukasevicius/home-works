@@ -5,6 +5,8 @@ import { Error } from "../Error";
 import { Home } from "../Home";
 import { Logo } from "../Logo/Logo";
 import { Logs } from "../Logs/Logs";
+import { AddPet } from "../PetList/AddPet";
+import { AddMedications } from "../Medications/AddMedications";
 
 export const Navigation = () => {
   return (
@@ -21,10 +23,15 @@ export const Navigation = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pets" element={<PetList />} />
+        <Route path="/add-pet" element={<AddPet />} />
         <Route path="/meds" element={<Medications />} />
+        <Route path="/add-meds" element={<AddMedications />} />
         <Route path="/logs/:id" element={<Logs />} />
         <Route path="*" element={<Error />} />
       </Routes>
+      <footer>
+        <p>Copyright VeetBee 2023. All rights reserved</p>
+      </footer>
     </BrowserRouter>
   );
 };

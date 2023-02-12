@@ -4,7 +4,6 @@ export const TableContainer = styled.table`
   border-collapse: collapse;
   margin: 1rem auto;
   width: 75%;
-  background-color: #e8cfa9;
 
   td {
     padding-top: 6px;
@@ -20,7 +19,7 @@ export const TableContainer = styled.table`
   }
 
   tbody > tr:nth-child(odd) {
-    background-color: #f5dcb7;
+    background-color: lightgrey;
   }
 
   tbody > tr:hover {

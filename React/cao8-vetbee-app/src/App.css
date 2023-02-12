@@ -1,7 +1,10 @@
+#root {
+}
+
 .App {
   text-align: center;
   font-family: "Titillium Web", sans-serif;
-  max-width: 50rem;
+  max-width: 66rem;
   margin: 0 auto;
 }
 
@@ -22,8 +25,42 @@ nav a {
   color: orange;
 }
 
+.title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 h1 {
   text-align: left;
   font-weight: 100;
   font-size: 2rem;
+  margin: 0;
+}
+.content-container {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.card-content {
+  text-align: center;
+  border-radius: 1rem;
+  border: 1px solid #f2f2f2;
+  padding: 1rem;
+  width: 12rem;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
 }

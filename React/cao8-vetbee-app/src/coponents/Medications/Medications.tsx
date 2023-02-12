@@ -3,13 +3,13 @@ import { useEffect, useState } from "react";
 import { TableContainer } from "./MedicationsTable.styled";
 
 export const Medications = () => {
-  const [data, setData] = useState<any[]>([]);
+  const [medications, setMedications] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchData = () => {
+  const getMedicationsData = () => {
     axios
       .get("https://glittery-dull-snickerdoodle.glitch.me/v1/meds/")
-      .then((response) => setData(response.data))
+      .then((response) => setMedications(response.data))
       .catch((error) => console.error(error))
       .finally(() => {
         setTimeout(() => {
@@ -19,7 +19,7 @@ export const Medications = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    getMedicationsData();
   }, []);
 
   return (
@@ -39,7 +39,7 @@ export const Medications = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((meds) => (
+            {medications.map((meds) => (
               <tr key={meds.id}>
                 <td>{meds.id}</td>
                 <td>{meds.name}</td>

@@ -13,8 +13,10 @@ export const Navigation = () => {
         <Link to="/">
           <Logo />
         </Link>
-        <Link to="/pets">Pets</Link>
-        <Link to="/meds">Medications</Link>
+        <nav>
+          <Link to="/pets">Pets</Link>
+          <Link to="/meds">Medications</Link>
+        </nav>
       </header>
       <Routes>
         <Route path="/" element={<Home />} />

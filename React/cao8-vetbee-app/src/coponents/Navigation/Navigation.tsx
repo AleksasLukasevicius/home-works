@@ -29,7 +29,7 @@ export const Navigation = () => {
         <Route path="/logs/:id" element={<Logs />} />
         <Route path="*" element={<Error />} />
       </Routes>
-      <footer>
+      <footer contentEditable>
         <p>Copyright VeetBee 2023. All rights reserved</p>
       </footer>
     </BrowserRouter>

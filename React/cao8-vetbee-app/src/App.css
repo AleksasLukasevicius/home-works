@@ -3,6 +3,9 @@
   font-family: "Titillium Web", sans-serif;
   max-width: 50rem;
   margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -58,8 +61,7 @@ h1 {
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
+  margin-top: auto;
 }
 
 fieldset {

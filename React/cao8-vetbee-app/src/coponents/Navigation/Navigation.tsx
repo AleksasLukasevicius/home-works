@@ -1,6 +1,6 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { PetList } from "../PetList/PetList";
-import { Medications } from "../Medications/Medications";
+import { Medications } from "../Medications/GetMedicationsTable";
 import { Error } from "../Error";
 import { Home } from "../Home";
 import { Logo } from "../Logo/Logo";

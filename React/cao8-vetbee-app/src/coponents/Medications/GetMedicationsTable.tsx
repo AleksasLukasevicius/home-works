@@ -4,14 +4,20 @@ import { TableContainer } from "./MedicationsTable.styled";
 import { OrangeButton } from "../Button/Button.styled";
 import { useNavigate } from "react-router-dom";
 
+export type TMeds = {
+  id: number;
+  name: string | null;
+  description: string | null;
+}[];
+
 export const Medications = () => {
-  const [medications, setMedications] = useState<any[]>([]);
+  const [medications, setMedications] = useState<TMeds>([]);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   const getMedicationsData = () => {
     axios
-      .get("https://glittery-dull-snickerdoodle.glitch.me/v1/meds/")
+      .get<TMeds>("https://glittery-dull-snickerdoodle.glitch.me/v1/meds/")
       .then((response) => setMedications(response.data))
       .catch((error) => console.error(error))
       .finally(() => {
@@ -24,6 +30,10 @@ export const Medications = () => {
   useEffect(() => {
     getMedicationsData();
   }, []);
+
+  if (!medications) {
+    return <h2>No meds</h2>;
+  }
 
   return (
     <>

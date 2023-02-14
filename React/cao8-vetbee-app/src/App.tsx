@@ -4,10 +4,10 @@ import { Navigation } from "./coponents/Navigation/Navigation";
 import { ProductsContext } from "./coponents/ProductsContext/ProductsContext";
 
 export const App = () => {
-  const [products, setProducts] = useState<string[]>(["Apples"]);
+  const [products, setProducts] = useState<string[]>([]);
 
   useEffect(() => {
-    setProducts([]);
+    setProducts(["Apples"]);
   }, []);
 
   return (

@@ -1,3 +1,3 @@
 import { createContext } from "vm";
 
-export const ProductsContext = createContext<string[]>([]);
+export const ProductsContext = createContext();

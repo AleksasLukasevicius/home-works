@@ -4,9 +4,9 @@ import { OrangeButton, WhiteButton } from "../Button/Button.styled";
 import { useNavigate } from "react-router-dom";
 import { ProductsContext } from "../ProductsContext/ProductsContext";
 
-export const AddPet = ({ getPetsData }: any) => {
+export const AddPetForm = () => {
   const products = useContext(ProductsContext);
-  console.info(products);
+  console.info({ products });
 
   const [newPet, setNewPet] = useState({
     name: null,
@@ -26,7 +26,10 @@ export const AddPet = ({ getPetsData }: any) => {
         dob: newPet.dob,
         client_email: newPet.client_email,
       })
-      .then(() => resetForm())
+      .then(() => {
+        alert(`Pet ${name} was added`);
+        resetForm();
+      })
       .catch((error) => console.error(error));
   };
 

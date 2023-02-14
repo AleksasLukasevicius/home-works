@@ -12,11 +12,18 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 1rem;
 }
 
 header img {
   height: 3rem;
   padding: 0.5rem 0;
+}
+
+.filter-green {
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(90deg)
+    brightness(118%) contrast(119%);
 }
 
 nav a {

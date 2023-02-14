@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { PetCard } from "./PetCard";
-import { OrangeButton, WhiteButton } from "../Button/Button.styled";
+import { OrangeButton } from "../Button/Button.styled";
 import { useNavigate } from "react-router-dom";
 
 export const PetList = () => {
@@ -12,7 +12,7 @@ export const PetList = () => {
   const getPetsData = () => {
     axios
       .get("https://glittery-dull-snickerdoodle.glitch.me/v1/pets/")
-      .then((response) => setPets(response.data))
+      .then((resulte) => setPets(resulte.data))
       .catch((error) => console.error(error))
       .finally(() => {
         setTimeout(() => {

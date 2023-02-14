@@ -4,23 +4,27 @@ import { TableContainer } from "./MedicationsTable.styled";
 import { OrangeButton } from "../Button/Button.styled";
 import { useNavigate } from "react-router-dom";
 
-export type TMeds = {
+export type TMedication = {
   id: number;
   name: string | null;
   description: string | null;
-}[];
+};
 
-export const GetMedicationsTable = () => {
-  const [medications, setMedications] = useState<TMeds>([]);
+export const MedicationsTable = () => {
+  const [medications, setMedications] = useState<TMedication[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   const getMedicationsData = () => {
     axios
-      .get<TMeds>("https://glittery-dull-snickerdoodle.glitch.me/v1/meds/")
-      .then((response) => {
-        if (Array.isArray(response.data)) {
-          setMedications(response.data);
+      .get<TMedication[]>(
+        "https://glittery-dull-snickerdoodle.glitch.me/v1/meds?limit=250"
+      )
+      .then((resulte) => {
+        if (Array.isArray(resulte.data)) {
+          setMedications(
+            resulte.data.filter((med) => med.name && med.description)
+          );
         }
       })
       .catch((error) => console.error(error))
@@ -57,12 +61,13 @@ export const GetMedicationsTable = () => {
             <th>Description</th>
           </tr>
         </thead>
+
         <tbody>
-          {medications.map((meds) => (
-            <tr key={meds.id}>
-              <td>{meds.id}</td>
-              <td>{meds.name}</td>
-              <td>{meds.description}</td>
+          {medications.map((med: TMedication) => (
+            <tr key={med.id}>
+              <td>{med.id}</td>
+              <td>{med.name}</td>
+              <td>{med.description}</td>
             </tr>
           ))}
         </tbody>

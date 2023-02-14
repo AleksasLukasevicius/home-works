@@ -40,7 +40,7 @@ export const Medications = () => {
       {isLoading ? (
         <p>Loading…</p>
       ) : (
-        <section>
+        <main>
           <div className="title-wrapper">
             <h1>Medications List</h1>
             <div className="button-wrapper">
@@ -49,25 +49,27 @@ export const Medications = () => {
               </OrangeButton>
             </div>
           </div>
-          <TableContainer>
-            <thead>
-              <tr>
-                <th>Meds Id</th>
-                <th>Name of Meds</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              {medications.map((meds) => (
-                <tr key={meds.id}>
-                  <td>{meds.id}</td>
-                  <td>{meds.name}</td>
-                  <td>{meds.description}</td>
+          <div className="content-container">
+            <TableContainer>
+              <thead>
+                <tr>
+                  <th>Meds Id</th>
+                  <th>Name of Meds</th>
+                  <th>Description</th>
                 </tr>
-              ))}
-            </tbody>
-          </TableContainer>
-        </section>
+              </thead>
+              <tbody>
+                {medications.map((meds) => (
+                  <tr key={meds.id}>
+                    <td>{meds.id}</td>
+                    <td>{meds.name}</td>
+                    <td>{meds.description}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </TableContainer>
+          </div>
+        </main>
       )}
     </>
   );

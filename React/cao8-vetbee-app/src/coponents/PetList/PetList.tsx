@@ -30,7 +30,7 @@ export const PetList = () => {
       {isLoading ? (
         <p>Loading…</p>
       ) : (
-        <section>
+        <main>
           <div className="title-wrapper">
             <h1>Pet List</h1>
             <div className="button-wrapper">
@@ -43,7 +43,7 @@ export const PetList = () => {
           <div className="content-container">
             <PetCard pets={pets} getPetsData={getPetsData} />
           </div>
-        </section>
+        </main>
       )}
     </>
   );

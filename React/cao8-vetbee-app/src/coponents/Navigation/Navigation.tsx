@@ -1,6 +1,6 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { PetList } from "../PetList/PetList";
-import { Medications } from "../Medications/GetMedicationsTable";
+import { GetMedicationsTable } from "../Medications/GetMedicationsTable";
 import { Error } from "../Error";
 import { Home } from "../Home";
 import { Logo } from "../Logo/Logo";
@@ -24,7 +24,7 @@ export const Navigation = () => {
         <Route path="/" element={<Home />} />
         <Route path="/pets" element={<PetList />} />
         <Route path="/add-pet" element={<AddPet />} />
-        <Route path="/meds" element={<Medications />} />
+        <Route path="/meds" element={<GetMedicationsTable />} />
         <Route path="/add-meds" element={<AddMedications />} />
         <Route path="/logs/:id" element={<Logs />} />
         <Route path="*" element={<Error />} />

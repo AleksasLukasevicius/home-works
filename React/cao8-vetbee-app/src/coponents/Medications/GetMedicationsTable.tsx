@@ -10,7 +10,7 @@ export type TMeds = {
   description: string | null;
 }[];
 
-export const Medications = () => {
+export const GetMedicationsTable = () => {
   const [medications, setMedications] = useState<TMeds>([]);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
@@ -18,7 +18,11 @@ export const Medications = () => {
   const getMedicationsData = () => {
     axios
       .get<TMeds>("https://glittery-dull-snickerdoodle.glitch.me/v1/meds/")
-      .then((response) => setMedications(response.data))
+      .then((response) => {
+        if (Array.isArray(response.data)) {
+          setMedications(response.data);
+        }
+      })
       .catch((error) => console.error(error))
       .finally(() => {
         setTimeout(() => {
@@ -31,44 +35,38 @@ export const Medications = () => {
     getMedicationsData();
   }, []);
 
-  if (!medications) {
-    return <h2>No meds</h2>;
-  }
-
-  return (
-    <>
-      {isLoading ? (
-        <p>Loading…</p>
-      ) : (
-        <section>
-          <div className="title-wrapper">
-            <h1>Medications List</h1>
-            <div className="button-wrapper">
-              <OrangeButton onClick={() => navigate("/add-meds")}>
-                Add Medications
-              </OrangeButton>
-            </div>
-          </div>
-          <TableContainer>
-            <thead>
-              <tr>
-                <th>Meds Id</th>
-                <th>Name of Meds</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              {medications.map((meds) => (
-                <tr key={meds.id}>
-                  <td>{meds.id}</td>
-                  <td>{meds.name}</td>
-                  <td>{meds.description}</td>
-                </tr>
-              ))}
-            </tbody>
-          </TableContainer>
-        </section>
-      )}
-    </>
+  return isLoading ? (
+    <p>Loading…</p>
+  ) : !medications.length ? (
+    <h1>No Medications</h1>
+  ) : (
+    <section>
+      <div className="title-wrapper">
+        <h1>Medications List</h1>
+        <div className="button-wrapper">
+          <OrangeButton onClick={() => navigate("/add-meds")}>
+            Add Medications
+          </OrangeButton>
+        </div>
+      </div>
+      <TableContainer>
+        <thead>
+          <tr>
+            <th>Meds Id</th>
+            <th>Name of Meds</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {medications.map((meds) => (
+            <tr key={meds.id}>
+              <td>{meds.id}</td>
+              <td>{meds.name}</td>
+              <td>{meds.description}</td>
+            </tr>
+          ))}
+        </tbody>
+      </TableContainer>
+    </section>
   );
 };

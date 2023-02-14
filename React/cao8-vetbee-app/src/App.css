@@ -21,15 +21,17 @@ header img {
   padding: 0.5rem 0;
 }
 
-.filter-green {
-  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(90deg)
-    brightness(118%) contrast(119%);
+a {
+  color: orange;
+}
+
+a svg path {
+  fill: orange;
 }
 
 nav a {
   margin-left: 1rem;
   text-decoration: none;
-  color: orange;
 }
 
 .title-wrapper {

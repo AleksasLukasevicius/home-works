@@ -1,9 +1,13 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { OrangeButton, WhiteButton } from "../Button/Button.styled";
 import { useNavigate } from "react-router-dom";
+import { ProductsContext } from "../ProductsContext/ProductsContext";
 
 export const AddPet = ({ getPetsData }: any) => {
+  const products = useContext(ProductsContext);
+  console.info(products);
+
   const [newPet, setNewPet] = useState({
     name: null,
     dob: null,

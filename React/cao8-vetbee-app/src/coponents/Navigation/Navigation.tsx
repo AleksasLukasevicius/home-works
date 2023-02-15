@@ -7,8 +7,12 @@ import { Logo } from "../Logo/Logo";
 import { Logs } from "../Logs/Logs";
 import { AddPetForm } from "../PetList/AddPetForm";
 import { AddMedications } from "../Medications/AddMedications";
+import { useContext } from "react";
+import { ProductsContext } from "../ProductsContext/ProductsContext";
 
 export const Navigation = () => {
+  const products = useContext(ProductsContext);
+  console.info({ products });
   return (
     <BrowserRouter>
       <header>

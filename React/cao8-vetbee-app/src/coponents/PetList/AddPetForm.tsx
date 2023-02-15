@@ -5,8 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { ProductsContext } from "../ProductsContext/ProductsContext";
 
 export const AddPetForm = () => {
-  const products = useContext(ProductsContext);
-  console.info({ products });
+  
 
   const [newPet, setNewPet] = useState({
     name: null,

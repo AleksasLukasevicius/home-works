@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { ProductsContext } from "../ProductsContext/ProductsContext";
 
 export const AddPetForm = () => {
-  
+  const products = useContext(ProductsContext);
+  console.info({ products });
 
   const [newPet, setNewPet] = useState({
     name: null,
@@ -26,7 +27,7 @@ export const AddPetForm = () => {
         client_email: newPet.client_email,
       })
       .then(() => {
-        alert(`Pet ${name} was added`);
+        alert(`Pet ${newPet.name} was added`);
         resetForm();
       })
       .catch((error) => console.error(error));

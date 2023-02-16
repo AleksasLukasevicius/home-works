@@ -6,11 +6,11 @@ import { Home } from "../Home";
 import { Logo } from "../Logo/Logo";
 import { Logs } from "../Logs/Logs";
 import { AddPetForm } from "../PetList/AddPetForm";
-import { AddMedications } from "../Medications/AddMedications";
+import { AddMedicationForm } from "../Medications/AddMedicationForm";
 import { useContext } from "react";
 import { ProductsContext } from "../ProductsContext/ProductsContext";
 
-export const Navigation = () => {
+export const Router = () => {
   const products = useContext(ProductsContext);
   console.info({ products });
   return (
@@ -29,12 +29,12 @@ export const Navigation = () => {
         <Route path="/pets" element={<PetList />} />
         <Route path="/add-pet" element={<AddPetForm />} />
         <Route path="/meds" element={<MedicationsTable />} />
-        <Route path="/add-meds" element={<AddMedications />} />
+        <Route path="/add-meds" element={<AddMedicationForm />} />
         <Route path="/logs/:id" element={<Logs />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <footer>
-        <p>Copyright VeetBee 2023. All rights reserved</p>
+        <p>Copyright © VeetBee 2023. All rights reserved</p>
       </footer>
     </BrowserRouter>
   );

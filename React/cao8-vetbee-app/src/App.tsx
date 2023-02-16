@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { Navigation } from "./coponents/Navigation/Navigation";
+import { Router } from "./coponents/Router/Router";
 import { ProductsContext } from "./coponents/ProductsContext/ProductsContext";
 
 export const App = () => {
@@ -13,7 +13,7 @@ export const App = () => {
   return (
     <div className="App">
       <ProductsContext.Provider value={products}>
-        <Navigation />
+        <Router />
       </ProductsContext.Provider>
     </div>
   );

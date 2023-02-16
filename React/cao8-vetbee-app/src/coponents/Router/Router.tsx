@@ -1,8 +1,8 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { PetList } from "../PetList/PetList";
 import { MedicationsTable } from "../Medications/MedicationsTable";
-import { Error } from "../Error";
-import { Home } from "../Home";
+import { Error } from "../pages/Error";
+import { Home } from "../pages/Home";
 import { Logo } from "../Logo/Logo";
 import { Logs } from "../Logs/Logs";
 import { AddPetForm } from "../PetList/AddPetForm";

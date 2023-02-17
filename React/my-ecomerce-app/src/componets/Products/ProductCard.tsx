@@ -1,6 +1,9 @@
-export const ProductCard = (product: any) => {
+import { TProduct } from "../Types/TProduct";
+
+export const ProductCard = (product: TProduct) => {
   return (
-    <div className="produt-card">
+    <div className="product-card" key={product.id}>
+      <p>Id: {product.id}</p>
       <p>Name: {product.name}</p>
       <p>Price: {product.price}</p>
     </div>

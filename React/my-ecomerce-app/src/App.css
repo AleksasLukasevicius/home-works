@@ -46,7 +46,7 @@ h1 {
   font-size: 2rem;
   margin: 0;
 }
-.content-container {
+.products-container {
   margin: 2rem 0;
   display: flex;
   justify-content: space-between;
@@ -54,8 +54,8 @@ h1 {
   flex-wrap: wrap;
 }
 
-.card-content {
-  text-align: center;
+.product-card {
+  text-align: left;
   border-radius: 1rem;
   border: 1px solid #f2f2f2;
   padding: 1rem;

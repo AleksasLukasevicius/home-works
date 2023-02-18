@@ -9,6 +9,8 @@ import { AddPetForm } from "../PetList/AddPetForm";
 import { AddMedicationForm } from "../Medications/AddMedicationForm";
 import { useContext } from "react";
 import { ProductsContext } from "../ProductsContext/ProductsContext";
+import { AddLogForm } from "../Logs/AddLogForm";
+import { AddPrescriptionForm } from "../Prescription/AddPrescriptionForm";
 
 export const Router = () => {
   const products = useContext(ProductsContext);
@@ -31,6 +33,8 @@ export const Router = () => {
         <Route path="/meds" element={<MedicationsTable />} />
         <Route path="/add-meds" element={<AddMedicationForm />} />
         <Route path="/logs/:id" element={<Logs />} />
+        <Route path="/add-log/" element={<AddLogForm />} />
+        <Route path="/add-prescription" element={<AddPrescriptionForm />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <footer>

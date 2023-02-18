@@ -10,7 +10,6 @@ import { Footer } from "../Footer/Footer";
 
 export const Router = () => {
   const products = useContext(ProductsContext);
-  console.info({ products });
   return (
     <BrowserRouter>
       <Header />

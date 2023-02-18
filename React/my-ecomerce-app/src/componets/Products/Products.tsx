@@ -1,19 +1,11 @@
 import { useContext } from "react";
+import { TProduct } from "../Types/TProduct";
 import { ProductCard } from "./ProductCard";
 import { ProductsContext } from "./ProductsContext";
 
 export const Products = () => {
   const products = [useContext(ProductsContext)];
-  console.info({ products });
-
-  // useEffect(() => {
-  //   setProducts([
-  //     { name: "bread", price: 1.99 },
-  //     { name: "milk", price: 2.99 },
-  //     { name: "butter", price: 3.99 },
-  //     { name: "cheese", price: 4.99 },
-  //   ]);
-  // }, []);
+  console.info(products);
 
   return (
     <main>
@@ -22,8 +14,8 @@ export const Products = () => {
       </div>
 
       <div className="products-container">
-        {products.map((product: any) => (
-          <ProductCard product={product} />
+        {products.map((product: TProduct) => (
+          <ProductCard products={products} />
         ))}
       </div>
     </main>

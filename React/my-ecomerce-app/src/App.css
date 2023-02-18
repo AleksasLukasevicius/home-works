@@ -1,38 +1,80 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  font-family: "Titillium Web", sans-serif;
+  max-width: 50rem;
+  margin: 0 auto;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 1rem;
+}
+
+header img {
+  height: 3rem;
+  padding: 0.5rem 0;
+}
+
+a {
+  color: orange;
+}
+
+a svg path {
+  fill: orange;
+}
+
+nav a {
+  margin-left: 1rem;
+  text-decoration: none;
+}
+
+.title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  text-align: left;
+  font-weight: 100;
+  font-size: 2rem;
+  margin: 0;
+}
+.products-container {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  text-align: left;
+  border-radius: 1rem;
+  border: 1px solid #f2f2f2;
+  padding: 1rem;
+  width: 12rem;
+}
+
+.button-wrapper {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
-.App-link {
-  color: #61dafb;
+footer {
+  margin-top: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

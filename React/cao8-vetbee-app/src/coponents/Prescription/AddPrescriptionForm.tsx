@@ -1,8 +1,7 @@
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { OrangeButton, WhiteButton } from "../Button/Button.styled";
 import { useNavigate } from "react-router-dom";
-import { ProductsContext } from "../ProductsContext/ProductsContext";
 
 export const AddPrescriptionForm = () => {
   const [newPet, setNewPet] = useState({

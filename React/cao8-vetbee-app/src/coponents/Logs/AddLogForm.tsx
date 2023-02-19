@@ -1,46 +1,48 @@
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { OrangeButton, WhiteButton } from "../Button/Button.styled";
-import { useNavigate } from "react-router-dom";
-import { ProductsContext } from "../ProductsContext/ProductsContext";
+import { useNavigate, useParams } from "react-router-dom";
 
 export const AddLogForm = () => {
-  const [newPet, setNewPet] = useState({
-    name: null,
-    dob: null,
-    client_email: null,
+  const [newLog, setNewLog] = useState({
+    pet_id: null,
+    description: null,
+    status: null,
   });
 
-  const resetForm = () => {
-    setNewPet({ name: null, dob: null, client_email: null });
-  };
+  const navigate = useNavigate();
+  const params = useParams();
+  function handleClick() {
+    navigate(-1);
+  }
 
-  const handlePetSumbit: React.FormEventHandler<HTMLFormElement> = (event) => {
-    event.preventDefault();
-    axios
-      .post("https://glittery-dull-snickerdoodle.glitch.me/v1/pets", {
-        name: newPet.name,
-        dob: newPet.dob,
-        client_email: newPet.client_email,
-      })
-      .then(() => {
-        alert(`Pet ${newPet.name} was added`);
-        resetForm();
-      })
-      .catch((error) => console.error(error));
-  };
+  console.info({ newLog });
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
     prop: string
   ) => {
-    setNewPet({ ...newPet, [prop]: event.target.value });
+    setNewLog({ ...newLog, [prop]: event.target.value });
   };
 
-  const navigate = useNavigate();
-  function handleClick() {
-    navigate(-1);
-  }
+  const resetForm = () => {
+    setNewLog({ pet_id: null, description: null, status: null });
+  };
+
+  const handlePetSumbit: React.FormEventHandler<HTMLFormElement> = (event) => {
+    event.preventDefault();
+    axios
+      .post("https://glittery-dull-snickerdoodle.glitch.me/v1/logs", {
+        pet_id: params.id,
+        description: newLog.description,
+        status: newLog.status,
+      })
+      .then(() => {
+        alert(`Log ${newLog.description} was added`);
+        resetForm();
+      })
+      .catch((error) => console.error(error.response.data.error));
+  };
 
   return (
     <form method="post" onSubmit={handlePetSumbit}>
@@ -48,33 +50,24 @@ export const AddLogForm = () => {
         <legend>
           <h1>Add Log</h1>
         </legend>
-        <label htmlFor="pet-name">Pet name</label>
+        <label htmlFor="log-description">Description</label>
         <input
-          name="pet-name"
-          value={newPet.name ?? ""}
-          onChange={(event) => handleInputChange(event, "name")}
-          placeholder="Enter your pet name"
+          name="log-description"
+          value={newLog.description ?? ""}
+          onChange={(event) => handleInputChange(event, "description")}
+          placeholder="Enter your pet description"
         />
 
-        <label htmlFor="pet-date-of-birthday">Pet birthday</label>
+        <label htmlFor="log-status">Status</label>
         <input
-          name="pet-date-of-birthday"
-          type="date"
-          value={newPet.dob ?? ""}
-          onChange={(event) => handleInputChange(event, "dob")}
-          placeholder="Enter your pet birthday date"
+          name="log-status"
+          value={newLog.status ?? ""}
+          onChange={(event) => handleInputChange(event, "status")}
+          placeholder="Enter your pet status"
         />
 
-        <label htmlFor="client-email">Client email</label>
-        <input
-          name="client-email"
-          type="email"
-          value={newPet.client_email ?? ""}
-          onChange={(event) => handleInputChange(event, "client_email")}
-          placeholder="Enter your E-mail"
-        />
         <div className="button-wrapper">
-          <OrangeButton>Add pet</OrangeButton>
+          <OrangeButton type="submit">Add log</OrangeButton>
           <WhiteButton onClick={handleClick}>Cancel</WhiteButton>
         </div>
       </fieldset>

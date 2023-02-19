@@ -63,7 +63,7 @@ export const MedicationsTable = () => {
         </thead>
 
         <tbody>
-          {medications.map((med: TMedication) => (
+          {medications.map((med) => (
             <tr key={med.id}>
               <td>{med.id}</td>
               <td>{med.name}</td>

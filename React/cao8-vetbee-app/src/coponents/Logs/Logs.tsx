@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { OrangeButton } from "../Button/Button.styled";
-import { LogCard } from "./LogCard";
 
 export type TLog = {
   pet_id: number;
@@ -33,8 +32,6 @@ export const Logs = () => {
     getPetLogsData();
   }, [params.id]);
 
-  console.log(logs);
-
   return (
     <>
       <main>
@@ -55,7 +52,7 @@ export const Logs = () => {
             <div className="card-content" key={`{log.id} ${i}`}>
               <h2>{log.description}</h2>
               <p>{log.status}</p>
-              <p>{new Date(log.dob).toISOString().split("T")[0]}</p>
+              {/* <p>{new Date(log.dob).toISOString().split("T")[0]}</p> */}
             </div>
           ))}
         </div>

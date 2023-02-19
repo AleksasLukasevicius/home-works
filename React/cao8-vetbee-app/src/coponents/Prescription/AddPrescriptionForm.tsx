@@ -2,44 +2,64 @@ import axios from "axios";
 import { useState } from "react";
 import { OrangeButton, WhiteButton } from "../Button/Button.styled";
 import { useNavigate } from "react-router-dom";
+import { TMedication } from "../Medications/MedicationsTable";
+import { Autocomplete } from "@mui/material";
+import TextField from "@mui/material/TextField";
 
 export const AddPrescriptionForm = () => {
-  const [newPet, setNewPet] = useState({
-    name: null,
-    dob: null,
-    client_email: null,
+  const [newPrescription, setNewPrescription] = useState({
+    medication_id: null,
+    pet_id: null,
+    comment: null,
   });
 
+  const navigate = useNavigate();
+  function handleClick() {
+    navigate(-1);
+  }
+
   const resetForm = () => {
-    setNewPet({ name: null, dob: null, client_email: null });
+    setNewPrescription({ medication_id: null, pet_id: null, comment: null });
   };
 
   const handlePetSumbit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
     axios
       .post("https://glittery-dull-snickerdoodle.glitch.me/v1/prescription", {
-        name: newPet.name,
-        dob: newPet.dob,
-        client_email: newPet.client_email,
+        medication_id: newPrescription.medication_id,
+        pet_id: newPrescription.pet_id,
+        comment: newPrescription.comment,
       })
       .then(() => {
-        alert(`Pet ${newPet.name} was added`);
+        alert(`Prescription  was added`);
         resetForm();
       })
       .catch((error) => console.error(error));
+  };
+
+  const handleSelect = (
+    _: React.SyntheticEvent<Element, Event>,
+    value: TMedication | null
+  ) => {
+    if (!value?.id) {
+      return;
+    }
+
+    setNewPrescription({
+      ...newPrescription,
+      medication_id: value?.id,
+    });
   };
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
     prop: string
   ) => {
-    setNewPet({ ...newPet, [prop]: event.target.value });
+    setNewPrescription({
+      ...newPrescription,
+      [prop]: event.target.value,
+    });
   };
-
-  const navigate = useNavigate();
-  function handleClick() {
-    navigate(-1);
-  }
 
   return (
     <form method="post" onSubmit={handlePetSumbit}>
@@ -47,31 +67,29 @@ export const AddPrescriptionForm = () => {
         <legend>
           <h1>Add Prescription</h1>
         </legend>
-        <label htmlFor="pet-name">Pet name</label>
-        <input
-          name="pet-name"
-          value={newPet.name ?? ""}
-          onChange={(event) => handleInputChange(event, "name")}
-          placeholder="Enter your pet name"
+
+        <Autocomplete
+          onChange={handleSelect}
+          options={uniqueMeds}
+          getOptionLabel={(option) => option.name ?? ""}
+          renderInput={(params) => <TextField {...params} label="Medication" />}
+          sx={{
+            width: "30rem",
+            textAlign: "center",
+            "& option": {
+              padding: "0.5rem",
+            },
+          }}
         />
 
-        <label htmlFor="pet-date-of-birthday">Pet birthday</label>
+        <label htmlFor="comment">Pet birthday</label>
         <input
-          name="pet-date-of-birthday"
-          type="date"
-          value={newPet.dob ?? ""}
-          onChange={(event) => handleInputChange(event, "dob")}
-          placeholder="Enter your pet birthday date"
+          name="comment"
+          value={newPrescription.comment ?? ""}
+          onChange={(event) => handleInputChange(event, "comment")}
+          placeholder="Enter comment"
         />
 
-        <label htmlFor="client-email">Client email</label>
-        <input
-          name="client-email"
-          type="email"
-          value={newPet.client_email ?? ""}
-          onChange={(event) => handleInputChange(event, "client_email")}
-          placeholder="Enter your E-mail"
-        />
         <div className="button-wrapper">
           <OrangeButton>Add pet</OrangeButton>
           <WhiteButton onClick={handleClick}>Cancel</WhiteButton>

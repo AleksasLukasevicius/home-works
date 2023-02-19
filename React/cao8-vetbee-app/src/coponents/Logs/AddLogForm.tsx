@@ -16,8 +16,6 @@ export const AddLogForm = () => {
     navigate(-1);
   }
 
-  console.info({ newLog });
-
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
     prop: string

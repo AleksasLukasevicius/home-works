@@ -1,43 +1,18 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { TableContainer } from "./MedicationsTable.styled";
 import { OrangeButton } from "../Button/Button.styled";
 import { useNavigate } from "react-router-dom";
-
-export type TMedication = {
-  id: number;
-  name: string | null;
-  description: string | null;
-};
+import { TMedication } from "../Types/TMedication";
 
 export const MedicationsTable = () => {
   const [medications, setMedications] = useState<TMedication[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+
   const navigate = useNavigate();
-
-  const getMedicationsData = () => {
-    axios
-      .get<TMedication[]>(
-        "https://glittery-dull-snickerdoodle.glitch.me/v1/meds?limit=250"
-      )
-      .then((resulte) => {
-        if (Array.isArray(resulte.data)) {
-          setMedications(
-            resulte.data.filter((med) => med.name && med.description)
-          );
-        }
-      })
-      .catch((error) => console.error(error))
-      .finally(() => {
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 100);
-      });
-  };
-
-  useEffect(() => {
-    getMedicationsData();
-  }, []);
+  function handleClick() {
+    navigate(-1);
+  }
 
   return isLoading ? (
     <p>Loading…</p>

@@ -1,40 +1,36 @@
 import axios from "axios";
 import { useState } from "react";
 import { OrangeButton, WhiteButton } from "../Button/Button.styled";
-import { useNavigate } from "react-router-dom";
-import { TMedication } from "../Medications/MedicationsTable";
-import { Autocomplete } from "@mui/material";
-import TextField from "@mui/material/TextField";
+import { useNavigate, useParams } from "react-router-dom";
+import { Autocomplete, TextField } from "@mui/material";
+import { TNewPrescription } from "../Types/TNewPrescription";
+import { useGetMedicationsData } from "../hooks/useGetMedicationsData";
+import { TMedication } from "../Types/TMedication";
 
 export const AddPrescriptionForm = () => {
-  const [newPrescription, setNewPrescription] = useState({
+  const { uniqueMeds } = useGetMedicationsData();
+
+  const [newPrescription, setNewPrescription] = useState<TNewPrescription>({
     medication_id: null,
     pet_id: null,
     comment: null,
   });
+
+  const params = useParams();
 
   const navigate = useNavigate();
   function handleClick() {
     navigate(-1);
   }
 
-  const resetForm = () => {
-    setNewPrescription({ medication_id: null, pet_id: null, comment: null });
-  };
-
-  const handlePetSumbit: React.FormEventHandler<HTMLFormElement> = (event) => {
-    event.preventDefault();
-    axios
-      .post("https://glittery-dull-snickerdoodle.glitch.me/v1/prescription", {
-        medication_id: newPrescription.medication_id,
-        pet_id: newPrescription.pet_id,
-        comment: newPrescription.comment,
-      })
-      .then(() => {
-        alert(`Prescription  was added`);
-        resetForm();
-      })
-      .catch((error) => console.error(error));
+  const handleInputChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    prop: string
+  ) => {
+    setNewPrescription({
+      ...newPrescription,
+      [prop]: event.target.value,
+    });
   };
 
   const handleSelect = (
@@ -51,18 +47,29 @@ export const AddPrescriptionForm = () => {
     });
   };
 
-  const handleInputChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
-    prop: string
+  const resetForm = () => {
+    setNewPrescription({ medication_id: null, pet_id: null, comment: null });
+  };
+
+  const handlePrescriptionSumbit: React.FormEventHandler<HTMLFormElement> = (
+    event
   ) => {
-    setNewPrescription({
-      ...newPrescription,
-      [prop]: event.target.value,
-    });
+    event.preventDefault();
+    axios
+      .post("https://glittery-dull-snickerdoodle.glitch.me/v1/prescription", {
+        medication_id: newPrescription.medication_id,
+        pet_id: params.id,
+        comment: newPrescription.comment,
+      })
+      .then(() => {
+        alert(`Prescription  was added`);
+        resetForm();
+      })
+      .catch((error) => console.error(error));
   };
 
   return (
-    <form method="post" onSubmit={handlePetSumbit}>
+    <form onSubmit={handlePrescriptionSumbit}>
       <fieldset>
         <legend>
           <h1>Add Prescription</h1>
@@ -72,7 +79,9 @@ export const AddPrescriptionForm = () => {
           onChange={handleSelect}
           options={uniqueMeds}
           getOptionLabel={(option) => option.name ?? ""}
-          renderInput={(params) => <TextField {...params} label="Medication" />}
+          renderInput={(params) => (
+            <TextField {...params} label="Medications" />
+          )}
           sx={{
             width: "30rem",
             textAlign: "center",
@@ -82,7 +91,7 @@ export const AddPrescriptionForm = () => {
           }}
         />
 
-        <label htmlFor="comment">Pet birthday</label>
+        <label htmlFor="comment">Prescription comment</label>
         <input
           name="comment"
           value={newPrescription.comment ?? ""}

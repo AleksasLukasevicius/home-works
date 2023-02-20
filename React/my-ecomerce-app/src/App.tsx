@@ -1,24 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
-import { ProductsContext } from "./componets/Products/ProductsContext";
+import { ProductsContext } from "./componets/ProductsContext/ProductsContext";
 import { Router } from "./componets/Router/Router";
-import { TProduct } from "./componets/Types/TProduct";
+import { INITIAL_PRODUCTS } from "./componets/utils/initialProducts";
 
 export const App = () => {
-  const [products, setProducts] = useState<TProduct[]>([
-    { id: 1, name: "bread", price: 1.99 },
-    { id: 2, name: "milk", price: 2.99 },
-    { id: 3, name: "butter", price: 3.99 },
-    { id: 4, name: "cheese", price: 4.99 },
-  ]);
-
-  // useEffect(() => {
-  //   setProducts(products);
-  // }, []);
+  const [products, setProducts] = useState(INITIAL_PRODUCTS);
 
   return (
     <div className="App">
-      <ProductsContext.Provider value={products}>
+      <ProductsContext.Provider value={{ products, setProducts }}>
         <Router />
       </ProductsContext.Provider>
     </div>

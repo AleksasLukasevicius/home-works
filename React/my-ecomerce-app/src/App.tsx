@@ -1,16 +1,22 @@
-import { useState } from "react";
-import "./App.css";
-import { ProductsContext } from "./componets/ProductsContext/ProductsContext";
 import { Router } from "./componets/Router/Router";
+import { useState } from "react";
 import { INITIAL_PRODUCTS } from "./utils/initialProducts";
+import { TCartProduct } from "./types/TCartProduct";
+import { TProduct } from "./types/TProduct";
+import { ProductsContext } from "./componets/ProductsContext/ProductsContext";
+import { CartProductsContext } from "./componets/CartProductsContext/CartProductsContext";
+import "./App.css";
 
 export const App = () => {
-  const [products, setProducts] = useState(INITIAL_PRODUCTS);
+  const [products, setProducts] = useState<TProduct[]>(INITIAL_PRODUCTS);
+  const [cartProducts, setCartProducts] = useState<TCartProduct[]>([]);
 
   return (
     <div className="App">
       <ProductsContext.Provider value={{ products, setProducts }}>
-        <Router />
+        <CartProductsContext.Provider value={{ cartProducts, setCartProducts }}>
+          <Router />
+        </CartProductsContext.Provider>
       </ProductsContext.Provider>
     </div>
   );

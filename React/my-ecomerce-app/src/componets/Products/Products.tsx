@@ -1,19 +1,40 @@
 import { useContext } from "react";
 import type { TProduct } from "../../types/TProduct";
+import { OrangeButton } from "../Button/Button.styled";
+import { CartProductsContext } from "../CartProductsContext/CartProductsContext";
 import { ProductsContext } from "../ProductsContext/ProductsContext";
 import { ProductCard } from "./ProductCard";
 
 export const Products = () => {
   const { products, setProducts } = useContext(ProductsContext);
-  // const { cartProducts, setCartProducts } = useContext(CartProductsContext);
+  const { cartProducts, setCartProducts } = useContext(CartProductsContext);
 
   const handleAddToCart = (product: TProduct, productIndex: number) => {
     const modifyProducts = [...products];
+
+    const isProductInCart = cartProducts.some(
+      (cartProduct) => cartProduct.id === product.id
+    );
+
+    if (isProductInCart) {
+      return setCartProducts((prevCartProducts) => {
+        const newCartProducts = prevCartProducts.map((cartProduct) => ({
+          ...cartProduct,
+          amount:
+            cartProduct.id === product.id
+              ? cartProduct.amount + 1
+              : cartProduct.amount,
+        }));
+
+        return newCartProducts;
+      });
+    }
 
     modifyProducts[productIndex] = {
       ...product,
       amount: product.amount + 1,
     };
+
     // modifyProducts[productIndex] = {
     //   ...modifyProducts[productIndex],
     //   amount: modifyProducts[productIndex].amount + 1,
@@ -27,8 +48,8 @@ export const Products = () => {
     //     amount: isSelectProduct ? curProduct.amount + 1 : curProduct.amount,
     //   };
     // });
-
-    setProducts(modifyProducts);
+    setCartProducts([...cartProducts, { ...product, amount: 1 }]);
+    // setCartProducts(modifyProducts);
   };
 
   return (
@@ -42,12 +63,12 @@ export const Products = () => {
           <div className="product-card" key={`product.id- ${productIndex}`}>
             <p>Name: {product.name}</p>
             <p>Price: {product.price} $</p>
-            <button
+            <OrangeButton
               type="submit"
               onClick={() => handleAddToCart(product, productIndex)}
             >
               Add to Cart
-            </button>
+            </OrangeButton>
           </div>
         ))}
       </div>

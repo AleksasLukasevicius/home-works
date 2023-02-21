@@ -16,6 +16,11 @@ header {
   margin-bottom: 1rem;
 }
 
+span {
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
 header img {
   height: 3rem;
   padding: 0.5rem 0;

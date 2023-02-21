@@ -7,6 +7,6 @@ export type TProductsContext = {
 };
 
 export type TCartProductsContext = {
-  cartproducts: TCartProductsContext[];
+  cartProducts: TCartProduct[];
   setCartProducts: React.Dispatch<React.SetStateAction<TCartProduct[]>>;
 };

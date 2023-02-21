@@ -49,7 +49,7 @@ export const Products = () => {
     //   };
     // });
     setCartProducts([...cartProducts, { ...product, amount: 1 }]);
-    // setCartProducts(modifyProducts);
+    // setProducts(modifyProducts);
   };
 
   return (

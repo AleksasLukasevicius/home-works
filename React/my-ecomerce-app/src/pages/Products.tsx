@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import type { TProduct } from "../../types/TProduct";
-import { OrangeButton } from "../Button/Button.styled";
-import { CartProductsContext } from "../CartProductsContext/CartProductsContext";
-import { ProductsContext } from "../ProductsContext/ProductsContext";
-import { ProductCard } from "./ProductCard";
+import type { TProduct } from "../types/TProduct";
+import { OrangeButton } from "../componets/Button/Button.styled";
+import { CartProductsContext } from "../componets/CartProductsContext/CartProductsContext";
+import { ProductsContext } from "../componets/ProductsContext/ProductsContext";
+import { ProductCard } from "../componets/Products/ProductCard";
 
 export const Products = () => {
   const { products, setProducts } = useContext(ProductsContext);

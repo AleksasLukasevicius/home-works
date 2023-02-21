@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { OrangeButton, WhiteButton } from "../Button/Button.styled";
-import { CartProductsContext } from "../CartProductsContext/CartProductsContext";
-import { ProductsContext } from "../ProductsContext/ProductsContext";
+import { OrangeButton, WhiteButton } from "../componets/Button/Button.styled";
+import { CartProductsContext } from "../componets/CartProductsContext/CartProductsContext";
+import { ProductsContext } from "../componets/ProductsContext/ProductsContext";
 
 export const Cart = () => {
   const { cartProducts, setCartProducts } = useContext(CartProductsContext);

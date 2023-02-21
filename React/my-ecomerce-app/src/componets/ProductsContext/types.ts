@@ -1,5 +1,5 @@
-import { TCartProduct } from "../types/TCartProduct";
-import { TProduct } from "../types/TProduct";
+import { TCartProduct } from "../../types/TCartProduct";
+import { TProduct } from "../../types/TProduct";
 
 export type TProductsContext = {
   products: TProduct[];

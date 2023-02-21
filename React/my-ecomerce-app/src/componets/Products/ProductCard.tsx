@@ -1,4 +1,4 @@
-import { TProduct } from "../types/TProduct";
+import { TProduct } from "../../types/TProduct";
 
 export const ProductCard = (product: TProduct) => {
   return (

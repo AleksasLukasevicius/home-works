@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import type { TProduct } from "../types/TProduct";
+import type { TProduct } from "../../types/TProduct";
+import { ProductsContext } from "../ProductsContext/ProductsContext";
 import { ProductCard } from "./ProductCard";
-import { ProductsContext } from "./ProductsContext";
 
 export const Products = () => {
   const { products, setProducts } = useContext(ProductsContext);
@@ -19,14 +19,15 @@ export const Products = () => {
     //   amount: modifyProducts[productIndex].amount + 1,
     // };
 
-    const newPrducts = products.map((curProduct) => {
-      const isSelectProduct = curProduct.id === product.id;
+    // const newPrducts = products.map((curProduct) => {
+    //   const isSelectProduct = curProduct.id === product.id;
 
-      return {
-        ...curProduct,
-        amount: isSelectProduct ? curProduct.amount + 1 : curProduct.amount,
-      };
-    });
+    //   return {
+    //     ...curProduct,
+    //     amount: isSelectProduct ? curProduct.amount + 1 : curProduct.amount,
+    //   };
+    // });
+
     setProducts(modifyProducts);
   };
 

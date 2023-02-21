@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { ProductsContext } from "./componets/ProductsContext/ProductsContext";
 import { Router } from "./componets/Router/Router";
-import { INITIAL_PRODUCTS } from "./componets/utils/initialProducts";
+import { INITIAL_PRODUCTS } from "./utils/initialProducts";
 
 export const App = () => {
   const [products, setProducts] = useState(INITIAL_PRODUCTS);

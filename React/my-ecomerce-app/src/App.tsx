@@ -5,10 +5,11 @@ import { TProduct } from "./types/TProduct";
 import { ProductsContext } from "./componets/ProductsContext/ProductsContext";
 import { CartProductsContext } from "./componets/CartProductsContext/CartProductsContext";
 import "./App.css";
+import { TCartProduct } from "./types/TCartProduct";
 
 export const App = () => {
   const [products, setProducts] = useState<TProduct[]>(INITIAL_PRODUCTS);
-  const [cartProducts, setCartProducts] = useState<TProduct[]>([]);
+  const [cartProducts, setCartProducts] = useState<TCartProduct[]>([]);
 
   return (
     <div className="App">

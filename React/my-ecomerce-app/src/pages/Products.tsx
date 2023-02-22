@@ -9,7 +9,7 @@ export const Products = () => {
   const { cartProducts, setCartProducts } = useContext(CartProductsContext);
 
   const handleAddToCart = (product: TProduct, productIndex: number) => {
-    const modifyProducts = [...products];
+    // const modifyProducts = [...products];
 
     const isProductInCart = cartProducts.some(
       (cartProduct) => cartProduct.id === product.id
@@ -30,10 +30,10 @@ export const Products = () => {
     }
     setCartProducts([...cartProducts, { ...product, amount: 1 }]);
 
-    modifyProducts[productIndex] = {
-      ...product,
-      amount: product.amount + 1,
-    };
+    // modifyProducts[productIndex] = {
+    //   ...product,
+    //   amount: product.amount + 1,
+    // };
 
     // modifyProducts[productIndex] = {
     //   ...modifyProducts[productIndex],

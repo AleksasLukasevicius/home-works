@@ -1,4 +1,3 @@
-import { TCartProduct } from "../../types/TCartProduct";
 import { TProduct } from "../../types/TProduct";
 
 export type TProductsContext = {
@@ -7,6 +6,6 @@ export type TProductsContext = {
 };
 
 export type TCartProductsContext = {
-  cartProducts: TCartProduct[];
-  setCartProducts: React.Dispatch<React.SetStateAction<TCartProduct[]>>;
+  cartProducts: TProduct[];
+  setCartProducts: React.Dispatch<React.SetStateAction<TProduct[]>>;
 };

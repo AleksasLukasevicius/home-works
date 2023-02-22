@@ -3,10 +3,9 @@ import type { TProduct } from "../types/TProduct";
 import { OrangeButton } from "../componets/Button/Button.styled";
 import { CartProductsContext } from "../componets/CartProductsContext/CartProductsContext";
 import { ProductsContext } from "../componets/ProductsContext/ProductsContext";
-import { ProductCard } from "../componets/Products/ProductCard";
 
 export const Products = () => {
-  const { products, setProducts } = useContext(ProductsContext);
+  const { products } = useContext(ProductsContext);
   const { cartProducts, setCartProducts } = useContext(CartProductsContext);
 
   const handleAddToCart = (product: TProduct, productIndex: number) => {
@@ -29,6 +28,7 @@ export const Products = () => {
         return newCartProducts;
       });
     }
+    setCartProducts([...cartProducts, { ...product, amount: 1 }]);
 
     modifyProducts[productIndex] = {
       ...product,
@@ -48,7 +48,6 @@ export const Products = () => {
     //     amount: isSelectProduct ? curProduct.amount + 1 : curProduct.amount,
     //   };
     // });
-    setCartProducts([...cartProducts, { ...product, amount: 1 }]);
     // setProducts(modifyProducts);
   };
 

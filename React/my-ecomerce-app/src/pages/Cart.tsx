@@ -1,11 +1,33 @@
 import { useContext } from "react";
 import { OrangeButton, WhiteButton } from "../componets/Button/Button.styled";
 import { CartProductsContext } from "../componets/CartProductsContext/CartProductsContext";
-import { ProductsContext } from "../componets/ProductsContext/ProductsContext";
 
 export const Cart = () => {
   const { cartProducts, setCartProducts } = useContext(CartProductsContext);
-  const { products, setProducts } = useContext(ProductsContext);
+
+  const handleAdd = (productIndex: number) => {
+    const modifiedProducts = [...cartProducts];
+    const product = modifiedProducts[productIndex];
+
+    product.amount = ++product.amount;
+
+    setCartProducts(modifiedProducts);
+  };
+
+  const handleRemove = (productIndex: number) => {
+    const modifiedProducts = [...cartProducts];
+    const product = modifiedProducts[productIndex];
+
+    product.amount -= 1;
+
+    if (!product.amount) {
+      cartProducts.splice(productIndex, 1);
+
+      return setCartProducts([...cartProducts]);
+    }
+    setCartProducts(modifiedProducts);
+  };
+
   return (
     <main>
       <div className="title-wrapper">
@@ -20,14 +42,10 @@ export const Cart = () => {
 
             <p>Price: {product.price} $</p>
             <div className="button-wrapper">
-              <OrangeButton
-              // onClick={() => handleAddToCart(product, productIndex)}
-              >
+              <OrangeButton onClick={() => handleAdd(productIndex)}>
                 Add product
               </OrangeButton>
-              <WhiteButton
-              // onClick={() => handleAddToCart(product, productIndex)}
-              >
+              <WhiteButton onClick={() => handleRemove(productIndex)}>
                 Remove product
               </WhiteButton>
             </div>

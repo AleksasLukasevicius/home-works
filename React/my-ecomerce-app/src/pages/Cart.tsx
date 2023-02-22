@@ -9,7 +9,7 @@ export const Cart = () => {
     const modifiedProducts = [...cartProducts];
     const product = modifiedProducts[productIndex];
 
-    product.amount = ++product.amount;
+    product.amount += 1;
 
     setCartProducts(modifiedProducts);
   };
@@ -39,8 +39,12 @@ export const Cart = () => {
           <div className="product-card" key={`product.id- ${productIndex}`}>
             <p>Name: {product.name}</p>
             <p>Product amount: {product.amount}</p>
-
-            <p>Price: {product.price} $</p>
+            {product.price ? (
+              <>
+                <p>Price: {product.price} $</p>
+                <p>Sum: {(product.price * product.amount).toFixed(2)} $</p>{" "}
+              </>
+            ) : null}
             <div className="button-wrapper">
               <OrangeButton onClick={() => handleAdd(productIndex)}>
                 Add product

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { OrangeButton } from "./componets/Button/Button.styled";
 export const App = () => {
   // UZDAVINYS: sutvarkyti any pagal musu pavyzdzius, code refactoring
   const [products, setProducts] = useState<any[]>([]);
@@ -41,7 +42,9 @@ export const App = () => {
               key={product.id}
             >
               <p>{product.title}</p>
-              <button onClick={() => handleClick(i)}>Add To Cart</button>
+              <OrangeButton onClick={() => handleClick(i)}>
+                Add To Cart
+              </OrangeButton>
             </div>
           ))}
         </main>

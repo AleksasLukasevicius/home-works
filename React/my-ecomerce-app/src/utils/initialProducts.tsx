@@ -1,4 +1,4 @@
-import { TProduct } from "../types/TProduct";
+import type { TProduct } from "../types/TProduct";
 
 export const INITIAL_PRODUCTS: TProduct[] = [
   { id: 1, name: "Bread", price: 1.99 },

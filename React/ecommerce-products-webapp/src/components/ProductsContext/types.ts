@@ -1,3 +1,5 @@
+import { Dispatch } from "react";
+
 export type TProduct = {
   id: number;
   title: string | null;
@@ -18,6 +20,19 @@ export type TCartProduct = TProduct & {
 export type TProductsContext = {
   fetchedProducts: Readonly<TProduct[]>;
   cartProducts: Readonly<TCartProduct[]>;
-  dispatch(): void;
+  dispatch: Dispatch<TProductsAction>;
   //   dispatch: () => void;
+};
+
+export type TProductsAction = {
+  type: "addProduct" | "deleteProduct" | "setProducts";
+  payload: {
+    productId?: number;
+    fetchedProducts?: TProduct[];
+  };
+};
+
+export type TProductsState = {
+  fetchedProducts: Readonly<TProduct[]>;
+  cartProducts: Readonly<TCartProduct[]>;
 };

@@ -18,3 +18,7 @@ export type TProductsAction = {
     productId?: number;
   };
 };
+
+export type handleBuyClick = {
+  (productId: TProduct["id"]): void;
+};

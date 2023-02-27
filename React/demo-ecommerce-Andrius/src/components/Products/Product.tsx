@@ -1,6 +1,7 @@
 import { ProductContainer } from "../../styles/ProductContainer";
 import { TransparentButton } from "../../styles/TransparentButton";
 import type { TProduct } from "../../types";
+import type { handleBuyClick } from "../../ProductsContext/types";
 
 export const Product = ({
   product,
@@ -9,7 +10,7 @@ export const Product = ({
 }: {
   product: TProduct;
   isProductInCart: boolean;
-  handleBuyClick: (productId: TProduct["id"]) => void;
+  handleBuyClick: handleBuyClick;
 }) => {
   return (
     <ProductContainer>

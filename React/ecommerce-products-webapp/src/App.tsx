@@ -8,7 +8,7 @@ export const App = () => {
   const [state, dispatch] = useReducer(productsReducer, {
     fetchedProducts: [],
     cartProducts: [],
-  } as TProductsState);
+  });
   return (
     <div>
       <ProductsContext.Provider value={{ ...state, dispatch }}>

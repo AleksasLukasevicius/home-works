@@ -6,12 +6,19 @@ export const productsReducer = (
 ) => {
   switch (action.type) {
     case "addProduct":
-      return console.log("addProduct");
+      console.log("add product");
+      break;
+
     case "deleteProduct":
-      return console.log("deleteProduct");
+      console.log("delete product");
+      break;
+
     case "setProducts":
-      return console.log("setProducts");
+      console.log("set products");
+      break;
+
     default:
-      return state;
+      console.log("no case matched");
   }
+  return state;
 };

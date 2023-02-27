@@ -1,6 +1,6 @@
 import { ChangeEventHandler, useState } from "react";
 
-export const Search = () => {
+export const Search: ChangeEventHandler<HTMLInputElement> = () => {
   const [inputValue, setInputValue] = useState("Search...");
   const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
     setInputValue(event.target.value);

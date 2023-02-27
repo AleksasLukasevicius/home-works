@@ -7,7 +7,7 @@ export const Button = () => {
   };
 
   return (
-    <button onClick={dummyFunctiuon} title="dummyFunction">
+    <button onClick={dummyFunctiuon} title="dummyButton">
       {value}
     </button>
   );

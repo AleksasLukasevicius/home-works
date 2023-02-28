@@ -6,16 +6,42 @@ export const productsReducer = (
 ) => {
   switch (action.type) {
     case "addProduct":
-      console.log("Add product");
-      break;
+      const productToAdd = state.fetchedProducts.find(
+        (product) => product.id === action.payload.productId
+      );
+
+      if (!productToAdd) {
+        return state;
+      }
+
+      const cartProduct = state.cartProducts.find(
+        (product) => product.id === action.payload.productId
+      );
+
+      if (cartProduct) {
+        cartProduct.amount++;
+        return state;
+      }
+
+      return {
+        ...state,
+        cartProducts: [...state.cartProducts, { ...productToAdd, amount: 1 }],
+      };
 
     case "deleteProduct":
-      console.log("Delete product");
+      {
+        console.log("Delete product");
+      }
       break;
 
     case "setProducts":
-      console.log("Set products");
-      break;
+      const { fetchedProducts } = action.payload;
+
+      if (!Array.isArray(fetchedProducts)) {
+        return { ...state, fetchedProducts: [] };
+      }
+
+      return state;
 
     default:
       console.log("No case matched");

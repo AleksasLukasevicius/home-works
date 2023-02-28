@@ -1,4 +1,4 @@
-import { TProductsAction, TProductsState } from "./types";
+import type { TProductsAction, TProductsState } from "./types";
 
 export const productsReducer = (
   state: TProductsState,
@@ -6,19 +6,19 @@ export const productsReducer = (
 ) => {
   switch (action.type) {
     case "addProduct":
-      console.log("add product");
+      console.log("Add product");
       break;
 
     case "deleteProduct":
-      console.log("delete product");
+      console.log("Delete product");
       break;
 
     case "setProducts":
-      console.log("set products");
+      console.log("Set products");
       break;
 
     default:
-      console.log("no case matched");
+      console.log("No case matched");
   }
   return state;
 };

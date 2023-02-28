@@ -1,7 +1,3 @@
 export const MainRouter = () => {
-  return (
-    <div>
-      <h1>Products</h1>
-    </div>
-  );
+  return <h1>Products</h1>;
 };

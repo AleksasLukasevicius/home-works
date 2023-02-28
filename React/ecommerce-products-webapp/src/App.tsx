@@ -1,8 +1,6 @@
 import { useReducer } from "react";
-import { ProductsContext } from "./components";
-import { MainRouter } from "./components/MainRouter";
+import { ProductsContext, MainRouter } from "./components";
 import { productsReducer } from "./components/ProductsContext/productsReducer";
-import { TProductsState } from "./components/ProductsContext/types";
 
 export const App = () => {
   const [state, dispatch] = useReducer(productsReducer, {
@@ -10,10 +8,8 @@ export const App = () => {
     cartProducts: [],
   });
   return (
-    <div>
-      <ProductsContext.Provider value={{ ...state, dispatch }}>
-        <MainRouter />
-      </ProductsContext.Provider>
-    </div>
+    <ProductsContext.Provider value={{ ...state, dispatch }}>
+      <MainRouter />
+    </ProductsContext.Provider>
   );
 };

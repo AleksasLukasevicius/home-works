@@ -6,7 +6,7 @@ export const Cart = () => {
     useContext(ProductsContext);
   return (
     <main>
-      <h1>Cart</h1>
+      <h1>Cart products</h1>
     </main>
   );
 };

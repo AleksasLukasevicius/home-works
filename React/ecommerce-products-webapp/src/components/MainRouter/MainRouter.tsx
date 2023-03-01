@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { Cart } from "../Cart";
-import { Home, NoFoundPage } from "../Pages";
-import { Products } from "../Products";
+import { Products } from "..";
+import { NotFoundPage } from "../NotFoundPage";
+import { Home } from "../Home";
 
 export const MainRouter = () => {
   return (
@@ -16,8 +17,9 @@ export const MainRouter = () => {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="*" element={<NoFoundPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <footer></footer>
     </BrowserRouter>
   );
 };

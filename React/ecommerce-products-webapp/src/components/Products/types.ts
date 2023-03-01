@@ -1,4 +1,4 @@
-import { TProduct } from "../ProductsContext/types";
+import type { TProduct } from "../ProductsContext/types";
 
 export type TProductProps = {
   product: TProduct;

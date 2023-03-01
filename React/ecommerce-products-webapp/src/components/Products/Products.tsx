@@ -5,7 +5,7 @@ import { Product } from "./Product";
 
 export const Products = () => {
   const { fetchedProducts, dispatch } = useContext(ProductsContext);
-  // const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -16,22 +16,22 @@ export const Products = () => {
           payload: { fetchedProducts: response.data },
         })
       )
-      .catch((error) => console.error(error));
-    // .finally(() => setIsLoading(false));
+      .catch((error) => console.error(error))
+      .finally(() => setIsLoading(false));
   }, [dispatch]);
 
   return (
     <main>
-      {/* {isLoading ? (
+      {isLoading ? (
         <h2>Loading...</h2>
-      ) : ( */}
-      <section>
-        <h1>Products</h1>
-        {fetchedProducts.map((product) => (
-          <Product key={product.id} product={product} />
-        ))}
-      </section>
-      {/* )} */}
+      ) : (
+        <section>
+          <h1>Products</h1>
+          {fetchedProducts.map((product) => (
+            <Product key={product.id} product={product} />
+          ))}
+        </section>
+      )}
     </main>
   );
 };

@@ -20,7 +20,7 @@ export const productsReducer = (
 
       if (cartProduct) {
         cartProduct.amount++;
-        return state;
+        return { ...state, cartProducts: [...state.cartProducts] };
       }
 
       return {
@@ -37,8 +37,8 @@ export const productsReducer = (
     case "setProducts":
       const { fetchedProducts } = action.payload;
 
-      if (!Array.isArray(fetchedProducts)) {
-        return { ...state, fetchedProducts: [] };
+      if (Array.isArray(fetchedProducts)) {
+        return { ...state, fetchedProducts };
       }
 
       return state;

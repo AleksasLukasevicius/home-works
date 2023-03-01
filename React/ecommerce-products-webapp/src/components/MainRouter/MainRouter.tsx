@@ -1,17 +1,15 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Cart } from "../Cart";
 import { Products } from "..";
 import { NotFoundPage } from "../NotFoundPage";
 import { Home } from "../Home";
+import { Header } from "../Header/Header";
+import { Footer } from "../Footer/Footer";
 
 export const MainRouter = () => {
   return (
     <BrowserRouter>
-      <header>
-        <Link to="/">Home</Link>
-        <Link to="/products">Products</Link>
-        <Link to="/cart">Cart</Link>
-      </header>
+      <Header />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -19,7 +17,8 @@ export const MainRouter = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-      <footer></footer>
+
+      <Footer />
     </BrowserRouter>
   );
 };

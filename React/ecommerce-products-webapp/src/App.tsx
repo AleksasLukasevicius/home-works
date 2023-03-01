@@ -7,10 +7,8 @@ export const App = () => {
     cartProducts: [],
   });
   return (
-    <div>
-      <ProductsContext.Provider value={{ ...state, dispatch }}>
-        <MainRouter />
-      </ProductsContext.Provider>
-    </div>
+    <ProductsContext.Provider value={{ ...state, dispatch }}>
+      <MainRouter />
+    </ProductsContext.Provider>
   );
 };

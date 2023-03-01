@@ -26,10 +26,15 @@ export const Products = () => {
         <h2>Loading...</h2>
       ) : (
         <section>
-          <h1>Products</h1>
-          {fetchedProducts.map((product) => (
-            <Product key={product.id} product={product} />
-          ))}
+          <div className="title-wrapper">
+            <h1>Products</h1>
+          </div>
+
+          <div className="products-container">
+            {fetchedProducts.map((product) => (
+              <Product key={product.id} product={product} />
+            ))}
+          </div>
         </section>
       )}
     </main>

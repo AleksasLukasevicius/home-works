@@ -6,34 +6,63 @@ export const productsReducer = (
 ) => {
   switch (action.type) {
     case "addProduct":
-      const productToAdd = state.fetchedProducts.find(
+      const productToDelete = state.fetchedProducts.find(
         (product) => product.id === action.payload.productId
       );
 
-      if (!productToAdd) {
+      if (!productToDelete) {
         return state;
       }
 
-      const cartProduct = state.cartProducts.find(
+      const cartProductIndex = state.cartProducts.findIndex(
         (product) => product.id === action.payload.productId
       );
 
-      if (cartProduct) {
-        cartProduct.amount++;
+      if (cartProductIndex !== -1) {
+        const newCartProducts = { ...state.cartProducts };
+
+        newCartProducts[cartProductIndex].amount++;
+
         return { ...state, cartProducts: [...state.cartProducts] };
       }
 
       return {
         ...state,
-        cartProducts: [...state.cartProducts, { ...productToAdd, amount: 1 }],
+        cartProducts: [
+          ...state.cartProducts,
+          { ...productToDelete, amount: 1 },
+        ],
       };
 
-    case "deleteProduct":
-      {
-        console.log("Delete product");
-      }
-      break;
+    case "deleteProduct": {
+      const productToDelete = state.cartProducts.find(
+        (product) => product.id === action.payload.productId
+      );
 
+      if (!productToDelete) {
+        return state;
+      }
+
+      // const newCartProducts = { ...state.cartProducts };
+
+      // newCartProducts[cartProductIndex].amount++;
+
+      // return { ...state, cartProducts: [...state.cartProducts] };
+
+      const newCartProducts = [...state.cartProducts].filter((cartProduct) => {
+        if (cartProduct.id === action.payload.productId) {
+          cartProduct.amount--;
+          return cartProduct.amount > 0;
+        }
+
+        return true;
+      });
+
+      return {
+        ...state,
+        cartProducts: newCartProducts,
+      };
+    }
     case "setProducts":
       const { fetchedProducts } = action.payload;
 

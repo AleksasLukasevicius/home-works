@@ -11,7 +11,7 @@ export const Product: FC<TProductProps> = ({ product }) => {
     <div className="product-card">
       <h3>{product.title}</h3>
       <p>{product.description}</p>
-      <p>{product.price}</p>
+      <p>Price: {product.price} €</p>
 
       <Button
         variant="outlined"
@@ -21,6 +21,18 @@ export const Product: FC<TProductProps> = ({ product }) => {
         }
       >
         Add to cart
+      </Button>
+      <Button
+        variant="outlined"
+        size="small"
+        onClick={() =>
+          dispatch({
+            type: "deleteProduct",
+            payload: { productId: product.id },
+          })
+        }
+      >
+        Delete from Cart
       </Button>
     </div>
   );

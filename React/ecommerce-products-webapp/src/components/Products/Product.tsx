@@ -8,14 +8,14 @@ export const Product: FC<TProductProps> = ({ product }) => {
   const { dispatch } = useContext(ProductsContext);
 
   return (
-    <div className="product-conatiner">
+    <div className="product-card">
       <h3>{product.title}</h3>
       <p>{product.description}</p>
       <p>{product.price}</p>
 
       <Button
         variant="outlined"
-        // size="small"
+        size="small"
         onClick={() =>
           dispatch({ type: "addProduct", payload: { productId: product.id } })
         }

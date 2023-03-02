@@ -6,11 +6,11 @@ export const productsReducer = (
 ) => {
   switch (action.type) {
     case "addProduct":
-      const productToDelete = state.fetchedProducts.find(
+      const productToAdd = state.fetchedProducts.find(
         (product) => product.id === action.payload.productId
       );
 
-      if (!productToDelete) {
+      if (!productToAdd) {
         return state;
       }
 
@@ -28,10 +28,7 @@ export const productsReducer = (
 
       return {
         ...state,
-        cartProducts: [
-          ...state.cartProducts,
-          { ...productToDelete, amount: 1 },
-        ],
+        cartProducts: [...state.cartProducts, { ...productToAdd, amount: 1 }],
       };
 
     case "deleteProduct": {

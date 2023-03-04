@@ -6,6 +6,7 @@ export const App = () => {
     fetchedProducts: [],
     cartProducts: [],
   });
+
   return (
     <ProductsContext.Provider value={{ ...state, dispatch }}>
       <MainRouter />

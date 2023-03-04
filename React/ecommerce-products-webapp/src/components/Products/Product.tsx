@@ -1,11 +1,17 @@
 import { ProductsContext } from "..";
 import { type FC, useContext } from "react";
 import type { TProductProps } from "./types";
-import Button from "@mui/material/Button";
+import { ProductActionButon } from "./ProductActionButton";
+import { Box } from "@mui/material";
 
 // export const Product = ({ product }: TProductProps) => {
 export const Product: FC<TProductProps> = ({ product }) => {
-  const { dispatch } = useContext(ProductsContext);
+  const { cartProducts } = useContext(ProductsContext);
+
+  const isProductInCart = cartProducts.some(
+    //to do naudti objekta
+    (cartProduct) => cartProduct.id === product.id
+  );
 
   return (
     <div className="product-card">
@@ -13,27 +19,20 @@ export const Product: FC<TProductProps> = ({ product }) => {
       <p>{product.description}</p>
       <p>Price: {product.price} €</p>
 
-      <Button
-        variant="outlined"
-        size="small"
-        onClick={() =>
-          dispatch({ type: "addProduct", payload: { productId: product.id } })
-        }
-      >
-        Add to cart
-      </Button>
-      <Button
-        variant="outlined"
-        size="small"
-        onClick={() =>
-          dispatch({
-            type: "deleteProduct",
-            payload: { productId: product.id },
-          })
-        }
-      >
-        Delete from Cart
-      </Button>
+      <Box>
+        <ProductActionButon
+          title="+"
+          type="addProduct"
+          productId={product.id}
+        />
+        {isProductInCart ? (
+          <ProductActionButon
+            title="-"
+            type="deleteProduct"
+            productId={product.id}
+          />
+        ) : null}
+      </Box>
     </div>
   );
 };

@@ -50,7 +50,7 @@ h1 {
   margin: 2rem 0;
   display: flex;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
@@ -60,8 +60,8 @@ h1 {
   border-radius: 1rem;
   border: 1px solid #b7b0b0;
   padding: 1rem;
-  width: 12rem;
-  gap: 20px;
+  width: 6rem;
+  gap: 2rem;
   align-items: flex-start;
   flex-direction: column;
 }

@@ -11,9 +11,11 @@ import {
   Collapse,
   IconButton,
   IconButtonProps,
+  Box,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { styled } from "@mui/material/styles";
+
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
 }
@@ -69,7 +71,10 @@ export const Product: FC<TProductProps> = ({ product }) => {
           Price: {product.price} €
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions
+        sx={{ justifyContent: "space-between" }}
+        justify-content={"space-between"}
+      >
         <ProductActionButon
           title="+"
           type="addProduct"
@@ -82,6 +87,23 @@ export const Product: FC<TProductProps> = ({ product }) => {
             productId={product.id}
           />
         ) : null}
+
+        <Box
+          display="flex"
+          // justify-content="center"
+          // text-align="center"
+          border="1px solid black"
+          borderRadius="5px"
+          sx={{
+            width: "45px",
+            padding: "5px",
+            marginLeft: "5px",
+            // textAlign: "center",
+            justifyContent: "center",
+          }}
+        >
+          test
+        </Box>
 
         <ExpandMore
           expand={expanded}

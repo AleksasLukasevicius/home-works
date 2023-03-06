@@ -49,10 +49,10 @@ export const Product: FC<TProductProps> = ({ product }) => {
     <Card sx={{ maxWidth: 255 }}>
       <CardMedia
         component="img"
-        alt={`${product.title}`}
-        // height="150"
-        // width="75"
-        src={`${product.image}`}
+        alt={product.title ?? "No image title"}
+        max-width="75"
+        // max-height={xs: 233, md: 167}
+        src={product.image}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -76,19 +76,21 @@ export const Product: FC<TProductProps> = ({ product }) => {
         justify-content={"space-between"}
       >
         <ProductActionButon
+          color="primary"
           title="+"
           type="addProduct"
           productId={product.id}
         />
         {isProductInCart ? (
           <ProductActionButon
+            color="secondary"
             title="-"
             type="deleteProduct"
             productId={product.id}
           />
         ) : null}
 
-        <Box
+        {/* <Box
           display="flex"
           // justify-content="center"
           // text-align="center"
@@ -103,7 +105,7 @@ export const Product: FC<TProductProps> = ({ product }) => {
           }}
         >
           test
-        </Box>
+        </Box> */}
 
         <ExpandMore
           expand={expanded}

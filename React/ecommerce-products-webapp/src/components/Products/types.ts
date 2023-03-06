@@ -8,4 +8,5 @@ export type TProductActionButtonProps = {
   title: string;
   type: TProductsAction["type"];
   productId: TProduct["id"];
+  color?: "primary" | "secondary";
 };

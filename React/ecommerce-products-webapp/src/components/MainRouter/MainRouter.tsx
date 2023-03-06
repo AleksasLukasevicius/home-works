@@ -3,7 +3,7 @@ import { Cart } from "../Cart";
 import { Products } from "..";
 import { NotFoundPage } from "../NotFoundPage";
 import { Home } from "../Home";
-import { Header } from "../Header/Header";
+import { Header } from "../Header";
 import { Footer } from "../Footer/Footer";
 
 export const MainRouter = () => {

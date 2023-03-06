@@ -7,6 +7,7 @@ export const ProductActionButon: FC<TProductActionButtonProps> = ({
   title,
   type,
   productId,
+  color,
 }) => {
   const { dispatch } = useContext(ProductsContext);
 
@@ -14,6 +15,7 @@ export const ProductActionButon: FC<TProductActionButtonProps> = ({
     <Button
       variant="outlined"
       size="small"
+      color={color}
       onClick={() => dispatch({ type, payload: { productId } })}
     >
       {title}

@@ -30,8 +30,8 @@ export const Header: FC = () => {
           justifyContent="space-evenly"
           sx={{
             "& a": {
-              color: "purple",
-              ":hover": { color: "lightgreen" },
+              // color: "purple",
+              // ":hover": { color: "lightgreen" },
               textDecoration: "none",
             },
           }}

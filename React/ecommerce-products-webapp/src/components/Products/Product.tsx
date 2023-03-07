@@ -46,14 +46,15 @@ export const Product: FC<TProductProps> = ({ product }) => {
   };
 
   return (
-    <Card sx={{ maxWidth: 255 }}>
+    <Card sx={{ maxWidth: 250, margin: "0 auto", padding: "0.1em" }}>
       <CardMedia
         component="img"
-        alt={product.title ?? "No image title"}
-        max-width="75"
-        // max-height={xs: 233, md: 167}
         src={product.image}
+        height="140"
+        alt={product.title ?? "Sorry no image title"}
+        sx={{ padding: "1em 1em 0 1em", objectFit: "contain" }}
       />
+
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {product.title}
@@ -71,6 +72,7 @@ export const Product: FC<TProductProps> = ({ product }) => {
           Price: {product.price} €
         </Typography>
       </CardContent>
+
       <CardActions
         sx={{ justifyContent: "space-between" }}
         justify-content={"space-between"}

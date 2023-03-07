@@ -9,10 +9,8 @@ export const App = () => {
   });
 
   return (
-    // <Fade in>
     <ProductsContext.Provider value={{ ...state, dispatch }}>
       <MainRouter />
     </ProductsContext.Provider>
-    // </Fade>
   );
 };

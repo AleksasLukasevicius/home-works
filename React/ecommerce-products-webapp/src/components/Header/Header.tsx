@@ -21,6 +21,7 @@ export const Header: FC = () => {
 
       <Grid item xs={12} sm={4}>
         <Typography variant="h3">Ecommerce</Typography>
+        {/* <div role="products"></div> */}
       </Grid>
 
       <Grid item xs={12} sm={4}>
@@ -37,13 +38,13 @@ export const Header: FC = () => {
           }}
         >
           <Link to="/">
-            <Typography>Home</Typography>
+            <Typography aria-label="home link">Home</Typography>
           </Link>
           <Link to="/products">
-            <Typography>Products</Typography>
+            <Typography aria-label="products link">Products</Typography>
           </Link>
           <Link to="/cart">
-            <Typography>Cart</Typography>
+            <Typography aria-label="cart link">Cart</Typography>
           </Link>
         </Grid>
       </Grid>

@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header matches snapshot 1`] = `
+Array [
+  "(",
+  <header
+    className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-10xf0xc-MuiGrid-root"
+  >
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-wg4xta-MuiGrid-root"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        <img
+          alt="CodeA cademy logo"
+          className="filter-green"
+          src="logo.9725bb16.svg"
+        />
+      </a>
+    </div>
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-wg4xta-MuiGrid-root"
+    >
+      <h3
+        className="MuiTypography-root MuiTypography-h3 css-gepadz-MuiTypography-root"
+      >
+        Ecommerce
+      </h3>
+    </div>
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-wg4xta-MuiGrid-root"
+    >
+      <nav
+        className="MuiGrid-root MuiGrid-container css-1xixh9v-MuiGrid-root"
+      >
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          <p
+            aria-label="home link"
+            className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+          >
+            Home
+          </p>
+        </a>
+        <a
+          href="/products"
+          onClick={[Function]}
+        >
+          <p
+            aria-label="products link"
+            className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+          >
+            Products
+          </p>
+        </a>
+        <a
+          href="/cart"
+          onClick={[Function]}
+        >
+          <p
+            aria-label="cart link"
+            className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+          >
+            Cart
+          </p>
+        </a>
+      </nav>
+    </div>
+  </header>,
+  ");",
+]
+`;

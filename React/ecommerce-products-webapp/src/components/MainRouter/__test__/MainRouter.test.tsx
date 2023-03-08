@@ -6,6 +6,6 @@ describe("MainRouter", () => {
     render(<MainRouter />);
 
     expect(screen.getByRole("banner")).toBeVisible();
-    // expect(screen.getByRole("products")).toBeVisible();
+    expect(screen.getByRole("navigation")).toBeVisible();
   });
 });

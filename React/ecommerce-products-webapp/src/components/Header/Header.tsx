@@ -1,7 +1,7 @@
 import { Logo } from "../Logo/Logo";
 import { Link } from "react-router-dom";
 import type { FC } from "react";
-import { Box, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 
 export const Header: FC = () => {
   return (
@@ -21,13 +21,13 @@ export const Header: FC = () => {
 
       <Grid item xs={12} sm={4}>
         <Typography variant="h3">Alex Shop</Typography>
-        {/* <div role="products"></div> */}
       </Grid>
 
       <Grid item xs={12} sm={4}>
         <Grid
           container
           component="nav"
+          role="navigation"
           justifyContent="space-evenly"
           sx={{
             "& a": {

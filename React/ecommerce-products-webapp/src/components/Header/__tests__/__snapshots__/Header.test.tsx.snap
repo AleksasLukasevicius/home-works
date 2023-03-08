@@ -34,6 +34,7 @@ Array [
     >
       <nav
         className="MuiGrid-root MuiGrid-container css-1xixh9v-MuiGrid-root"
+        role="navigation"
       >
         <a
           href="/"

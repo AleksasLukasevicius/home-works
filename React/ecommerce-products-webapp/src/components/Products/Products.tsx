@@ -8,12 +8,10 @@ import { Product } from "./Product";
 export const Products = () => {
   const { fetchedProducts, dispatch } = useContext(ProductsContext);
   const [shouldShowCheapProducts, setShouldShowCheapProducts] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [inexpensiveProducts, setInexpensiveProducts] = useState<TProduct[]>(
     []
   );
-
-  const [isLoading, setIsLoading] = useState(true);
-
   const productsToRender = shouldShowCheapProducts
     ? inexpensiveProducts
     : fetchedProducts;
@@ -24,12 +22,13 @@ export const Products = () => {
       (prevShouldShowCheapProducts) => !prevShouldShowCheapProducts
     );
 
-    if (inexpensiveProducts && !inexpensiveProducts) {
+    if (inexpensiveProducts && !inexpensiveProducts.length) {
       setInexpensiveProducts(
         fetchedProducts.filter(
           (fetchedProduct) => (fetchedProduct.price || 0) < 50
         )
       );
+      console.info("ok");
     }
   };
 
@@ -52,7 +51,7 @@ export const Products = () => {
         control={
           <Checkbox
             checked={shouldShowCheapProducts}
-            onChange={() => handleCheckboxChange}
+            onChange={handleCheckboxChange}
             name="inexpensive products checkbox"
           />
         }
@@ -64,11 +63,13 @@ export const Products = () => {
       ) : (
         <section>
           <div className="title-wrapper">
-            <h1>Products</h1>
+            <Typography variant="h1" component="h1">
+              Products
+            </Typography>
           </div>
 
           <div className="products-container" aria-label="products list">
-            {fetchedProducts.map((product) => (
+            {productsToRender.map((product) => (
               <Product key={product.id} product={product} />
             ))}
           </div>

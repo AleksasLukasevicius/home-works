@@ -4,16 +4,32 @@ import { Header } from "../Header";
 import renderer from "react-test-renderer";
 
 describe("Header", () => {
-  //   it("should render naviagations links", () => {
-  //     render(
-  //       <BrowserRouter>
-  //         (<Header />
-  //         );
-  //       </BrowserRouter>
-  //     );
+  it.skip("should render Header naviagations links", () => {
+    render(
+      <BrowserRouter>
+        (<Header />
+        );
+      </BrowserRouter>
+    );
 
-  //     expect(screen.getByLabelText("home link")).toBeVisible();
-  //   });
+    expect(screen.getByLabelText("home link")).toBeVisible();
+    expect(screen.getByLabelText("products link")).toBeVisible();
+    expect(screen.getByLabelText("cart link")).toBeVisible();
+  });
+
+  it.each(["home link", "products link", "cart link"])(
+    "should render Header naviagation %s",
+    (link) => {
+      render(
+        <BrowserRouter>
+          (<Header />
+          );
+        </BrowserRouter>
+      );
+
+      expect(screen.getByLabelText(link)).toBeVisible();
+    }
+  );
 
   it("matches snapshot", () => {
     const tree = renderer
@@ -26,18 +42,4 @@ describe("Header", () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
-
-  it.each(["home link", "products link", "cart link"])(
-    "should render %s",
-    (link) => {
-      render(
-        <BrowserRouter>
-          (<Header />
-          );
-        </BrowserRouter>
-      );
-
-      expect(screen.getByLabelText(link)).toBeVisible();
-    }
-  );
 });

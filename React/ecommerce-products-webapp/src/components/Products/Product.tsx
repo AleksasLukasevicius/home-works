@@ -46,7 +46,10 @@ export const Product: FC<TProductProps> = ({ product }) => {
   };
 
   return (
-    <Card sx={{ maxWidth: 250, margin: "0 auto", padding: "0.1em" }}>
+    <Card
+      aria-label={`product ${product.id}`}
+      sx={{ maxWidth: 250, margin: "0 auto", padding: "0.1em" }}
+    >
       <CardMedia
         component="img"
         src={product.image}

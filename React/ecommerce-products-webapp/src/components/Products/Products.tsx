@@ -1,4 +1,4 @@
-import { Checkbox, FormControlLabel, Typography } from "@mui/material";
+import { Box, Checkbox, FormControlLabel, Typography } from "@mui/material";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { ProductsContext } from "../ProductsContext/ProductsContext";
@@ -47,33 +47,33 @@ export const Products = () => {
   }, [dispatch]);
 
   return (
-    <main>
+    <Box component="main" role="products-container">
       <FormControlLabel
         control={
           <Checkbox
             checked={shouldShowCheapProducts}
             onChange={() => handleCheckboxChange}
-            name="inexpensive products"
+            name="inexpensive products checkbox"
           />
         }
         label="Inexpensive Products"
       />
 
       {isLoading ? (
-        <h2>Loading...</h2>
+        <h2 role="loading-message">Loading...</h2>
       ) : (
         <section>
           <div className="title-wrapper">
             <h1>Products</h1>
           </div>
 
-          <div className="products-container">
+          <div className="products-container" aria-label="products list">
             {fetchedProducts.map((product) => (
               <Product key={product.id} product={product} />
             ))}
           </div>
         </section>
       )}
-    </main>
+    </Box>
   );
 };

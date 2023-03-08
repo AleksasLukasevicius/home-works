@@ -1,7 +1,6 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { Products } from "../Products";
 import renderer from "react-test-renderer";
-import { Header } from "../../Header";
 
 describe("Products", () => {
   it("should render Products correctly", () => {

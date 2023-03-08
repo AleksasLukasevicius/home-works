@@ -50,13 +50,13 @@ export const Product: FC<TProductProps> = ({ product }) => {
       <CardMedia
         component="img"
         src={product.image}
-        height="140"
         alt={product.title ?? "Sorry no image title"}
-        sx={{ padding: "1em 1em 0 1em", objectFit: "contain" }}
+        height="100"
+        sx={{ objectFit: "contain" }}
       />
 
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h6" component="div">
           {product.title}
         </Typography>
 
@@ -73,10 +73,7 @@ export const Product: FC<TProductProps> = ({ product }) => {
         </Typography>
       </CardContent>
 
-      <CardActions
-        sx={{ justifyContent: "space-between" }}
-        justify-content={"space-between"}
-      >
+      <CardActions sx={{ justifyContent: "space-between" }}>
         <ProductActionButon
           color="primary"
           title="+"

@@ -5,16 +5,16 @@ import { ProductActionButon } from "../Products/ProductActionButton";
 
 export const Cart = () => {
   const { cartProducts } = useContext(ProductsContext);
-  const CURRENCY = "€";
-  // const currencyFormatter = new Intl.NumberFormat(navigator.language, {
-  //   style: "currency",
-  //   currency: CURRENCY,
-  // });
+  const CURRENCY = "EUR";
+  const currencyFormatter = new Intl.NumberFormat(navigator.language, {
+    style: "currency",
+    currency: CURRENCY,
+  });
 
   const initialValue = 0;
   const totalPrice = cartProducts.reduce(
     (curPrice, cartProduct) =>
-      (curPrice + (cartProduct.price || 0)) * cartProduct.amount,
+      curPrice + (cartProduct.price || 0) * cartProduct.amount,
     initialValue
   );
 
@@ -22,53 +22,68 @@ export const Cart = () => {
 
   return (
     <main>
-      <div className="title-wrapper">
-        <h1>Cart products</h1>
-      </div>
-      <Box>
-        <ul>
-          {cartProducts.map((product) => {
-            return (
-              <Grid component="li">
-                <Grid item xs={6}>
-                  <Typography>{product.title}</Typography>
-                </Grid>
+      <Box borderBottom="2px solid black" mb={2}>
+        <Typography variant="h2">Cart products</Typography>
+      </Box>
 
-                <Grid item xs={3}>
-                  <ProductActionButon
-                    color="primary"
-                    title="+"
-                    type="addProduct"
-                    productId={product.id}
-                  />
-
-                  <Typography textAlign="center">{product.amount}</Typography>
-                  <ProductActionButon
-                    color="secondary"
-                    title="-"
-                    type="deleteProduct"
-                    productId={product.id}
-                  />
-                </Grid>
-
-                <Grid item xs={3}>
-                  {product.price ? (
-                    <Typography textAlign="right">
-                      {product.price} {CURRENCY}
-                      {/* {currencyFormatter.format(product.price)} */}
-                    </Typography>
-                  ) : null}
-                </Grid>
+      <Box component="ol">
+        {cartProducts.map((product) => {
+          return (
+            <Grid
+              component="li"
+              container
+              height={50}
+              alignItems="center"
+              justifyContent="space-between"
+              mt={2}
+              borderBottom="1px solid black"
+            >
+              <Grid item xs={7}>
+                <Typography variant="body1" pl={1}>
+                  {product.title}
+                </Typography>
               </Grid>
-            );
-          })}
-        </ul>
-        {/* <Box display="flex" justifyContent="center" mt="20px">
-          <Typography>Total Price:&nbsp;</Typography>
-          <Typography textAlign="right">
-            {currencyFormatter.format(totalPrice)}
-          </Typography>
-        </Box> */}
+
+              <Grid
+                item
+                xs={3}
+                display="flex"
+                gap={2}
+                justifyContent="space-around"
+              >
+                <ProductActionButon
+                  color="success"
+                  title="+"
+                  type="addProduct"
+                  productId={product.id}
+                />
+
+                <Typography>{product.amount}</Typography>
+
+                <ProductActionButon
+                  color="error"
+                  title="-"
+                  type="deleteProduct"
+                  productId={product.id}
+                />
+              </Grid>
+
+              <Grid item xs={2}>
+                {product.price ? (
+                  <Typography variant="body1" textAlign="right" pr={1}>
+                    {/* {product.price?.toFixed(2)} {CURRENCY} */}
+                    {currencyFormatter.format(product.price)}
+                  </Typography>
+                ) : null}
+              </Grid>
+            </Grid>
+          );
+        })}
+
+        <Box display="flex" justifyContent="space-between" mt="20px">
+          <Typography pl={1}>Total Price:&nbsp;</Typography>
+          <Typography pr={1}>{currencyFormatter.format(totalPrice)}</Typography>
+        </Box>
       </Box>
     </main>
   );

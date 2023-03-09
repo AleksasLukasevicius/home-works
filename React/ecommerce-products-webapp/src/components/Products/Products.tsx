@@ -1,4 +1,5 @@
 import { Box, Checkbox, FormControlLabel, Typography } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { ProductsContext } from "../ProductsContext/ProductsContext";
@@ -47,33 +48,41 @@ export const Products = () => {
 
   return (
     <Box component="main" role="products-container">
-      <FormControlLabel
-        control={
-          <Checkbox
-            checked={shouldShowCheapProducts}
-            onChange={handleCheckboxChange}
-            name="inexpensive products checkbox"
-          />
-        }
-        label="Inexpensive Products"
-      />
-
       {isLoading ? (
-        <h2 role="loading-message">Loading...</h2>
+        <Typography role="loading-message" variant="h1" component="h1">
+          Loading...
+        </Typography>
       ) : (
-        <section>
-          <div className="title-wrapper">
-            <Typography variant="h1" component="h1">
-              Products
-            </Typography>
-          </div>
+        <Grid component="section">
+          <Typography variant="h1" component="h1">
+            Products
+          </Typography>
+          <Box>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={shouldShowCheapProducts}
+                  onChange={handleCheckboxChange}
+                  name="inexpensive products checkbox"
+                />
+              }
+              label="Inexpensive Products"
+            />
+          </Box>
 
-          <div className="products-container" aria-label="products list">
+          <Grid
+            aria-label="products list"
+            container
+            display="grid"
+            gridTemplateColumns={{ xs: "repeat(1, 1fr)", md: "repeat(3, 1fr)" }}
+            gap={2}
+            mx="auto"
+          >
             {productsToRender.map((product) => (
               <Product key={product.id} product={product} />
             ))}
-          </div>
-        </section>
+          </Grid>
+        </Grid>
       )}
     </Box>
   );

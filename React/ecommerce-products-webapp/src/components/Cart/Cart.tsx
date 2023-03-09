@@ -23,7 +23,9 @@ export const Cart = () => {
   return (
     <main>
       <Box borderBottom="2px solid black" mb={2}>
-        <Typography variant="h2">Cart products</Typography>
+        <Typography variant="h1" component="h1">
+          Cart products
+        </Typography>
       </Box>
 
       <Box component="ol">

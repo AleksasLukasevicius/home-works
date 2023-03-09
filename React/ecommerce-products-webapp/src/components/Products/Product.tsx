@@ -49,9 +49,9 @@ export const Product: FC<TProductProps> = ({ product }) => {
     <Card
       aria-label={`product ${product.id}`}
       sx={{
-        maxWidth: 250,
-        margin: "0 auto",
-        padding: "0.1em",
+        width: 240,
+        mx: "auto",
+        padding: "0.5rem",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -84,7 +84,7 @@ export const Product: FC<TProductProps> = ({ product }) => {
         </Typography>
       </CardContent>
 
-      <CardActions sx={{ justifyContent: "space-between" }}>
+      <CardActions sx={{ justifyContent: "space-between", width: "220px" }}>
         <ProductActionButon
           color="primary"
           title="+"

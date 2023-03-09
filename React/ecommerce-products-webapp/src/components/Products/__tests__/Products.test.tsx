@@ -4,7 +4,10 @@ import renderer from "react-test-renderer";
 
 describe("Products", () => {
   // it || test
-  it("should render Products correctly", async () => {
+  //skip jei norim viena test praleisti
+  //only jei norim viena testa paleisti
+
+  it("should render Products correctly", () => {
     render(<Products />);
 
     expect(screen.getByRole("products-container")).toBeVisible(); //jei nepasiekiamas naudoti toBeInTheDocument()
@@ -18,7 +21,7 @@ describe("Products", () => {
     });
   });
 
-  // it("should shoe filtered Products list", async () => {
+  // it("should show filtered Products list", async () => {
   //   render(<Products />);
 
   //   const checkbox = screen.getByRole("checkbox", {
@@ -42,25 +45,16 @@ describe("Products", () => {
   //   console.info(fetchedProducts);
   // });
 
-  // it("should show loading message while fetching", () => {
-  //   render(<Products />);
+  it.only("should show loading message while fetching", () => {
+    render(<Products />);
 
-  //   expect(screen.getByRole("loading-message")).toBeVisible();
-  //   expect(screen.getByRole("loading-message").textContent).toBe("Loading...");
-  // });
+    expect(screen.getByRole("loading-message")).toBeVisible();
+    expect(screen.getByRole("loading-message").textContent).toBe("Loading...");
+  });
 
   // it.only("matches snapshot", () => {
   //   const tree = renderer.create(<Products />);
 
   //   expect(tree).toMatchSnapshot();
-  // });
-
-  //skip jei norim viena test praleisti
-  // it.skip("should render Products list correctly", async () => {
-  //   render(<Products />);
-
-  //   await waitFor(() => {
-  //     expect(screen.getByLabelText("products list")).toBeVisible();
-  //   });
   // });
 });

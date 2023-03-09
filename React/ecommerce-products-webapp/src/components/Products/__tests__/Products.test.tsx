@@ -21,35 +21,35 @@ describe("Products", () => {
     });
   });
 
-  // it("should show filtered Products list", async () => {
-  //   render(<Products />);
-
-  //   const checkbox = screen.getByRole("checkbox", {
-  //     name: "Inexpensive Products",
-  //   });
-
-  //   expect(checkbox).toBeInTheDocument();
-
-  //   await waitFor(() => {
-  //     expect(screen.getByLabelText("products list")).toBeVisible();
-  //     expect(
-  //       screen.getByLabelText("products list")
-  //     ).childNodes.length.toBeCreateThan(0);
-  //   });
-
-  //   setTimeout(() => {}, 3000);
-
-  //   const fetchedProducts =
-  //     screen.getByLabelText("products list").children.length;
-
-  //   console.info(fetchedProducts);
-  // });
-
-  it.only("should show loading message while fetching", () => {
+  it("should show loading message while fetching", () => {
     render(<Products />);
 
     expect(screen.getByRole("loading-message")).toBeVisible();
     expect(screen.getByRole("loading-message").textContent).toBe("Loading...");
+  });
+
+  it.only("should show filtered Products list", async () => {
+    render(<Products />);
+
+    const checkbox = screen.getByRole("checkbox", {
+      name: "Inexpensive Products",
+    });
+
+    expect(checkbox).toBeInTheDocument();
+
+    await waitFor(() => {
+      expect(screen.getByLabelText("products list")).toBeVisible();
+      expect(
+        screen.getByLabelText("products list")
+      ).childNodes.length.toBeCreateThan(0);
+    });
+
+    setTimeout(() => {}, 3000);
+
+    const fetchedProducts =
+      screen.getByLabelText("products list").children.length;
+
+    console.info(fetchedProducts);
   });
 
   // it.only("matches snapshot", () => {

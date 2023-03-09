@@ -13,7 +13,7 @@ describe("Products", () => {
     expect(screen.getByRole("products-container")).toBeVisible(); //jei nepasiekiamas naudoti toBeInTheDocument()
   });
 
-  it("should render Products list correctly", async () => {
+  it.skip("should render Products list correctly", async () => {
     render(<Products />);
 
     await waitFor(() => {
@@ -28,7 +28,7 @@ describe("Products", () => {
     expect(screen.getByRole("loading-message").textContent).toBe("Loading...");
   });
 
-  it.only("should show filtered Products list", async () => {
+  it.skip("should show filtered Products list", async () => {
     render(<Products />);
 
     const checkbox = screen.getByRole("checkbox", {

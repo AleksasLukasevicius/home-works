@@ -34,20 +34,19 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 // export const Product = ({ product }: TProductProps) => {
 export const Product: FC<TProductProps> = ({ product }) => {
   const { cartProducts } = useContext(ProductsContext);
-
   const isProductInCart = cartProducts.some(
     //to do naudti objekta
     (cartProduct) => cartProduct.id === product.id
   );
-  const [expanded, setExpanded] = useState(false);
 
+  const [expanded, setExpanded] = useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
   return (
     <Card
-      aria-label={`product ${product.id}`}
+      aria-label="product"
       sx={{
         width: 240,
         mx: "auto",

@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product matches snapshot 1`] = `
+<div
+  aria-label="product"
+  className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-m7q8m2-MuiPaper-root-MuiCard-root"
+>
+  <img
+    alt="Sorry no image title"
+    aria-label="product image"
+    className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+    height={100}
+    src=""
+  />
+  <div
+    className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+  >
+    <div
+      className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-18k87ye-MuiTypography-root"
+    />
+    <p
+      className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+    >
+      Price: 
+       €
+    </p>
+  </div>
+  <div
+    className="MuiCardActions-root MuiCardActions-spacing css-uh4svx-MuiCardActions-root"
+  >
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      +
+    </button>
+    <button
+      aria-expanded={false}
+      aria-label="show more"
+      className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-3ogxn6-MuiButtonBase-root-MuiIconButton-root"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="ExpandMoreIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;

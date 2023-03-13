@@ -59,6 +59,7 @@ export const Product: FC<TProductProps> = ({ product }) => {
     >
       <CardMedia
         component="img"
+        aria-label="product image"
         src={product.image}
         alt={product.title ?? "Sorry no image title"}
         height={100}

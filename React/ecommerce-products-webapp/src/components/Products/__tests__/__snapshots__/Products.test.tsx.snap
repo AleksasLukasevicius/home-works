@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Products matches snapshot 1`] = `
+exports[`Products matches loading snapshot 1`] = `
 <main
   className="MuiBox-root css-0"
   role="products-container"

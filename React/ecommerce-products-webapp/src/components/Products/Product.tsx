@@ -11,7 +11,6 @@ import {
   Collapse,
   IconButton,
   IconButtonProps,
-  Box,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { styled } from "@mui/material/styles";
@@ -73,7 +72,11 @@ export const Product: FC<TProductProps> = ({ product }) => {
 
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography variant="body2" color="text.secondary">
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              aria-label="description"
+            >
               {product.description}
             </Typography>
           </CardContent>

@@ -1,4 +1,4 @@
-import { Dispatch } from "react";
+import type { Dispatch } from "react";
 
 export type TProduct = {
   id: number;
@@ -21,7 +21,6 @@ export type TProductsContext = {
   fetchedProducts: Readonly<TProduct[]>;
   cartProducts: Readonly<TCartProduct[]>;
   dispatch: Dispatch<TProductsAction>;
-  //   dispatch: () => void;
 };
 
 export type TProductsAction = {

@@ -23,17 +23,20 @@ export const Cart = () => {
   return (
     <main>
       <Box borderBottom="2px solid black" mb={2}>
-        <Typography variant="h1" component="h1">
+        <Typography aria-label="cart" variant="h1" component="h1">
           Cart products
         </Typography>
       </Box>
 
-      <Box component="ol">
+      <Grid component="ol">
         {cartProducts.map((product) => {
           return (
             <Grid
+              key={product.id}
+              aria-label="cart-product"
               component="li"
               container
+              item
               height={50}
               alignItems="center"
               justifyContent="space-between"
@@ -54,6 +57,7 @@ export const Cart = () => {
                 justifyContent="space-around"
               >
                 <ProductActionButon
+                  label="add product"
                   color="success"
                   title="+"
                   type="addProduct"
@@ -63,6 +67,7 @@ export const Cart = () => {
                 <Typography>{product.amount}</Typography>
 
                 <ProductActionButon
+                  label="remove product"
                   color="error"
                   title="-"
                   type="deleteProduct"
@@ -86,7 +91,7 @@ export const Cart = () => {
           <Typography pl={1}>Total Price:&nbsp;</Typography>
           <Typography pr={1}>{currencyFormatter.format(totalPrice)}</Typography>
         </Box>
-      </Box>
+      </Grid>
     </main>
   );
 };

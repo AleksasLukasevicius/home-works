@@ -1,9 +1,12 @@
 import { Logo } from "../Logo/Logo";
 import { Link } from "react-router-dom";
-import type { FC } from "react";
+import { FC, useContext } from "react";
 import { Grid, Typography } from "@mui/material";
+import { ProductsContext } from "../ProductsContext";
 
 export const Header: FC = () => {
+  const { cartProducts } = useContext(ProductsContext);
+
   return (
     <Grid
       component="header"
@@ -49,7 +52,7 @@ export const Header: FC = () => {
           </Link>
           <Link to="/cart">
             <Typography aria-label="cart link" variant="h6">
-              Cart
+              Cart {cartProducts.length > 0 && `(${cartProducts.length})`}
             </Typography>
           </Link>
         </Grid>

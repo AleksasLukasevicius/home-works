@@ -4,6 +4,7 @@ import { type FC, useContext } from "react";
 import type { TProductActionButtonProps } from "./types";
 
 export const ProductActionButon: FC<TProductActionButtonProps> = ({
+  label,
   title,
   type,
   productId,
@@ -13,6 +14,7 @@ export const ProductActionButon: FC<TProductActionButtonProps> = ({
 
   return (
     <Button
+      aria-label={label}
       variant="outlined"
       size="small"
       color={color}

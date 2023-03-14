@@ -17,6 +17,12 @@ const product = {
 };
 
 describe("Product", () => {
+  it("should render Product", () => {
+    render(<Product product={product} />);
+
+    expect(screen.getByLabelText("product")).toBeVisible();
+  });
+
   it("should display product information", () => {
     render(<Product product={product} />);
 
@@ -28,7 +34,7 @@ describe("Product", () => {
   });
 
   it("matches product snapshot", () => {
-    const tree = renderer.create(<Product product={product} />);
+    const tree = renderer.create(<Product product={product} />).toJSON();
 
     expect(tree).toMatchSnapshot();
   });

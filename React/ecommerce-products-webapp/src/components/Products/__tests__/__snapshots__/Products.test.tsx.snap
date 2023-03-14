@@ -63,3 +63,1795 @@ exports[`Products matches loading snapshot 1`] = `
   </h1>
 </main>
 `;
+
+exports[`Products should show amount of products that was provided 1`] = `
+<main
+  className="MuiBox-root css-0"
+  role="products-container"
+>
+  <div
+    className="MuiBox-root css-0"
+  >
+    <label
+      className="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+    >
+      <span
+        className="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+        onBlur={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={null}
+      >
+        <input
+          checked={false}
+          className="PrivateSwitchBase-input css-1m9pwf3"
+          data-indeterminate={false}
+          name="inexpensive products checkbox"
+          onChange={[Function]}
+          required={false}
+          type="checkbox"
+        />
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="CheckBoxOutlineBlankIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+          />
+        </svg>
+      </span>
+      <span
+        className="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-ahj2mt-MuiTypography-root"
+      >
+        Inexpensive Products
+      </span>
+    </label>
+  </div>
+  <section
+    className="MuiGrid-root css-vj1n65-MuiGrid-root"
+  >
+    <h1
+      className="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
+    >
+      Products
+    </h1>
+    <div
+      aria-label="products list"
+      className="MuiGrid-root MuiGrid-container css-1lq3ldc-MuiGrid-root"
+    >
+      <div
+        aria-label="product"
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-m7q8m2-MuiPaper-root-MuiCard-root"
+      >
+        <img
+          alt="Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops"
+          aria-label="product image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+          height={100}
+          src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+        />
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-18k87ye-MuiTypography-root"
+          >
+            Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
+          </div>
+          <p
+            className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            Price: 
+            109.95
+             €
+          </p>
+        </div>
+        <div
+          className="MuiCardActions-root MuiCardActions-spacing css-uh4svx-MuiCardActions-root"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            +
+          </button>
+          <button
+            aria-expanded={false}
+            aria-label="show more"
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-3ogxn6-MuiButtonBase-root-MuiIconButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        aria-label="product"
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-m7q8m2-MuiPaper-root-MuiCard-root"
+      >
+        <img
+          alt="Mens Casual Premium Slim Fit T-Shirts "
+          aria-label="product image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+          height={100}
+          src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+        />
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-18k87ye-MuiTypography-root"
+          >
+            Mens Casual Premium Slim Fit T-Shirts 
+          </div>
+          <p
+            className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            Price: 
+            22.3
+             €
+          </p>
+        </div>
+        <div
+          className="MuiCardActions-root MuiCardActions-spacing css-uh4svx-MuiCardActions-root"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            +
+          </button>
+          <button
+            aria-expanded={false}
+            aria-label="show more"
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-3ogxn6-MuiButtonBase-root-MuiIconButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        aria-label="product"
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-m7q8m2-MuiPaper-root-MuiCard-root"
+      >
+        <img
+          alt="Mens Cotton Jacket"
+          aria-label="product image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+          height={100}
+          src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+        />
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-18k87ye-MuiTypography-root"
+          >
+            Mens Cotton Jacket
+          </div>
+          <p
+            className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            Price: 
+            55.99
+             €
+          </p>
+        </div>
+        <div
+          className="MuiCardActions-root MuiCardActions-spacing css-uh4svx-MuiCardActions-root"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            +
+          </button>
+          <button
+            aria-expanded={false}
+            aria-label="show more"
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-3ogxn6-MuiButtonBase-root-MuiIconButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        aria-label="product"
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-m7q8m2-MuiPaper-root-MuiCard-root"
+      >
+        <img
+          alt="Mens Casual Slim Fit"
+          aria-label="product image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+          height={100}
+          src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg"
+        />
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-18k87ye-MuiTypography-root"
+          >
+            Mens Casual Slim Fit
+          </div>
+          <p
+            className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            Price: 
+            15.99
+             €
+          </p>
+        </div>
+        <div
+          className="MuiCardActions-root MuiCardActions-spacing css-uh4svx-MuiCardActions-root"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            +
+          </button>
+          <button
+            aria-expanded={false}
+            aria-label="show more"
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-3ogxn6-MuiButtonBase-root-MuiIconButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        aria-label="product"
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-m7q8m2-MuiPaper-root-MuiCard-root"
+      >
+        <img
+          alt="John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet"
+          aria-label="product image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+          height={100}
+          src="https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg"
+        />
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-18k87ye-MuiTypography-root"
+          >
+            John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet
+          </div>
+          <p
+            className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            Price: 
+            695
+             €
+          </p>
+        </div>
+        <div
+          className="MuiCardActions-root MuiCardActions-spacing css-uh4svx-MuiCardActions-root"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            +
+          </button>
+          <button
+            aria-expanded={false}
+            aria-label="show more"
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-3ogxn6-MuiButtonBase-root-MuiIconButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        aria-label="product"
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-m7q8m2-MuiPaper-root-MuiCard-root"
+      >
+        <img
+          alt="Solid Gold Petite Micropave "
+          aria-label="product image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+          height={100}
+          src="https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg"
+        />
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-18k87ye-MuiTypography-root"
+          >
+            Solid Gold Petite Micropave 
+          </div>
+          <p
+            className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            Price: 
+            168
+             €
+          </p>
+        </div>
+        <div
+          className="MuiCardActions-root MuiCardActions-spacing css-uh4svx-MuiCardActions-root"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            +
+          </button>
+          <button
+            aria-expanded={false}
+            aria-label="show more"
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-3ogxn6-MuiButtonBase-root-MuiIconButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        aria-label="product"
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-m7q8m2-MuiPaper-root-MuiCard-root"
+      >
+        <img
+          alt="White Gold Plated Princess"
+          aria-label="product image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+          height={100}
+          src="https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg"
+        />
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-18k87ye-MuiTypography-root"
+          >
+            White Gold Plated Princess
+          </div>
+          <p
+            className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            Price: 
+            9.99
+             €
+          </p>
+        </div>
+        <div
+          className="MuiCardActions-root MuiCardActions-spacing css-uh4svx-MuiCardActions-root"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            +
+          </button>
+          <button
+            aria-expanded={false}
+            aria-label="show more"
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-3ogxn6-MuiButtonBase-root-MuiIconButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        aria-label="product"
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-m7q8m2-MuiPaper-root-MuiCard-root"
+      >
+        <img
+          alt="Pierced Owl Rose Gold Plated Stainless Steel Double"
+          aria-label="product image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+          height={100}
+          src="https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg"
+        />
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-18k87ye-MuiTypography-root"
+          >
+            Pierced Owl Rose Gold Plated Stainless Steel Double
+          </div>
+          <p
+            className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            Price: 
+            10.99
+             €
+          </p>
+        </div>
+        <div
+          className="MuiCardActions-root MuiCardActions-spacing css-uh4svx-MuiCardActions-root"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            +
+          </button>
+          <button
+            aria-expanded={false}
+            aria-label="show more"
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-3ogxn6-MuiButtonBase-root-MuiIconButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        aria-label="product"
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-m7q8m2-MuiPaper-root-MuiCard-root"
+      >
+        <img
+          alt="WD 2TB Elements Portable External Hard Drive - USB 3.0 "
+          aria-label="product image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+          height={100}
+          src="https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg"
+        />
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-18k87ye-MuiTypography-root"
+          >
+            WD 2TB Elements Portable External Hard Drive - USB 3.0 
+          </div>
+          <p
+            className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            Price: 
+            64
+             €
+          </p>
+        </div>
+        <div
+          className="MuiCardActions-root MuiCardActions-spacing css-uh4svx-MuiCardActions-root"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            +
+          </button>
+          <button
+            aria-expanded={false}
+            aria-label="show more"
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-3ogxn6-MuiButtonBase-root-MuiIconButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        aria-label="product"
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-m7q8m2-MuiPaper-root-MuiCard-root"
+      >
+        <img
+          alt="SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s"
+          aria-label="product image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+          height={100}
+          src="https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg"
+        />
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-18k87ye-MuiTypography-root"
+          >
+            SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s
+          </div>
+          <p
+            className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            Price: 
+            109
+             €
+          </p>
+        </div>
+        <div
+          className="MuiCardActions-root MuiCardActions-spacing css-uh4svx-MuiCardActions-root"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            +
+          </button>
+          <button
+            aria-expanded={false}
+            aria-label="show more"
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-3ogxn6-MuiButtonBase-root-MuiIconButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        aria-label="product"
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-m7q8m2-MuiPaper-root-MuiCard-root"
+      >
+        <img
+          alt="Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5"
+          aria-label="product image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+          height={100}
+          src="https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg"
+        />
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-18k87ye-MuiTypography-root"
+          >
+            Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5
+          </div>
+          <p
+            className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            Price: 
+            109
+             €
+          </p>
+        </div>
+        <div
+          className="MuiCardActions-root MuiCardActions-spacing css-uh4svx-MuiCardActions-root"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            +
+          </button>
+          <button
+            aria-expanded={false}
+            aria-label="show more"
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-3ogxn6-MuiButtonBase-root-MuiIconButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        aria-label="product"
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-m7q8m2-MuiPaper-root-MuiCard-root"
+      >
+        <img
+          alt="WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive"
+          aria-label="product image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+          height={100}
+          src="https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg"
+        />
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-18k87ye-MuiTypography-root"
+          >
+            WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive
+          </div>
+          <p
+            className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            Price: 
+            114
+             €
+          </p>
+        </div>
+        <div
+          className="MuiCardActions-root MuiCardActions-spacing css-uh4svx-MuiCardActions-root"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            +
+          </button>
+          <button
+            aria-expanded={false}
+            aria-label="show more"
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-3ogxn6-MuiButtonBase-root-MuiIconButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        aria-label="product"
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-m7q8m2-MuiPaper-root-MuiCard-root"
+      >
+        <img
+          alt="Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin"
+          aria-label="product image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+          height={100}
+          src="https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg"
+        />
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-18k87ye-MuiTypography-root"
+          >
+            Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin
+          </div>
+          <p
+            className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            Price: 
+            599
+             €
+          </p>
+        </div>
+        <div
+          className="MuiCardActions-root MuiCardActions-spacing css-uh4svx-MuiCardActions-root"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            +
+          </button>
+          <button
+            aria-expanded={false}
+            aria-label="show more"
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-3ogxn6-MuiButtonBase-root-MuiIconButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        aria-label="product"
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-m7q8m2-MuiPaper-root-MuiCard-root"
+      >
+        <img
+          alt="Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED "
+          aria-label="product image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+          height={100}
+          src="https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg"
+        />
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-18k87ye-MuiTypography-root"
+          >
+            Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED 
+          </div>
+          <p
+            className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            Price: 
+            999.99
+             €
+          </p>
+        </div>
+        <div
+          className="MuiCardActions-root MuiCardActions-spacing css-uh4svx-MuiCardActions-root"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            +
+          </button>
+          <button
+            aria-expanded={false}
+            aria-label="show more"
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-3ogxn6-MuiButtonBase-root-MuiIconButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        aria-label="product"
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-m7q8m2-MuiPaper-root-MuiCard-root"
+      >
+        <img
+          alt="BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats"
+          aria-label="product image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+          height={100}
+          src="https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg"
+        />
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-18k87ye-MuiTypography-root"
+          >
+            BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats
+          </div>
+          <p
+            className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            Price: 
+            56.99
+             €
+          </p>
+        </div>
+        <div
+          className="MuiCardActions-root MuiCardActions-spacing css-uh4svx-MuiCardActions-root"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            +
+          </button>
+          <button
+            aria-expanded={false}
+            aria-label="show more"
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-3ogxn6-MuiButtonBase-root-MuiIconButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        aria-label="product"
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-m7q8m2-MuiPaper-root-MuiCard-root"
+      >
+        <img
+          alt="Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket"
+          aria-label="product image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+          height={100}
+          src="https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg"
+        />
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-18k87ye-MuiTypography-root"
+          >
+            Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket
+          </div>
+          <p
+            className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            Price: 
+            29.95
+             €
+          </p>
+        </div>
+        <div
+          className="MuiCardActions-root MuiCardActions-spacing css-uh4svx-MuiCardActions-root"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            +
+          </button>
+          <button
+            aria-expanded={false}
+            aria-label="show more"
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-3ogxn6-MuiButtonBase-root-MuiIconButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        aria-label="product"
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-m7q8m2-MuiPaper-root-MuiCard-root"
+      >
+        <img
+          alt="Rain Jacket Women Windbreaker Striped Climbing Raincoats"
+          aria-label="product image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+          height={100}
+          src="https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg"
+        />
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-18k87ye-MuiTypography-root"
+          >
+            Rain Jacket Women Windbreaker Striped Climbing Raincoats
+          </div>
+          <p
+            className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            Price: 
+            39.99
+             €
+          </p>
+        </div>
+        <div
+          className="MuiCardActions-root MuiCardActions-spacing css-uh4svx-MuiCardActions-root"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            +
+          </button>
+          <button
+            aria-expanded={false}
+            aria-label="show more"
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-3ogxn6-MuiButtonBase-root-MuiIconButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        aria-label="product"
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-m7q8m2-MuiPaper-root-MuiCard-root"
+      >
+        <img
+          alt="MBJ Women's Solid Short Sleeve Boat Neck V "
+          aria-label="product image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+          height={100}
+          src="https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg"
+        />
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-18k87ye-MuiTypography-root"
+          >
+            MBJ Women's Solid Short Sleeve Boat Neck V 
+          </div>
+          <p
+            className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            Price: 
+            9.85
+             €
+          </p>
+        </div>
+        <div
+          className="MuiCardActions-root MuiCardActions-spacing css-uh4svx-MuiCardActions-root"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            +
+          </button>
+          <button
+            aria-expanded={false}
+            aria-label="show more"
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-3ogxn6-MuiButtonBase-root-MuiIconButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        aria-label="product"
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-m7q8m2-MuiPaper-root-MuiCard-root"
+      >
+        <img
+          alt="Opna Women's Short Sleeve Moisture"
+          aria-label="product image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+          height={100}
+          src="https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg"
+        />
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-18k87ye-MuiTypography-root"
+          >
+            Opna Women's Short Sleeve Moisture
+          </div>
+          <p
+            className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            Price: 
+            7.95
+             €
+          </p>
+        </div>
+        <div
+          className="MuiCardActions-root MuiCardActions-spacing css-uh4svx-MuiCardActions-root"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            +
+          </button>
+          <button
+            aria-expanded={false}
+            aria-label="show more"
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-3ogxn6-MuiButtonBase-root-MuiIconButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        aria-label="product"
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-m7q8m2-MuiPaper-root-MuiCard-root"
+      >
+        <img
+          alt="DANVOUY Womens T Shirt Casual Cotton Short"
+          aria-label="product image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+          height={100}
+          src="https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg"
+        />
+        <div
+          className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-18k87ye-MuiTypography-root"
+          >
+            DANVOUY Womens T Shirt Casual Cotton Short
+          </div>
+          <p
+            className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            Price: 
+            12.99
+             €
+          </p>
+        </div>
+        <div
+          className="MuiCardActions-root MuiCardActions-spacing css-uh4svx-MuiCardActions-root"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            +
+          </button>
+          <button
+            aria-expanded={false}
+            aria-label="show more"
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-3ogxn6-MuiButtonBase-root-MuiIconButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+`;

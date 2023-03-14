@@ -306,7 +306,7 @@ describe("Products", () => {
     expect(updatedProductsCount).toBe(fetchedProductsCount);
   });
 
-  it.only("should show amount of products that was provided", async () => {
+  it("should show amount of products that was provided", async () => {
     const fetchedProducts = [
       {
         id: 1,

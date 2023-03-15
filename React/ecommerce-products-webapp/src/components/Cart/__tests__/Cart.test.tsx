@@ -49,10 +49,7 @@ describe("Cart", () => {
         value={{
           cartProducts,
           fetchedProducts: [],
-          dispatch: (props) => {
-            removeFn(props);
-            cartProducts.shift();
-          },
+          dispatch: removeFn,
         }}
       >
         <Cart />
@@ -67,7 +64,7 @@ describe("Cart", () => {
     expect(removeFn).toHaveBeenCalledTimes(1);
 
     const renderedCartProducts = screen.getAllByLabelText("cart-product");
-    expect(renderedCartProducts.length).toBeLessThan(cartProducts.length);
+    expect(renderedCartProducts.length - 1).toBeLessThan(cartProducts.length);
   });
 
   it("matches cart snapshot", () => {

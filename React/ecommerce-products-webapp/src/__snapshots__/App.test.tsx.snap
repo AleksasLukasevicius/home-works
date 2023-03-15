@@ -58,11 +58,11 @@ Array [
           </h6>
         </a>
         <a
+          aria-label="cart-link"
           href="/cart"
           onClick={[Function]}
         >
           <h6
-            aria-label="cart link"
             className="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
           >
             Cart 
@@ -72,12 +72,35 @@ Array [
     </div>
   </header>,
   <main>
-    <h1>
-      Welcome
-    </h1>
-    <h2>
-      Home page
-    </h2>
+    <div
+      className="MuiBox-root css-uu1ipd"
+    >
+      <h1
+        aria-label="cart-title"
+        className="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
+      >
+        Cart products
+      </h1>
+    </div>
+    <ol
+      aria-label="cart-products"
+      className="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+    >
+      <div
+        className="MuiBox-root css-1rldm5g"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-13zw5gk-MuiTypography-root"
+        >
+          Total Price: 
+        </p>
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-1t69itb-MuiTypography-root"
+        >
+          €0.00
+        </p>
+      </div>
+    </ol>
   </main>,
   <footer>
     <p>

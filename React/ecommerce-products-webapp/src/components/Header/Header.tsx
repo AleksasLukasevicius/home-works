@@ -50,8 +50,8 @@ export const Header: FC = () => {
               Products
             </Typography>
           </Link>
-          <Link to="/cart">
-            <Typography aria-label="cart link" variant="h6">
+          <Link to="/cart" aria-label="cart-link">
+            <Typography variant="h6">
               Cart {cartProducts.length > 0 && `(${cartProducts.length})`}
             </Typography>
           </Link>

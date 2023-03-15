@@ -89,7 +89,7 @@ export const Product: FC<TProductProps> = ({ product }) => {
 
       <CardActions sx={{ justifyContent: "space-between", width: "220px" }}>
         <ProductActionButon
-          label="add-product"
+          ariaLabel="add-button"
           color="primary"
           title="+"
           type="addProduct"
@@ -97,7 +97,7 @@ export const Product: FC<TProductProps> = ({ product }) => {
         />
         {isProductInCart ? (
           <ProductActionButon
-            label="remove-product"
+            ariaLabel="remove-button"
             color="secondary"
             title="-"
             type="deleteProduct"

@@ -6,14 +6,15 @@ exports[`Cart matches cart snapshot 1`] = `
     className="MuiBox-root css-uu1ipd"
   >
     <h1
-      aria-label="cart"
+      aria-label="cart-title"
       className="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
     >
       Cart products
     </h1>
   </div>
   <ol
-    className="MuiGrid-root css-vj1n65-MuiGrid-root"
+    aria-label="cart-products"
+    className="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
   >
     <div
       className="MuiBox-root css-1rldm5g"

@@ -5,7 +5,7 @@ export type TProductProps = {
 };
 
 export type TProductActionButtonProps = {
-  label?: string;
+  ariaLabel?: string;
   title: string;
   type: TProductsAction["type"];
   productId: TProduct["id"];

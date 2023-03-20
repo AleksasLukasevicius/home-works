@@ -1,11 +1,8 @@
 import React from "react";
 
+import type { User } from "./types";
 import { Header } from "../Header";
 import "./page.css";
-
-type User = {
-  name: string;
-};
 
 export const Page: React.VFC = () => {
   const [user, setUser] = React.useState<User>();
@@ -14,9 +11,9 @@ export const Page: React.VFC = () => {
     <article>
       <Header
         user={user}
-        onLogin={() => setUser({ name: "Jane Doe" })}
+        onLogin={() => setUser({ name: "Aleksas Lukaševičius" })}
         onLogout={() => setUser(undefined)}
-        onCreateAccount={() => setUser({ name: "Jane Doe" })}
+        onCreateAccount={() => setUser({ name: "Aleksas Lukaševičius" })}
       />
 
       <section>

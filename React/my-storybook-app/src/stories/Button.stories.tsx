@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import type { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { Button } from "../components";
 
@@ -27,15 +27,15 @@ Secondary.args = {
   label: "Button",
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  size: "large",
-  label: "Button",
-};
-
 export const Small = Template.bind({});
 Small.args = {
   size: "small",
+  label: "Button",
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  size: "large",
   label: "Button",
 };
 

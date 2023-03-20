@@ -48,7 +48,7 @@ export const Home = () => {
           />
 
           <Button type="submit" variant="outlined">
-            submit
+            Submit
           </Button>
         </fieldset>
       </form>

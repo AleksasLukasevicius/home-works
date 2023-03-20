@@ -41,7 +41,6 @@ export const Home = () => {
             name="password"
             required
             placeholder="enter Your password"
-            autoComplete="off"
             value={userData.password}
             onChange={(event) =>
               handleUserDataChange(event.target.value, "password")

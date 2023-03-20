@@ -27,7 +27,9 @@ export const Home = () => {
           <input
             type="email"
             name="email"
+            required
             placeholder="enter Your email"
+            autoComplete="off"
             value={userData.email}
             onChange={(event) =>
               handleUserDataChange(event.target.value, "email")
@@ -37,7 +39,9 @@ export const Home = () => {
           <input
             type="password"
             name="password"
+            required
             placeholder="enter Your password"
+            autoComplete="off"
             value={userData.password}
             onChange={(event) =>
               handleUserDataChange(event.target.value, "password")
